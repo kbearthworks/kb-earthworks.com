@@ -65,6 +65,8 @@ body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#333}
 .btn-p:hover{transform:translateY(-3px)}
 .btn-o{border:2px solid var(--slate);background:transparent;color:var(--slate);padding:13px 34px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.88rem;transition:.25s;display:flex;align-items:center;gap:8px}
 .btn-o:hover{background:var(--slate);color:#fff}
+.btn-b{background:linear-gradient(135deg,var(--brown),#b07040);color:#fff;border:none;padding:13px 34px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.88rem;box-shadow:0 6px 18px rgba(139,90,56,.28);transition:.25s;display:flex;align-items:center;gap:8px;text-decoration:none}
+.btn-b:hover{transform:translateY(-3px)}
 
 /* ══ BARRE ══ */
 .bar{background:var(--slate);display:flex;flex-wrap:wrap;justify-content:center}
@@ -188,6 +190,9 @@ footer span{color:var(--teal-light);font-weight:600}
     <button class="btn-o" onclick="document.querySelector('.cc').scrollIntoView({behavior:'smooth'})">
       <i class="fa-solid fa-paper-plane"></i><span id="t-btn2">Nous contacter</span>
     </button>
+    <a href="projets.html" class="btn-b">
+      <i class="fa-solid fa-folder-open"></i><span id="t-btn3">Nos Projets</span>
+    </a>
   </div>
 </section>
 
@@ -291,7 +296,7 @@ footer span{color:var(--teal-light);font-weight:600}
 var T={
   fr:{
     topbar:"Bureau d'études — Casablanca, Maroc",tagline:"Bureau d'études en géosciences, environnement et ingénierie",
-    btn1:"Découvrir nos services",btn2:"Nous contacter",aboutH:"À propos de K&B Earth Works",
+    btn1:"Découvrir nos services",btn2:"Nous contacter",btn3:"Nos Projets",aboutH:"À propos de K&B Earth Works",
     about1:"<strong>K&B Earth Works SARL</strong> est un bureau d'études spécialisé en géosciences, environnement et ingénierie, basé à Casablanca.",
     about2:"Nous accompagnons les acteurs publics et privés dans la <strong>conception</strong>, l'analyse et la réalisation de projets complexes, en combinant <strong>expertise scientifique, innovation technique</strong> et approche multidisciplinaire.",
     about3:"Notre mission : apporter des <strong>solutions durables et fiables</strong> dans les domaines des ressources naturelles, des infrastructures et de l'environnement.",
@@ -310,7 +315,7 @@ var T={
   },
   en:{
     topbar:"Consulting Bureau — Casablanca, Morocco",tagline:"Engineering & Earth Sciences Consulting Bureau",
-    btn1:"Our Services",btn2:"Contact Us",aboutH:"About K&B Earth Works",
+    btn1:"Our Services",btn2:"Contact Us",btn3:"Our Projects",aboutH:"About K&B Earth Works",
     about1:"<strong>K&B Earth Works SARL</strong> is a consulting bureau specializing in earth sciences, environment and engineering, based in Casablanca.",
     about2:"We support public and private stakeholders in the <strong>design</strong>, analysis and implementation of complex projects, combining <strong>scientific expertise, technical innovation</strong> and a multidisciplinary approach.",
     about3:"Our mission: to provide <strong>sustainable and reliable solutions</strong> in natural resources, infrastructure and environment.",
@@ -329,7 +334,7 @@ var T={
   },
   ar:{
     topbar:"مكتب دراسات — الدار البيضاء، المغرب",tagline:"مكتب دراسات في علوم الأرض والبيئة والهندسة",
-    btn1:"اكتشف خدماتنا",btn2:"اتصل بنا",aboutH:"عن شركة K&B Earth Works",
+    btn1:"اكتشف خدماتنا",btn2:"اتصل بنا",btn3:"مشاريعنا",aboutH:"عن شركة K&B Earth Works",
     about1:"<strong>K&B Earth Works SARL</strong> مكتب دراسات متخصص في علوم الأرض والبيئة والهندسة، مقره الدار البيضاء.",
     about2:"نرافق الفاعلين العموميين والخواص في <strong>تصميم</strong> وتحليل وتنفيذ المشاريع المعقدة بخبرة علمية وتقنية.",
     about3:"مهمتنا: تقديم <strong>حلول مستدامة وموثوقة</strong> في مجالات الموارد الطبيعية والبنية التحتية والبيئة.",
@@ -354,8 +359,8 @@ function setLang(l,btn){
   document.documentElement.dir=(l==='ar')?'rtl':'ltr';
   document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active')});
   btn.classList.add('active');
-  var ids=['t-topbar','t-tagline','t-btn1','t-btn2','t-about-h','t-about1','t-about2','t-about3','t-srv-h','t-s1','t-s2','t-s3','t-s4','t-s5','t-s6','t-mine-h','t-proj-h','t-proj-empty','t-app-h','t-a1','t-a2','t-a3','t-a4','t-a5','t-qr-h','t-qr-desc','t-dl1'];
-  var keys=['topbar','tagline','btn1','btn2','aboutH','about1','about2','about3','srvH','s1','s2','s3','s4','s5','s6','mineH','projH','projEmpty','appH','a1','a2','a3','a4','a5','qrH','qrDesc','dl1'];
+  var ids=['t-topbar','t-tagline','t-btn1','t-btn2','t-btn3','t-about-h','t-about1','t-about2','t-about3','t-srv-h','t-s1','t-s2','t-s3','t-s4','t-s5','t-s6','t-mine-h','t-proj-h','t-proj-empty','t-app-h','t-a1','t-a2','t-a3','t-a4','t-a5','t-qr-h','t-qr-desc','t-dl1'];
+  var keys=['topbar','tagline','btn1','btn2','btn3','aboutH','about1','about2','about3','srvH','s1','s2','s3','s4','s5','s6','mineH','projH','projEmpty','appH','a1','a2','a3','a4','a5','qrH','qrDesc','dl1'];
   ids.forEach(function(id,i){var el=document.getElementById(id);if(el){if(keys[i].indexOf('about')===0||keys[i].indexOf('s')===0&&keys[i].length<=2){el.innerHTML=t[keys[i]]||''}else{el.textContent=t[keys[i]]||''}}});
   var ulKeys=['ul1','ul2','ul3','ul4','ul5','ul6'];
   ulKeys.forEach(function(k){var el=document.getElementById('t-'+k);if(el&&t[k]){el.innerHTML='';t[k].forEach(function(txt){var li=document.createElement('li');li.textContent=txt;el.appendChild(li)})}});
