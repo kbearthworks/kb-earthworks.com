@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>K&B — KML Permis</title>
+<title>KML Permis</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.0/proj4.js"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -80,8 +80,8 @@ textarea.kt:focus{outline:none}
 <body>
 
 <div class="topbar">
-  <div class="bico">K&B</div>
-  <div class="bname">K<span>&</span>B Earth Works — KML Permis</div>
+  <div class="bico">KML</div>
+  <div class="bname">KML Permis</div>
 </div>
 
 <div class="page">
@@ -181,23 +181,23 @@ textarea.kt:focus{outline:none}
 
       <div class="prow">
         <div class="plbl"><span class="pdot" style="background:#d4a853"></span>P8 NW</div>
-        <input class="xi" id="x8" value="624000" oninput="upd()">
-        <input class="xi" id="y8" value="517000" oninput="upd()">
+        <input class="xi" id="x8" oninput="upd()">
+        <input class="xi" id="y8" oninput="upd()">
       </div>
       <div class="prow">
         <div class="plbl"><span class="pdot" style="background:#4a9eff"></span>P7 NE</div>
-        <input class="xi" id="x7" value="628000" oninput="upd()">
-        <input class="xi" id="y7" value="517000" oninput="upd()">
+        <input class="xi" id="x7" oninput="upd()">
+        <input class="xi" id="y7" oninput="upd()">
       </div>
       <div class="prow">
         <div class="plbl"><span class="pdot" style="background:#3ecf8e"></span>P6 SE</div>
-        <input class="xi" id="x6" value="628000" oninput="upd()">
-        <input class="xi" id="y6" value="513000" oninput="upd()">
+        <input class="xi" id="x6" oninput="upd()">
+        <input class="xi" id="y6" oninput="upd()">
       </div>
       <div class="prow">
         <div class="plbl"><span class="pdot" style="background:#f472b6"></span>P5 SW</div>
-        <input class="xi" id="x5" value="624000" oninput="upd()">
-        <input class="xi" id="y5" value="513000" oninput="upd()">
+        <input class="xi" id="x5" oninput="upd()">
+        <input class="xi" id="y5" oninput="upd()">
       </div>
 
       <canvas id="cv" width="568" height="130"></canvas>
@@ -209,10 +209,10 @@ textarea.kt:focus{outline:none}
     <div class="sh"><div class="sn">3</div><div class="st">Infos permis <span style="color:var(--muted);font-size:11px;font-weight:400">(optionnel)</span></div></div>
     <div class="sb">
       <div class="g2">
-        <div class="f"><label>N° Décision</label><input id="fN" value="3137607"></div>
-        <div class="f"><label>Titulaire</label><input id="fT" value="MANAJIM PRO"></div>
-        <div class="f"><label>Direction Rég.</label><input id="fR" value="Tanger"></div>
-        <div class="f"><label>Date</label><input type="date" id="fD" value="2023-11-29"></div>
+        <div class="f"><label>N° Décision</label><input id="fN"></div>
+        <div class="f"><label>Titulaire</label><input id="fT"></div>
+        <div class="f"><label>Direction Rég.</label><input id="fR"></div>
+        <div class="f"><label>Date</label><input type="date" id="fD"></div>
       </div>
     </div>
   </div>
@@ -234,7 +234,7 @@ textarea.kt:focus{outline:none}
     Générer KML
   </button>
 
-  <div class="foot"><b>K&B Earth Works SARL</b> · Lambert Maroc → WGS84</div>
+  <div class="foot">Lambert Maroc → WGS84</div>
 </div>
 
 <script>
@@ -400,7 +400,6 @@ function gen(){
         <b>Direction :</b> ${r}<br/>
         <b>Date :</b> ${ds}<br/>
         <b>Projection :</b> ${NO_TR ? 'Aucune (X=lon, Y=lat)' : (CRS==='EPSG:26191'?'Lambert Nord (EPSG:26191)':'Lambert Sud (EPSG:26192)')}<br/>
-        <b>Produit par :</b> K&amp;B Earth Works SARL
       ]]></description>
       <styleUrl>#p</styleUrl>
       <Polygon>
