@@ -4,81 +4,169 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Nos Projets — K&B Earth Works SARL</title>
+<meta name="description" content="Projets et références de K&B Earth Works SARL : études d'impact environnemental, exploration minière, hydrogéologie et recherche scientifique au Maroc."/>
+<link rel="icon" href="assets/logos.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
+@font-face{
+  font-family:'Noto Sans Tifinagh';
+  src:url('assets/NotoSansTifinagh.ttf') format('truetype');
+  font-weight:100 900;
+  font-display:swap;
+}
 :root{
   --brown:#8B5A38;
+  --brown-l:#B07040;
   --teal:#4A8A90;
   --teal-light:#7BB8BE;
   --slate:#2C4A52;
   --dark:#1a3038;
-  --cream:#F5F2EE;
+  --darker:#132329;
+  --cream:#F7F4EF;
+  --txt:#3d4f55;
+  --disp:'Montserrat','IBM Plex Sans Arabic','Noto Sans Tifinagh',sans-serif;
+  --body:'Source Sans 3','IBM Plex Sans Arabic','Noto Sans Tifinagh',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#333}
-[dir="rtl"]{font-family:Tahoma,'Segoe UI',Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:#fff;color:var(--txt);font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+::selection{background:var(--teal);color:#fff}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ══ WHATSAPP ══ */
+.wa-float{position:fixed;bottom:28px;inset-inline-start:28px;z-index:99999;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5);animation:wapulse 2.4s infinite;transition:.25s}
+.wa-float:hover{background:#1ebe5d;transform:scale(1.1)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+@keyframes wapulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 34px rgba(37,211,102,.75)}}
 
 /* ══ TOPBAR ══ */
-.topbar{background:var(--dark);display:flex;justify-content:space-between;align-items:center;padding:8px 28px}
-.topbar-left{color:rgba(255,255,255,.5);font-size:.75rem;display:flex;align-items:center;gap:6px}
+.topbar{background:var(--darker);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 30px}
+.topbar-left{color:rgba(255,255,255,.55);font-size:.78rem;display:flex;align-items:center;gap:8px;letter-spacing:.03em}
 .topbar-left i{color:var(--teal-light)}
-.lang-switcher{display:flex;gap:6px}
-.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:5px 12px;border-radius:30px;cursor:pointer;font-size:.75rem;font-weight:600;transition:.2s}
-.lang-btn img{width:20px;height:14px;border-radius:3px;object-fit:cover}
+.lang-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.lang-btn{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75);padding:5px 13px;border-radius:30px;cursor:pointer;font-family:var(--disp);font-size:.72rem;font-weight:600;letter-spacing:.05em;transition:.22s}
+.lang-btn img{width:20px;height:14px;border-radius:3px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,.35);flex-shrink:0;display:block}
 .lang-btn:hover,.lang-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+html[lang="zgh"] body,html[lang="zgh"] button,html[lang="zgh"] a,html[lang="zgh"] span,html[lang="zgh"] p,html[lang="zgh"] h1,html[lang="zgh"] h2,html[lang="zgh"] h3,html[lang="zgh"] li{font-family:'Noto Sans Tifinagh','Segoe UI',Arial,sans-serif}
+.lang-btn .tifinagh{font-family:'Noto Sans Tifinagh','Segoe UI Symbol',sans-serif;font-size:1rem;font-weight:700;line-height:1}
 
-/* ══ HEADER ══ */
+/* ══ PAGE HEADER (montagne) ══ */
 .page-header{
   background:
-    linear-gradient(160deg,rgba(44,74,82,.92) 0%,rgba(74,138,144,.88) 100%),
-    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&auto=format&fit=crop&q=80') center/cover no-repeat;
-  padding:48px 20px;text-align:center;color:#fff;position:relative;
+    linear-gradient(160deg,rgba(26,48,56,.92) 0%,rgba(44,74,82,.9) 55%,rgba(74,138,144,.85) 100%),
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+  padding:58px 20px 52px;text-align:center;color:#fff;position:relative;
 }
-.header-logo{width:90px;height:90px;object-fit:contain;filter:brightness(0) invert(1);opacity:.92;margin-bottom:14px}
-.page-header h1{font-size:1.8rem;font-weight:900;letter-spacing:4px;margin-bottom:6px}
-.page-header .sub{font-size:.76rem;letter-spacing:4px;color:var(--teal-light);text-transform:uppercase;margin-bottom:18px}
-.page-header .sep{width:60px;height:3px;margin:0 auto 18px;border-radius:3px;background:linear-gradient(90deg,var(--brown),var(--teal-light))}
-.page-header p.desc{font-size:.95rem;color:rgba(255,255,255,.8);max-width:600px;margin:0 auto}
-.back-btn{display:inline-flex;align-items:center;gap:8px;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:10px 24px;border-radius:50px;text-decoration:none;font-size:.82rem;font-weight:600;margin-top:22px;transition:.25s}
+.ph-in{animation:heroUp 1s cubic-bezier(.22,.61,.36,1) both}
+@keyframes heroUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.header-logo{width:220px;height:220px;object-fit:contain;margin-bottom:22px;display:block;margin-inline:auto;filter:brightness(0) invert(1) drop-shadow(0 10px 32px rgba(0,0,0,.5)) drop-shadow(0 0 28px rgba(255,255,255,.22))}
+.page-header h1{font-family:var(--disp);font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:900;letter-spacing:.2em;margin-bottom:6px;text-indent:.2em}
+.page-header .sub{font-family:var(--disp);font-size:.72rem;font-weight:600;letter-spacing:.4em;color:var(--teal-light);text-transform:uppercase;margin-bottom:18px;text-indent:.4em}
+.page-header .sep{width:66px;height:3px;margin:0 auto 20px;border-radius:3px;background:linear-gradient(90deg,var(--brown-l),var(--teal-light))}
+.page-header p.desc{font-size:.98rem;color:rgba(255,255,255,.82);max-width:620px;margin:0 auto 26px}
+.back-btn{display:inline-flex;align-items:center;gap:9px;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);padding:11px 26px;border-radius:50px;text-decoration:none;font-family:var(--disp);font-size:.8rem;font-weight:700;transition:.25s}
 .back-btn:hover{background:rgba(255,255,255,.22);transform:translateY(-2px)}
-[dir="rtl"] .back-btn i.fa-arrow-left{transform:scaleX(-1)}
 
-/* ══ PROJETS SECTION ══ */
-.projects-sec{padding:60px 20px;max-width:1060px;margin:0 auto}
-.projects-sec > h2{font-size:1.4rem;font-weight:700;color:var(--slate);text-align:center;margin-bottom:8px}
-.projects-sec > h2::after{content:'';display:block;width:55px;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));margin:10px auto 14px;border-radius:3px}
-.projects-sec > p.intro{text-align:center;color:#888;font-size:.88rem;margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
+/* ══ SECTIONS ══ */
+.sec{padding:84px 20px}
+.sec-in{max-width:1120px;margin:0 auto}
+.sec-eyebrow{font-family:var(--disp);font-size:.7rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--brown);text-align:center;margin-bottom:12px;text-indent:.4em}
+.sec-h{font-family:var(--disp);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;color:var(--slate);text-align:center;letter-spacing:.02em}
+.sec-h::after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));margin:16px auto 0;border-radius:3px}
+.sec-intro{text-align:center;color:#71827f;font-size:.98rem;max-width:640px;margin:22px auto 0;line-height:1.75}
 
-/* ══ PROJECT CARD ══ */
-.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
-.proj-card{background:#fff;border:1px solid #deeef0;border-radius:18px;overflow:hidden;transition:.3s;position:relative}
-.proj-card:hover{box-shadow:0 12px 36px rgba(44,74,82,.13);transform:translateY(-5px)}
-.proj-thumb{height:180px;background:linear-gradient(135deg,var(--slate),var(--teal));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.proj-thumb i{font-size:3rem;color:rgba(255,255,255,.2)}
-.proj-thumb .proj-badge{position:absolute;top:14px;right:14px;background:var(--brown);color:#fff;font-size:.68rem;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase}
-[dir="rtl"] .proj-thumb .proj-badge{right:auto;left:14px}
-.proj-body{padding:24px 22px 28px}
-.proj-body h3{font-size:1rem;font-weight:700;color:var(--slate);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-.proj-body h3 i{color:var(--teal);font-size:.85rem}
-.proj-body p{font-size:.84rem;color:#666;line-height:1.7;margin-bottom:14px}
-.proj-tags{display:flex;flex-wrap:wrap;gap:6px}
-.proj-tag{background:linear-gradient(135deg,#eef7f8,#f0f4f3);color:var(--slate);font-size:.7rem;font-weight:600;padding:4px 12px;border-radius:20px;border:1px solid #deeef0}
+/* ══ PUBLICATION À LA UNE ══ */
+.featured{background:var(--cream)}
+.feat-box{display:grid;grid-template-columns:.92fr 1.08fr;background:#fff;border:1px solid #e6ded2;border-radius:22px;overflow:hidden;margin-top:48px;box-shadow:0 22px 60px rgba(44,74,82,.13)}
+.feat-vis{position:relative;background:var(--dark);display:flex;flex-direction:column;justify-content:flex-end;padding:36px;min-height:300px;overflow:hidden}
+.feat-vis::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(19,35,41,.12) 0%,rgba(19,35,41,.5) 50%,rgba(19,35,41,.92) 100%);z-index:1;pointer-events:none}
+.feat-vis-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.feat-vis .fv-ico{position:relative;width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;margin-bottom:18px;backdrop-filter:blur(4px)}
+.feat-vis .fv-ico i{color:var(--teal-light);font-size:1.4rem}
+.feat-vis .fv-ico,.feat-vis .fv-t{position:relative;z-index:2}
+.feat-vis .fv-t{position:relative;font-family:var(--disp);font-weight:700;font-size:1.08rem;color:#fff;line-height:1.45}
+.feat-body{padding:38px 42px;display:flex;flex-direction:column;gap:14px}
+.feat-tag{display:inline-flex;align-items:center;gap:8px;width:fit-content;font-family:var(--disp);font-size:.62rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,var(--brown),var(--brown-l));padding:6px 15px;border-radius:20px;box-shadow:0 5px 14px rgba(139,90,56,.3)}
+.feat-body h3{font-family:var(--disp);font-weight:800;font-size:1.25rem;color:var(--slate);line-height:1.4}
+.feat-sub{font-size:.9rem;font-weight:600;color:var(--teal);line-height:1.6}
+.feat-body p.d{font-size:.89rem;color:#61736f;line-height:1.75}
+.feat-authors{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:#79898c;font-style:italic}
+.feat-authors i{color:var(--brown);margin-top:4px}
+.btn-b{background:linear-gradient(135deg,var(--brown),var(--brown-l));color:#fff;border:none;font-family:var(--disp);font-weight:700;font-size:.85rem;padding:14px 32px;border-radius:50px;cursor:pointer;transition:.28s;display:inline-flex;align-items:center;gap:9px;text-decoration:none;width:fit-content;box-shadow:0 8px 22px rgba(139,90,56,.32);margin-top:4px}
+.btn-b:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(139,90,56,.4)}
+.btn-p{background:linear-gradient(135deg,var(--slate),var(--teal));color:#fff;border:none;font-family:var(--disp);font-weight:700;font-size:.85rem;padding:14px 32px;border-radius:50px;cursor:pointer;transition:.28s;display:inline-flex;align-items:center;gap:9px;text-decoration:none;box-shadow:0 8px 22px rgba(44,74,82,.3)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(44,74,82,.38)}
+@media(max-width:860px){.feat-box{grid-template-columns:1fr}.feat-vis{min-height:210px}.feat-body{padding:30px 26px}}
 
-/* ══ CONTACT BANNER ══ */
-.cta-banner{background:linear-gradient(135deg,var(--cream),#e8f5f6);padding:50px 20px;text-align:center;margin-top:20px}
-.cta-banner h2{font-size:1.2rem;font-weight:700;color:var(--slate);margin-bottom:10px}
-.cta-banner p{font-size:.88rem;color:#666;margin-bottom:22px;max-width:500px;margin-left:auto;margin-right:auto}
-.cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.cta-b1{background:linear-gradient(135deg,var(--slate),var(--teal));color:#fff;border:none;padding:13px 30px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.85rem;box-shadow:0 6px 18px rgba(44,74,82,.25);transition:.25s;display:flex;align-items:center;gap:8px;text-decoration:none}
-.cta-b1:hover{transform:translateY(-3px)}
-.cta-b2{border:2px solid var(--brown);background:transparent;color:var(--brown);padding:12px 30px;border-radius:50px;font-weight:700;font-size:.85rem;transition:.25s;display:flex;align-items:center;gap:8px;text-decoration:none}
-.cta-b2:hover{background:var(--brown);color:#fff}
+/* ══ GRILLE PROJETS ══ */
+.plist{background:#fff}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;margin-top:48px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid #e2ecee;border-radius:18px;overflow:hidden;transition:.3s;box-shadow:0 8px 26px rgba(44,74,82,.06)}
+.pcard:hover{box-shadow:0 24px 56px rgba(44,74,82,.15);transform:translateY(-7px);border-color:#cfe3e6}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;padding:17px 24px;background:linear-gradient(135deg,var(--slate),var(--teal))}
+.pcard-top .lft{display:flex;align-items:center;gap:12px}
+.pcard-top i{color:#fff;font-size:1.1rem}
+.pcard-idx{font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.55)}
+.pcard-badge{font-family:var(--disp);font-size:.58rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:4px 12px;border-radius:20px;white-space:nowrap}
+.pcard-badge.b-ongoing{background:linear-gradient(135deg,var(--brown),var(--brown-l));border-color:transparent}
+.pcard-body{padding:24px;display:flex;flex-direction:column;gap:11px;flex:1}
+.pcard h3{font-family:var(--disp);font-weight:700;font-size:.94rem;line-height:1.45;color:var(--slate)}
+.pcard p{font-size:.86rem;color:#61736f;line-height:1.7}
+.pcard-media{position:relative;height:168px;overflow:hidden;background:var(--dark);flex-shrink:0}
+.pcard-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+.pcard:hover .pcard-media img{transform:scale(1.06)}
+.pcard-media-bar{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:space-between;padding:16px 20px;background:linear-gradient(180deg,rgba(19,35,41,.5) 0%,transparent 55%)}
+.pcard-media-bar .lft{display:flex;align-items:center;gap:12px}
+.pcard-media-bar i{color:#fff;font-size:1.1rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+.pcard-media-bar .pcard-idx{font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.18em;color:rgba(255,255,255,.75);text-shadow:0 1px 4px rgba(0,0,0,.4)}
 
-footer{background:var(--dark);text-align:center;padding:20px;font-size:.74rem;color:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;gap:8px}
-footer span{color:var(--teal-light);font-weight:600}
+/* ══ CTA ══ */
+.cta{background:linear-gradient(150deg,var(--dark),var(--slate) 70%,#35606a);color:#fff;position:relative;overflow:hidden;text-align:center}
+.cta::before{content:'';position:absolute;inset-inline-end:-150px;top:-150px;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,.08);box-shadow:0 0 0 65px rgba(255,255,255,.03),0 0 0 140px rgba(255,255,255,.02)}
+.cta .sec-in{position:relative}
+.cta .sec-eyebrow{color:var(--teal-light)}
+.cta h2{font-family:var(--disp);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:.02em;margin-bottom:14px}
+.cta p{color:rgba(232,241,242,.78);max-width:560px;margin:0 auto 34px;font-size:.98rem}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .btn-p{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.32);box-shadow:none}
+.cta .btn-p:hover{background:rgba(255,255,255,.2)}
+
+/* ══ FOOTER ══ */
+footer.site-foot{position:relative;background:#080b0d;padding:36px 24px 32px;overflow:hidden;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+footer.site-foot::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--brown),var(--teal-light),var(--brown-l));opacity:.85}
+.foot-in{max-width:760px;margin:0 auto;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:0}
+.foot-logo{width:44px;height:44px;object-fit:contain;filter:brightness(0) invert(1);opacity:.75;margin-bottom:16px}
+.foot-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 18px;margin-bottom:10px}
+.foot-year{font-family:var(--disp);font-size:.68rem;font-weight:700;letter-spacing:.3em;color:rgba(255,255,255,.4);text-transform:uppercase;display:inline-flex;align-items:center;gap:7px}
+.foot-year i{font-size:.6rem;color:var(--teal-light);opacity:.8}
+.foot-sep{width:28px;height:1px;background:linear-gradient(90deg,transparent,rgba(123,184,190,.45),transparent);flex-shrink:0}
+.foot-co{font-family:var(--disp);font-size:clamp(.82rem,2vw,1rem);font-weight:800;letter-spacing:.18em;text-transform:uppercase;background:linear-gradient(135deg,#fff 0%,var(--teal-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot-loc{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-size:.62rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--brown-l);margin-bottom:14px}
+.foot-loc i{font-size:.56rem;color:var(--teal-light)}
+.foot-rights{font-family:var(--disp);font-size:.64rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.26);margin:0;padding-top:14px;border-top:1px solid rgba(255,255,255,.05);width:100%;max-width:400px}
+@media(max-width:560px){
+  footer.site-foot{padding:32px 20px 28px}
+  .foot-row{flex-direction:column;gap:8px}
+  .foot-sep{display:none}
+}
 </style>
 </head>
 <body>
+
+<!-- ══ WHATSAPP ══ -->
+<a href="https://wa.me/212762985389" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 <!-- ══ TOPBAR ══ -->
 <div class="topbar">
@@ -87,245 +175,353 @@ footer span{color:var(--teal-light);font-weight:600}
     <button class="lang-btn active" onclick="setLang('fr',this)"><img src="https://flagcdn.com/w40/fr.png" alt="FR"/> FR</button>
     <button class="lang-btn" onclick="setLang('en',this)"><img src="https://flagcdn.com/w40/gb.png" alt="EN"/> EN</button>
     <button class="lang-btn" onclick="setLang('ar',this)"><img src="https://flagcdn.com/w40/ma.png" alt="AR"/> ع</button>
+    <button class="lang-btn" onclick="setLang('zgh',this)"><img src="assets/flag-amazigh.png" alt="ⵣ" onerror="this.onerror=null;this.src='assets/flag-amazigh.svg'"/><span class="tifinagh">ⵣ</span></button>
   </div>
 </div>
 
-<!-- ══ PAGE HEADER ══ -->
+<!-- ══ HEADER ══ -->
 <section class="page-header">
-  <img src="assets/logos.png" alt="K&B Earth Works" class="header-logo" onerror="this.style.opacity='.2'"/>
-  <h1>K&amp;B EARTH WORKS</h1>
-  <p class="sub">Geoscience &nbsp;·&nbsp; Water &nbsp;·&nbsp; Environment</p>
-  <div class="sep"></div>
-  <p class="desc" id="t-header-desc">Découvrez nos réalisations et projets en cours dans les domaines de la géoscience, l'environnement et l'ingénierie.</p>
-  <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i><span id="t-back">Retour à l'accueil</span></a>
+  <div class="ph-in">
+    <img src="assets/logos.png" alt="K&B Earth Works" class="header-logo" onerror="this.style.opacity='.2'"/>
+    <h1>K&amp;B EARTH WORKS</h1>
+    <p class="sub">Geoscience · Water · Environment</p>
+    <div class="sep"></div>
+    <p class="desc" id="t-headerDesc">Découvrez nos réalisations et projets en cours dans les domaines de la géoscience, l'environnement et l'ingénierie.</p>
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left back-arrow"></i><span id="t-back">Retour à l'accueil</span></a>
+  </div>
+</section>
+
+<!-- ══ PUBLICATION À LA UNE ══ -->
+<section class="sec featured">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eyeA">Recherche scientifique</p>
+    <h2 class="sec-h rv" id="t-projH">Nos Projets</h2>
+    <p class="sec-intro rv" id="t-projIntro">Un aperçu de nos interventions et expertises réalisées au Maroc et à l'international.</p>
+    <div class="feat-box rv">
+      <div class="feat-vis">
+        <img class="feat-vis-img" src="assets/volcanisme.jpg" alt="Volcanisme Néogène-Quaternaire — NW Afrique"/>
+        <div class="fv-ico"><i class="fa-solid fa-volcano"></i></div>
+        <div class="fv-t" id="t-p4ThumbTitle">Volcanisme Néogène-Quaternaire du NW Afrique</div>
+      </div>
+      <div class="feat-body">
+        <span class="feat-tag"><i class="fa-solid fa-star"></i><span id="t-featLabel">Publication scientifique à la une</span></span>
+        <h3 id="t-p4Title">Recherche — Volcanisme Néogène-Quaternaire du NW Afrique</h3>
+        <p class="feat-sub" id="t-p4FeatSub">Volcanisme Néogène-Quaternaire du NW Afrique : Pétrogenèse, Contrôles Tectoniques et Évolution Géodynamique</p>
+        <p class="d" id="t-p4Desc">Chapitre scientifique publié (Online First, IntechOpen) sur le volcanisme néogène-quaternaire du Nord-Ouest de l'Afrique : pétrogenèse, contrôles tectoniques et évolution géodynamique, avec modélisation géochimique, thermobarométrie et synthèse régionale des provinces volcaniques du Maroc et de l'Algérie occidentale.</p>
+        <p class="feat-authors"><i class="fa-solid fa-user-pen"></i><span id="t-p4Authors">Mohammed Benamrane, Mohammed Cherai, Károly Németh et al.</span></p>
+        <a href="https://www.intechopen.com/online-first/1237426" class="btn-b" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i><span id="t-p4Link">Voir la publication</span></a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ══ PROJETS ══ -->
-<section class="projects-sec">
-  <h2 id="t-proj-h">Nos Projets</h2>
-  <p class="intro" id="t-proj-intro">Un aperçu de nos interventions et expertises réalisées au Maroc et à l'international.</p>
+<section class="sec plist">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eyeB">Études &amp; réalisations</p>
+    <h2 class="sec-h rv" id="t-listH">Références</h2>
+    <div class="proj-grid">
 
-  <div class="proj-grid">
-
-    <!-- Projet 1 -->
-    <div class="proj-card">
-      <div class="proj-thumb" style="background:linear-gradient(135deg,#3a6e5e,var(--teal))">
-        <i class="fa-solid fa-leaf"></i>
-        <span class="proj-badge" id="t-badge1">Réalisé</span>
-      </div>
-      <div class="proj-body">
-        <h3><i class="fa-solid fa-file-shield"></i><span id="t-p1-title">Étude d'Impact Environnemental — Unité Agro-industrielle</span></h3>
-        <p id="t-p1-desc">Réalisation d'une étude d'impact environnemental (EIE) complète pour une unité de conserve d'olives et de séchage de fruits secs, incluant l'analyse des rejets, la gestion des déchets et les mesures d'atténuation, conformément à la réglementation marocaine.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">EIE</span>
-          <span class="proj-tag">Agro-industrie</span>
-          <span class="proj-tag">Environnement</span>
-          <span class="proj-tag">Oriental</span>
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/eie-agro.jpg" alt="EIE — Unité agro-industrielle"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-file-shield"></i><span class="pcard-idx">REF. 01</span></span><span class="pcard-badge" id="t-badge1">Réalisé</span></div>
         </div>
+        <div class="pcard-body"><h3 id="t-p1Title">Étude d'Impact Environnemental — Unité Agro-industrielle</h3><p id="t-p1Desc">Réalisation d'une étude d'impact environnemental (EIE) complète pour une unité de conserve d'olives et de séchage de fruits secs, incluant l'analyse des rejets, la gestion des déchets et les mesures d'atténuation, conformément à la réglementation marocaine.</p></div>
       </div>
-    </div>
 
-    <!-- Projet 2 -->
-    <div class="proj-card">
-      <div class="proj-thumb" style="background:linear-gradient(135deg,var(--brown),#c07840)">
-        <i class="fa-solid fa-mountain"></i>
-        <span class="proj-badge" id="t-badge2">Réalisé</span>
-      </div>
-      <div class="proj-body">
-        <h3><i class="fa-solid fa-gem"></i><span id="t-p2-title">Exploration Géologique — Veines Minéralisées en Fluorite</span></h3>
-        <p id="t-p2-desc">Étude géologique et géochimique de veines minéralisées en fluorite dans le Nord-Est du Maroc, avec cartographie structurale, analyses de terrain et caractérisation minéralogique pour l'évaluation du potentiel minier.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Géologie</span>
-          <span class="proj-tag">Minéralisation</span>
-          <span class="proj-tag">Fluorite</span>
-          <span class="proj-tag">NE Maroc</span>
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/fluorite.jpg" alt="Exploration géologique — veines de fluorite"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-gem"></i><span class="pcard-idx">REF. 02</span></span><span class="pcard-badge" id="t-badge2">Réalisé</span></div>
         </div>
+        <div class="pcard-body"><h3 id="t-p2Title">Exploration Géologique — Veines Minéralisées en Fluorite</h3><p id="t-p2Desc">Étude géologique et géochimique de veines minéralisées en fluorite dans le Nord-Est du Maroc, avec cartographie structurale, analyses de terrain et caractérisation minéralogique pour l'évaluation du potentiel minier.</p></div>
       </div>
-    </div>
 
-    <!-- Projet 3 -->
-    <div class="proj-card">
-      <div class="proj-thumb" style="background:linear-gradient(135deg,#2a5a6e,#4a7a8e)">
-        <i class="fa-solid fa-droplet"></i>
-        <span class="proj-badge" id="t-badge3">Réalisé</span>
-      </div>
-      <div class="proj-body">
-        <h3><i class="fa-solid fa-water"></i><span id="t-p3-title">Étude Hydrogéologique — Ressources en Eau Souterraines</span></h3>
-        <p id="t-p3-desc">Investigation hydrogéologique pour l'identification et la caractérisation des aquifères, incluant la modélisation des écoulements souterrains et l'évaluation de la durabilité des ressources en eau.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Hydrogéologie</span>
-          <span class="proj-tag">Aquifères</span>
-          <span class="proj-tag">Ressources en eau</span>
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/hydrogeologie.jpg" alt="Étude hydrogéologique — eaux souterraines"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-water"></i><span class="pcard-idx">REF. 03</span></span><span class="pcard-badge" id="t-badge3">Réalisé</span></div>
         </div>
+        <div class="pcard-body"><h3 id="t-p3Title">Étude Hydrogéologique — Ressources en Eau Souterraines</h3><p id="t-p3Desc">Investigation hydrogéologique pour l'identification et la caractérisation des aquifères, incluant la modélisation des écoulements souterrains et l'évaluation de la durabilité des ressources en eau.</p></div>
       </div>
-    </div>
 
-    <!-- Projet 4 -->
-    <div class="proj-card">
-      <div class="proj-thumb" style="background:linear-gradient(135deg,#5a4a38,var(--brown))">
-        <i class="fa-solid fa-earth-africa"></i>
-        <span class="proj-badge" id="t-badge4">En cours</span>
-      </div>
-      <div class="proj-body">
-        <h3><i class="fa-solid fa-volcano"></i><span id="t-p4-title">Recherche — Volcanisme Néogène-Quaternaire du NW Afrique</span></h3>
-        <p id="t-p4-desc">Contribution scientifique à l'étude comparative des provinces volcaniques du Nord-Ouest de l'Afrique, avec modélisation géochimique, thermobarométrie et analyse régionale des données publiées.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Recherche</span>
-          <span class="proj-tag">Volcanisme</span>
-          <span class="proj-tag">Géochimie</span>
-          <span class="proj-tag">NW Afrique</span>
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/eie-olives.jpg" alt="EIE — Trituration d'olives et légumes"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-industry"></i><span class="pcard-idx">REF. 04</span></span><span class="pcard-badge" id="t-badge5">Réalisé</span></div>
         </div>
+        <div class="pcard-body"><h3 id="t-p5Title">EIE — Unité de Trituration d'Olives et Légumes</h3><p id="t-p5Desc">Étude d'impact environnemental pour une unité agro-industrielle de trituration d'olives et de transformation de légumes, avec analyse de conformité réglementaire, bilan hydrique et plan de gestion environnementale.</p></div>
       </div>
-    </div>
 
-    <!-- Projet 5 -->
-    <div class="proj-card">
-      <div class="proj-thumb" style="background:linear-gradient(135deg,#3a8060,#50a878)">
-        <i class="fa-solid fa-seedling"></i>
-        <span class="proj-badge" id="t-badge5">Réalisé</span>
-      </div>
-      <div class="proj-body">
-        <h3><i class="fa-solid fa-industry"></i><span id="t-p5-title">EIE — Unité de Trituration d'Olives et Légumes</span></h3>
-        <p id="t-p5-desc">Étude d'impact environnemental pour une unité agro-industrielle de trituration d'olives et de transformation de légumes, avec analyse de conformité réglementaire, bilan hydrique et plan de gestion environnementale.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">EIE</span>
-          <span class="proj-tag">Agro-industrie</span>
-          <span class="proj-tag">Guercif</span>
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/mining.jpg" alt="Assistance technique — exploitation minière"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-helmet-safety"></i><span class="pcard-idx">REF. 05</span></span><span class="pcard-badge b-ongoing" id="t-badge6">En cours</span></div>
         </div>
+        <div class="pcard-body"><h3 id="t-p6Title">Assistance Technique — Exploitation Minière</h3><p id="t-p6Desc">Accompagnement technique et administratif pour des sociétés minières, incluant la constitution de dossiers de permis, le suivi des opérations et la gestion des aspects environnementaux liés à l'exploitation.</p></div>
       </div>
-    </div>
 
-    <!-- Projet 6 -->
-    <div class="proj-card">
-      <div class="proj-thumb" style="background:linear-gradient(135deg,#4a6a7a,var(--slate))">
-        <i class="fa-solid fa-helmet-safety"></i>
-        <span class="proj-badge" id="t-badge6">En cours</span>
-      </div>
-      <div class="proj-body">
-        <h3><i class="fa-solid fa-hard-hat"></i><span id="t-p6-title">Assistance Technique — Exploitation Minière</span></h3>
-        <p id="t-p6-desc">Accompagnement technique et administratif pour des sociétés minières, incluant la constitution de dossiers de permis, le suivi des opérations et la gestion des aspects environnementaux liés à l'exploitation.</p>
-        <div class="proj-tags">
-          <span class="proj-tag">Mines</span>
-          <span class="proj-tag">Permis</span>
-          <span class="proj-tag">Assistance technique</span>
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/ballastiere.jpg" alt="Ballastière temporaire — Oued Moulouya"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-truck-ramp-box"></i><span class="pcard-idx">REF. 06</span></span><span class="pcard-badge" id="t-badge7">Réalisé</span></div>
         </div>
+        <div class="pcard-body"><h3 id="t-p7Title">Ballastière Temporaire — Oued Moulouya</h3><p id="t-p7Desc">Projet d'exploitation d'une ballastière temporaire sur l'Oued Moulouya pour l'extraction de matériaux de construction au profit des travaux publics, incluant l'étude de faisabilité, le dossier réglementaire et le suivi environnemental.</p></div>
       </div>
-    </div>
 
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/carriere-nador.jpg" alt="Carrière alluvionnaire — Oued Aïch, Nador"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-mountain"></i><span class="pcard-idx">REF. 07</span></span><span class="pcard-badge" id="t-badge8">Réalisé</span></div>
+        </div>
+        <div class="pcard-body"><h3 id="t-p8Title">Carrière Alluvionnaire — Oued Aïch, Nador</h3><p id="t-p8Desc">Projet d'exploitation d'une carrière alluvionnaire sur l'Oued Aïch, commune d'El Barkanyene, province de Nador : études géologiques, dossier d'autorisation et accompagnement technique pour l'extraction des matériaux alluvionnaires.</p></div>
+      </div>
+
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/meseta.jpg" alt="Recherche — Architecture crustale Meseta Orientale"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-atom"></i><span class="pcard-idx">REF. 08</span></span><span class="pcard-badge" id="t-badge9">Réalisé</span></div>
+        </div>
+        <div class="pcard-body"><h3 id="t-p9Title">Recherche — Architecture Crustale de la Meseta Orientale</h3><p id="t-p9Desc">Projet de recherche sur l'architecture crustale sous la Meseta orientale marocaine révélée par les isotopes Sr-Nd : nouvelles données sur les granitoïdes varisques de Beni Snassen et compilation régionale de dix massifs.</p></div>
+      </div>
+
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/carriere-figuig.jpg" alt="EIE — Carrières alluvionnaires, Figuig"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-file-shield"></i><span class="pcard-idx">REF. 09</span></span><span class="pcard-badge" id="t-badge10">Réalisé</span></div>
+        </div>
+        <div class="pcard-body"><h3 id="t-p10Title">EIE — Trois Carrières Alluvionnaires, Figuig</h3><p id="t-p10Desc">Étude d'impact sur l'environnement du projet d'ouverture de trois carrières alluvionnaires provisoires au niveau des communes de Talsint et Bouanane, province de Figuig, pour l'extraction temporaire de matériaux de construction.</p></div>
+      </div>
+
+      <div class="pcard rv">
+        <div class="pcard-media">
+          <img src="assets/carriere-tendrara.jpg" alt="EIE — Carrière alluvionnaire, Tendrara"/>
+          <div class="pcard-media-bar"><span class="lft"><i class="fa-solid fa-file-shield"></i><span class="pcard-idx">REF. 10</span></span><span class="pcard-badge" id="t-badge11">Réalisé</span></div>
+        </div>
+        <div class="pcard-body"><h3 id="t-p11Title">EIE — Carrière Alluvionnaire, Tendrara</h3><p id="t-p11Desc">Étude d'impact sur l'environnement du projet d'exploitation d'une carrière alluvionnaire pour l'extraction temporaire de matériaux de construction sur l'Oued Belmini et l'Oued Oglat Oulad Nasseur, commune de Tendrara, province de Figuig.</p></div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- ══ CTA BANNER ══ -->
-<section class="cta-banner">
-  <h2 id="t-cta-h">Vous avez un projet ?</h2>
-  <p id="t-cta-desc">Notre équipe est prête à vous accompagner dans vos projets de géosciences, environnement et ingénierie.</p>
-  <div class="cta-btns">
-    <a href="mailto:contact@kb-earthworks.com" class="cta-b1"><i class="fa-solid fa-envelope"></i><span id="t-cta-btn1">Nous écrire</span></a>
-    <a href="tel:+212762985389" class="cta-b2"><i class="fa-solid fa-phone"></i><span id="t-cta-btn2">+212 762 985 389</span></a>
+<!-- ══ CTA ══ -->
+<section class="sec cta">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eyeC">Contact</p>
+    <h2 class="rv" id="t-ctaH">Vous avez un projet ?</h2>
+    <p class="rv" id="t-ctaDesc">Notre équipe est prête à vous accompagner dans vos projets de géosciences, environnement et ingénierie.</p>
+    <div class="cta-btns rv">
+      <a href="mailto:contact@kb-earthworks.com" class="btn-b"><i class="fa-solid fa-envelope"></i><span id="t-ctaBtn1">Nous écrire</span></a>
+      <a href="https://wa.me/212762985389" target="_blank" rel="noopener" class="btn-p"><i class="fa-brands fa-whatsapp"></i>+212 762 985 389</a>
+    </div>
   </div>
 </section>
 
-<footer>
-  <i class="fa-solid fa-copyright"></i>
-  2026 &nbsp;<span>K&amp;B Earth Works SARL</span>&nbsp; - Casablanca, Maroc - Tous droits réservés
+<footer class="site-foot">
+  <div class="foot-in">
+    <img src="assets/logos.png" alt="" class="foot-logo" aria-hidden="true" onerror="this.style.display='none'"/>
+    <div class="foot-row">
+      <span class="foot-year"><i class="fa-regular fa-copyright"></i> 2026</span>
+      <span class="foot-sep" aria-hidden="true"></span>
+      <span class="foot-co">K&amp;B Earth Works SARL</span>
+    </div>
+    <p class="foot-loc"><i class="fa-solid fa-location-dot"></i> Casablanca, Maroc</p>
+    <p class="foot-rights" id="t-rights">Tous droits réservés</p>
+  </div>
 </footer>
 
 <script>
 var T={
-  fr:{
-    topbar:"Bureau d'études — Casablanca, Maroc",
-    back:"Retour à l'accueil",
-    headerDesc:"Découvrez nos réalisations et projets en cours dans les domaines de la géoscience, l'environnement et l'ingénierie.",
-    projH:"Nos Projets",
-    projIntro:"Un aperçu de nos interventions et expertises réalisées au Maroc et à l'international.",
-    badge1:"Réalisé",badge2:"Réalisé",badge3:"Réalisé",badge4:"En cours",badge5:"Réalisé",badge6:"En cours",
-    p1Title:"Étude d'Impact Environnemental — Unité Agro-industrielle",
-    p1Desc:"Réalisation d'une étude d'impact environnemental (EIE) complète pour une unité de conserve d'olives et de séchage de fruits secs, incluant l'analyse des rejets, la gestion des déchets et les mesures d'atténuation, conformément à la réglementation marocaine.",
-    p2Title:"Exploration Géologique — Veines Minéralisées en Fluorite",
-    p2Desc:"Étude géologique et géochimique de veines minéralisées en fluorite dans le Nord-Est du Maroc, avec cartographie structurale, analyses de terrain et caractérisation minéralogique pour l'évaluation du potentiel minier.",
-    p3Title:"Étude Hydrogéologique — Ressources en Eau Souterraines",
-    p3Desc:"Investigation hydrogéologique pour l'identification et la caractérisation des aquifères, incluant la modélisation des écoulements souterrains et l'évaluation de la durabilité des ressources en eau.",
-    p4Title:"Recherche — Volcanisme Néogène-Quaternaire du NW Afrique",
-    p4Desc:"Contribution scientifique à l'étude comparative des provinces volcaniques du Nord-Ouest de l'Afrique, avec modélisation géochimique, thermobarométrie et analyse régionale des données publiées.",
-    p5Title:"EIE — Unité de Trituration d'Olives et Légumes",
-    p5Desc:"Étude d'impact environnemental pour une unité agro-industrielle de trituration d'olives et de transformation de légumes, avec analyse de conformité réglementaire, bilan hydrique et plan de gestion environnementale.",
-    p6Title:"Assistance Technique — Exploitation Minière",
-    p6Desc:"Accompagnement technique et administratif pour des sociétés minières, incluant la constitution de dossiers de permis, le suivi des opérations et la gestion des aspects environnementaux liés à l'exploitation.",
-    ctaH:"Vous avez un projet ?",
-    ctaDesc:"Notre équipe est prête à vous accompagner dans vos projets de géosciences, environnement et ingénierie.",
-    ctaBtn1:"Nous écrire",ctaBtn2:"+212 762 985 389"
-  },
-  en:{
-    topbar:"Consulting Bureau — Casablanca, Morocco",
-    back:"Back to Home",
-    headerDesc:"Explore our completed and ongoing projects in geoscience, environment and engineering.",
-    projH:"Our Projects",
-    projIntro:"An overview of our interventions and expertise across Morocco and internationally.",
-    badge1:"Completed",badge2:"Completed",badge3:"Completed",badge4:"Ongoing",badge5:"Completed",badge6:"Ongoing",
-    p1Title:"Environmental Impact Assessment — Agro-industrial Unit",
-    p1Desc:"Comprehensive environmental impact assessment (EIA) for an olive canning and dried fruit processing unit, including discharge analysis, waste management and mitigation measures, in compliance with Moroccan regulations.",
-    p2Title:"Geological Exploration — Fluorite-Mineralized Veins",
-    p2Desc:"Geological and geochemical study of fluorite-mineralized veins in Northeast Morocco, with structural mapping, field analysis and mineralogical characterization for mining potential evaluation.",
-    p3Title:"Hydrogeological Study — Groundwater Resources",
-    p3Desc:"Hydrogeological investigation for aquifer identification and characterization, including groundwater flow modelling and sustainability assessment of water resources.",
-    p4Title:"Research — Neogene-Quaternary Volcanism in NW Africa",
-    p4Desc:"Scientific contribution to the comparative study of volcanic provinces in Northwest Africa, with geochemical modelling, thermobarometry and regional analysis of published data.",
-    p5Title:"EIA — Olive & Vegetable Processing Unit",
-    p5Desc:"Environmental impact assessment for an agro-industrial olive pressing and vegetable processing unit, including regulatory compliance analysis, water balance and environmental management plan.",
-    p6Title:"Technical Assistance — Mining Operations",
-    p6Desc:"Technical and administrative support for mining companies, including permit applications, operations monitoring and environmental management related to mining activities.",
-    ctaH:"Have a project in mind?",
-    ctaDesc:"Our team is ready to support you in your geoscience, environment and engineering projects.",
-    ctaBtn1:"Contact us",ctaBtn2:"+212 762 985 389"
-  },
-  ar:{
-    topbar:"مكتب دراسات — الدار البيضاء، المغرب",
-    back:"العودة إلى الرئيسية",
-    headerDesc:"اكتشفوا مشاريعنا المنجزة والجارية في مجالات علوم الأرض والبيئة والهندسة.",
-    projH:"مشاريعنا",
-    projIntro:"نظرة على تدخلاتنا وخبراتنا المنجزة في المغرب وعلى المستوى الدولي.",
-    badge1:"مُنجز",badge2:"مُنجز",badge3:"مُنجز",badge4:"جاري",badge5:"مُنجز",badge6:"جاري",
-    p1Title:"دراسة التأثير البيئي — وحدة صناعية زراعية",
-    p1Desc:"إنجاز دراسة تأثير بيئي شاملة لوحدة تصبير الزيتون وتجفيف الفواكه الجافة، تشمل تحليل النفايات وإجراءات التخفيف وفقاً للتنظيمات المغربية.",
-    p2Title:"استكشاف جيولوجي — عروق معدنية من الفلوريت",
-    p2Desc:"دراسة جيولوجية وجيوكيميائية لعروق معدنية من الفلوريت في شمال شرق المغرب، مع رسم خرائط بنيوية وتحليل ميداني وتوصيف معدني.",
-    p3Title:"دراسة هيدروجيولوجية — الموارد المائية الجوفية",
-    p3Desc:"تحقيق هيدروجيولوجي لتحديد وتوصيف طبقات المياه الجوفية، مع نمذجة التدفقات وتقييم استدامة الموارد المائية.",
-    p4Title:"بحث — البركانية النيوجينية-الرباعية في شمال غرب أفريقيا",
-    p4Desc:"مساهمة علمية في الدراسة المقارنة للأقاليم البركانية في شمال غرب أفريقيا، مع نمذجة جيوكيميائية وتحليل إقليمي للبيانات المنشورة.",
-    p5Title:"دراسة التأثير البيئي — وحدة عصر الزيتون والخضروات",
-    p5Desc:"دراسة تأثير بيئي لوحدة صناعية زراعية لعصر الزيتون وتحويل الخضروات، مع تحليل المطابقة التنظيمية والحصيلة المائية وخطة التدبير البيئي.",
-    p6Title:"مساعدة تقنية — الاستغلال المنجمي",
-    p6Desc:"مرافقة تقنية وإدارية لشركات منجمية، تشمل تكوين ملفات الرخص ومتابعة العمليات وتدبير الجوانب البيئية المرتبطة بالاستغلال.",
-    ctaH:"هل لديكم مشروع؟",
-    ctaDesc:"فريقنا مستعد لمرافقتكم في مشاريعكم في علوم الأرض والبيئة والهندسة.",
-    ctaBtn1:"راسلنا",ctaBtn2:"+212 762 985 389"
-  }
+fr:{
+  coords:"33.5731° N — 7.5898° W · CASABLANCA, MAROC",
+  nav1:"À propos",nav2:"Services",nav3:"Projets",nav4:"Galerie",nav5:"Contact",navcta:"Nous contacter",
+  eyebrow:"Références & réalisations",back:"Retour à l'accueil",
+  projH:"Nos Projets",
+  projIntro:"Un aperçu de nos interventions et expertises réalisées au Maroc et à l'international.",
+  labA:"Recherche scientifique",labB:"Études & réalisations",
+  featLabel:"Publication scientifique à la une",
+  badge1:"Réalisé",badge2:"Réalisé",badge3:"Réalisé",badge5:"Réalisé",badge6:"En cours",badge7:"Réalisé",badge8:"Réalisé",badge9:"Réalisé",badge10:"Réalisé",badge11:"Réalisé",
+  p1Title:"Étude d'Impact Environnemental — Unité Agro-industrielle",
+  p1Desc:"Réalisation d'une étude d'impact environnemental (EIE) complète pour une unité de conserve d'olives et de séchage de fruits secs, incluant l'analyse des rejets, la gestion des déchets et les mesures d'atténuation, conformément à la réglementation marocaine.",
+  p2Title:"Exploration Géologique — Veines Minéralisées en Fluorite",
+  p2Desc:"Étude géologique et géochimique de veines minéralisées en fluorite dans le Nord-Est du Maroc, avec cartographie structurale, analyses de terrain et caractérisation minéralogique pour l'évaluation du potentiel minier.",
+  p3Title:"Étude Hydrogéologique — Ressources en Eau Souterraines",
+  p3Desc:"Investigation hydrogéologique pour l'identification et la caractérisation des aquifères, incluant la modélisation des écoulements souterrains et l'évaluation de la durabilité des ressources en eau.",
+  p4Title:"Recherche — Volcanisme Néogène-Quaternaire du NW Afrique",
+  p4ThumbTitle:"Volcanisme Néogène-Quaternaire du NW Afrique",
+  p4FeatSub:"Volcanisme Néogène-Quaternaire du NW Afrique : Pétrogenèse, Contrôles Tectoniques et Évolution Géodynamique",
+  p4Desc:"Chapitre scientifique publié (Online First, IntechOpen) sur le volcanisme néogène-quaternaire du Nord-Ouest de l'Afrique : pétrogenèse, contrôles tectoniques et évolution géodynamique, avec modélisation géochimique, thermobarométrie et synthèse régionale des provinces volcaniques du Maroc et de l'Algérie occidentale.",
+  p4Authors:"Mohammed Benamrane, Mohammed Cherai, Károly Németh et al.",
+  p4Link:"Voir la publication",
+  p5Title:"EIE — Unité de Trituration d'Olives et Légumes",
+  p5Desc:"Étude d'impact environnemental pour une unité agro-industrielle de trituration d'olives et de transformation de légumes, avec analyse de conformité réglementaire, bilan hydrique et plan de gestion environnementale.",
+  p6Title:"Assistance Technique — Exploitation Minière",
+  p6Desc:"Accompagnement technique et administratif pour des sociétés minières, incluant la constitution de dossiers de permis, le suivi des opérations et la gestion des aspects environnementaux liés à l'exploitation.",
+  p7Title:"Ballastière Temporaire — Oued Moulouya",
+  p7Desc:"Projet d'exploitation d'une ballastière temporaire sur l'Oued Moulouya pour l'extraction de matériaux de construction au profit des travaux publics, incluant l'étude de faisabilité, le dossier réglementaire et le suivi environnemental.",
+  p8Title:"Carrière Alluvionnaire — Oued Aïch, Nador",
+  p8Desc:"Projet d'exploitation d'une carrière alluvionnaire sur l'Oued Aïch, commune d'El Barkanyene, province de Nador : études géologiques, dossier d'autorisation et accompagnement technique pour l'extraction des matériaux alluvionnaires.",
+  p9Title:"Recherche — Architecture Crustale de la Meseta Orientale",
+  p9Desc:"Projet de recherche sur l'architecture crustale sous la Meseta orientale marocaine révélée par les isotopes Sr-Nd : nouvelles données sur les granitoïdes varisques de Beni Snassen et compilation régionale de dix massifs.",
+  p10Title:"EIE — Trois Carrières Alluvionnaires, Figuig",
+  p10Desc:"Étude d'impact sur l'environnement du projet d'ouverture de trois carrières alluvionnaires provisoires au niveau des communes de Talsint et Bouanane, province de Figuig, pour l'extraction temporaire de matériaux de construction.",
+  p11Title:"EIE — Carrière Alluvionnaire, Tendrara",
+  p11Desc:"Étude d'impact sur l'environnement du projet d'exploitation d'une carrière alluvionnaire pour l'extraction temporaire de matériaux de construction sur l'Oued Belmini et l'Oued Oglat Oulad Nasseur, commune de Tendrara, province de Figuig.",
+  ctaH:"Vous avez un projet ?",
+  ctaDesc:"Notre équipe est prête à vous accompagner dans vos projets de géosciences, environnement et ingénierie.",
+  ctaBtn1:"Nous écrire",rights:"Tous droits réservés"
+},
+en:{
+  coords:"33.5731° N — 7.5898° W · CASABLANCA, MOROCCO",
+  nav1:"About",nav2:"Services",nav3:"Projects",nav4:"Gallery",nav5:"Contact",navcta:"Contact us",
+  eyebrow:"References & achievements",back:"Back to Home",
+  projH:"Our Projects",
+  projIntro:"An overview of our interventions and expertise across Morocco and internationally.",
+  labA:"Scientific research",labB:"Studies & achievements",
+  featLabel:"Featured scientific publication",
+  badge1:"Completed",badge2:"Completed",badge3:"Completed",badge5:"Completed",badge6:"Ongoing",badge7:"Completed",badge8:"Completed",badge9:"Completed",badge10:"Completed",badge11:"Completed",
+  p1Title:"Environmental Impact Assessment — Agro-industrial Unit",
+  p1Desc:"Comprehensive environmental impact assessment (EIA) for an olive canning and dried fruit processing unit, including discharge analysis, waste management and mitigation measures, in compliance with Moroccan regulations.",
+  p2Title:"Geological Exploration — Fluorite-Mineralized Veins",
+  p2Desc:"Geological and geochemical study of fluorite-mineralized veins in Northeast Morocco, with structural mapping, field analysis and mineralogical characterization for mining potential evaluation.",
+  p3Title:"Hydrogeological Study — Groundwater Resources",
+  p3Desc:"Hydrogeological investigation for aquifer identification and characterization, including groundwater flow modelling and sustainability assessment of water resources.",
+  p4Title:"Research — Neogene-Quaternary Volcanism in NW Africa",
+  p4ThumbTitle:"Neogene-Quaternary Volcanism of Northwest Africa",
+  p4FeatSub:"Neogene-Quaternary Volcanism of Northwest Africa: Petrogenesis, Tectonic Controls, and Geodynamic Evolution",
+  p4Desc:"Peer-reviewed chapter published online (IntechOpen) on Neogene-Quaternary volcanism in Northwest Africa: petrogenesis, tectonic controls and geodynamic evolution, with geochemical modelling, thermobarometry and regional synthesis of volcanic provinces in Morocco and western Algeria.",
+  p4Authors:"Mohammed Benamrane, Mohammed Cherai, Károly Németh et al.",
+  p4Link:"View publication",
+  p5Title:"EIA — Olive & Vegetable Processing Unit",
+  p5Desc:"Environmental impact assessment for an agro-industrial olive pressing and vegetable processing unit, including regulatory compliance analysis, water balance and environmental management plan.",
+  p6Title:"Technical Assistance — Mining Operations",
+  p6Desc:"Technical and administrative support for mining companies, including permit applications, operations monitoring and environmental management related to mining activities.",
+  p7Title:"Temporary Ballast Quarry — Oued Moulouya",
+  p7Desc:"Temporary ballast quarry project on the Oued Moulouya for extraction of construction materials for public works, including feasibility study, regulatory filing and environmental monitoring.",
+  p8Title:"Alluvial Quarry — Oued Aïch, Nador",
+  p8Desc:"Alluvial quarry exploitation project on the Oued Aïch, El Barkanyene commune, Nador province: geological studies, permit application and technical support for alluvial material extraction.",
+  p9Title:"Research — Crustal Architecture of the Eastern Meseta",
+  p9Desc:"Research project on crustal architecture beneath the Eastern Moroccan Meseta revealed by Sr-Nd isotopes: new data from Beni Snassen Variscan granitoids and a ten-massif regional compilation.",
+  p10Title:"EIA — Three Alluvial Quarries, Figuig",
+  p10Desc:"Environmental impact assessment for the opening of three provisional alluvial quarries in the communes of Talsint and Bouanane, Figuig province, for temporary extraction of construction materials.",
+  p11Title:"EIA — Alluvial Quarry, Tendrara",
+  p11Desc:"Environmental impact assessment for an alluvial quarry exploitation project for temporary extraction of construction materials on the Oued Belmini and Oued Oglat Oulad Nasseur, Tendrara commune, Figuig province.",
+  ctaH:"Have a project in mind?",
+  ctaDesc:"Our team is ready to support you in your geoscience, environment and engineering projects.",
+  ctaBtn1:"Contact us",rights:"All rights reserved"
+},
+ar:{
+  coords:"33.5731° شمالاً — 7.5898° غرباً · الدار البيضاء، المغرب",
+  nav1:"من نحن",nav2:"خدماتنا",nav3:"مشاريعنا",nav4:"المعرض",nav5:"اتصل بنا",navcta:"اتصل بنا",
+  eyebrow:"مراجع وإنجازات",back:"العودة إلى الرئيسية",
+  projH:"مشاريعنا",
+  projIntro:"نظرة على تدخلاتنا وخبراتنا المنجزة في المغرب وعلى المستوى الدولي.",
+  labA:"البحث العلمي",labB:"دراسات وإنجازات",
+  featLabel:"منشور علمي مميز",
+  badge1:"مُنجز",badge2:"مُنجز",badge3:"مُنجز",badge5:"مُنجز",badge6:"جاري",badge7:"مُنجز",badge8:"مُنجز",badge9:"مُنجز",badge10:"مُنجز",badge11:"مُنجز",
+  p1Title:"دراسة التأثير البيئي — وحدة صناعية زراعية",
+  p1Desc:"إنجاز دراسة تأثير بيئي شاملة لوحدة تصبير الزيتون وتجفيف الفواكه الجافة، تشمل تحليل النفايات وإجراءات التخفيف وفقاً للتنظيمات المغربية.",
+  p2Title:"استكشاف جيولوجي — عروق معدنية من الفلوريت",
+  p2Desc:"دراسة جيولوجية وجيوكيميائية لعروق معدنية من الفلوريت في شمال شرق المغرب، مع رسم خرائط بنيوية وتحليل ميداني وتوصيف معدني.",
+  p3Title:"دراسة هيدروجيولوجية — الموارد المائية الجوفية",
+  p3Desc:"تحقيق هيدروجيولوجي لتحديد وتوصيف طبقات المياه الجوفية، مع نمذجة التدفقات وتقييم استدامة الموارد المائية.",
+  p4Title:"بحث — البركانية النيوجينية-الرباعية في شمال غرب أفريقيا",
+  p4ThumbTitle:"البركانية النيوجينية-الرباعية في شمال غرب أفريقيا",
+  p4FeatSub:"البركانية النيوجينية-الرباعية في شمال غرب أفريقيا: نشأة الصخور، الضوابط التكتونية والتطور الجيوديناميكي",
+  p4Desc:"فصل علمي منشور (Online First، IntechOpen) حول البركانية النيوجينية-الرباعية في شمال غرب أفريقيا: نشأة الصخور، الضوابط التكتونية والتطور الجيوديناميكي، مع نمذجة جيوكيميائية وترموبارومتري وتركيب إقليمي للأقاليم البركانية في المغرب وغرب الجزائر.",
+  p4Authors:"محمد بن عمران، محمد الشراي، كارولي نيميث وآخرون",
+  p4Link:"عرض المنشور",
+  p5Title:"دراسة التأثير البيئي — وحدة عصر الزيتون والخضروات",
+  p5Desc:"دراسة تأثير بيئي لوحدة صناعية زراعية لعصر الزيتون وتحويل الخضروات، مع تحليل المطابقة التنظيمية والحصيلة المائية وخطة التدبير البيئي.",
+  p6Title:"مساعدة تقنية — الاستغلال المنجمي",
+  p6Desc:"مرافقة تقنية وإدارية لشركات منجمية، تشمل تكوين ملفات الرخص ومتابعة العمليات وتدبير الجوانب البيئية المرتبطة بالاستغلال.",
+  p7Title:"مقلع مؤقت للحصى — واد ملوية",
+  p7Desc:"مشروع استغلال مقلع مؤقت على واد ملوية لاستخراج مواد البناء لصالح الأشغال العمومية، يشمل دراسة الجدوى والملف التنظيمي والمتابعة البيئية.",
+  p8Title:"مقلع طمي — واد عيش، الناظور",
+  p8Desc:"مشروع استغلال مقلع طمي على واد عيش، جماعة البركانين، إقليم الناظور: دراسات جيولوجية وملف الترخيص ومرافقة تقنية لاستخراج المواد الطميية.",
+  p9Title:"بحث — البنية القشرية للميزيتا الشرقية",
+  p9Desc:"مشروع بحث حول البنية القشرية تحت الميزيتا الشرقية المغربية باستخدام نظائر Sr-Nd: بيانات جديدة عن الغرانيتويدات الفاريسية لبني سناسن وتركيب إقليمي لعشرة كتل.",
+  p10Title:"دراسة التأثير البيئي — ثلاث مقالع طمي، فجيج",
+  p10Desc:"دراسة التأثير على البيئة لمشروع فتح ثلاث مقالع طمي مؤقتة بجماعتي تالسينت وبوعنان، إقليم فجيج، لاستخراج مؤقت لمواد البناء.",
+  p11Title:"دراسة التأثير البيئي — مقلع طمي، تندرارة",
+  p11Desc:"دراسة التأثير على البيئة لمشروع استغلال مقلع طمي لاستخراج مؤقت لمواد البناء على وادي بلميني ووادي أغلات أولاد ناصر، جماعة تندرارة، إقليم فجيج.",
+  ctaH:"هل لديكم مشروع؟",
+  ctaDesc:"فريقنا مستعد لمرافقتكم في مشاريعكم في علوم الأرض والبيئة والهندسة.",
+  ctaBtn1:"راسلنا",rights:"جميع الحقوق محفوظة"
+},
+zgh:{
+  coords:"33.5731° N — 7.5898° W · ⴰⵏⴼⴰ, ⵍⵎⵖⵔⵉⴱ",
+  nav1:"ⵖⴼ-ⵏⵏⵖ",nav2:"ⵜⵉⵎⵥⵍⴰ",nav3:"ⵉⵙⵏⴼⴰⵕⵏ",nav4:"ⵜⵉⵡⵍⴰⴼⵉⵏ",nav5:"ⴰⵏⵔⵎⴰⵙ",navcta:"ⵏⵔⵎⵙ-ⴰⵖ-ⴷ",
+  eyebrow:"ⵜⵉⵎⵙⵙⴽⵜⴰⵢ ⴷ ⵢⵉⵙⵏⴼⴰⵕⵏ",back:"ⵓⵖⴰⵍ ⵖⵔ ⵓⵙⴱⵜⵔ ⴰⴳⵊⴷⴰⵏ",
+  projH:"ⵉⵙⵏⴼⴰⵕⵏ-ⵏⵏⵖ",
+  projIntro:"ⵜⴰⵙⵍⴹⵜ ⵏ ⵢⵉⵎⴰⵀⴰⵍ-ⵏⵏⵖ ⴷ ⵜⵓⵙⵙⵏⴰ-ⵏⵏⵖ ⴳ ⵍⵎⵖⵔⵉⴱ ⴷ ⵓⵎⴰⴷⴰⵍ.",
+  labA:"ⴰⵏⴰⴷⵉ ⵓⵙⵙⵏⴰⵏ",labB:"ⵜⵉⵣⵔⴰⵡⵉⵏ ⴷ ⵢⵉⵙⵏⴼⴰⵕⵏ",
+  featLabel:"ⴰⵙⵓⴼⴼⵖ ⵓⵙⵙⵏⴰⵏ ⵉⵜⵜⵡⴰⵙⵏⵏ",
+  badge1:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge2:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge3:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge5:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge6:"ⵉⵜⵜⴷⴷⵓ",badge7:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge8:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge9:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge10:"ⵉⵜⵜⵡⴰⴽⵎⵍ",badge11:"ⵉⵜⵜⵡⴰⴽⵎⵍ",
+  p1Title:"ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵓⵙⵎⴷⵓ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ — ⴰⵃⵔⵉⵛ ⴰⵖⵔⴱⴰⵣ-ⴰⴳⵔⵉⴽⵓⵍ",
+  p1Desc:"ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵓⵙⵎⴷⵓ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ (EIE) ⵉⵜⵜⵡⴰⴽⵎⵍⵏ ⵉ ⵓⵃⵔⵉⵛ ⵏ ⵓⵙⴽⵍⵙ ⵏ ⵓⵣⵎⵎⵓⵔ ⴷ ⵓⵙⴽⴽⵙ ⵏ ⵢⵉⴳⵓⵎⵎⴰ ⵉⵇⵓⵔⴰⵏ, ⵙ ⵓⵙⵍⴹ ⵏ ⵢⵉⵙⵓⴼⴰⵖ ⴷ ⵜⵉⴳⴰⵡⵉⵏ ⵏ ⵓⵙⵎⴷⵓ, ⵙ ⵓⵇⴰⴷⵔ ⵏ ⵢⵉⵍⵓⴳⴰⵏ ⵏ ⵍⵎⵖⵔⵉⴱ.",
+  p2Title:"ⴰⵙⵏⵇⴷ ⴰⵊⵢⵓⵍⵓⵊⵉ — ⵉⵖⵕⵕⴰⵏ ⵏ ⵓⴼⵍⵓⵔⵉⵜ",
+  p2Desc:"ⵜⴰⵣⵔⴰⵡⵜ ⵜⴰⵊⵢⵓⵍⵓⵊⵉ ⴷ ⵜⴰⵊⵢⵓⴽⵉⵎⵢⴰ ⵏ ⵢⵉⵖⵕⵕⴰⵏ ⵏ ⵓⴼⵍⵓⵔⵉⵜ ⴳ ⵓⴳⴰⴼⴰ-ⴰⵙⴰⵎⴰⵔ ⵏ ⵍⵎⵖⵔⵉⴱ, ⵙ ⵜⴰⴽⴰⵔⵜ ⵏ ⵜⴰⴷⴷⴰⵔⵜ, ⵜⴰⵙⵍⴹⵜ ⵏ ⵡⴰⴽⴰⵍ ⴷ ⵓⵙⵏⵇⴷ ⴰⵎⵉⵏⵉ.",
+  p3Title:"ⵜⴰⵣⵔⴰⵡⵜ ⵜⴰⵀⵉⴷⵔⵓⵊⵢⵓⵍⵓⵊⵉ — ⵉⵙⵓⴳⴰⵎ ⵏ ⵡⴰⵎⴰⵏ ⵏ ⴷⴷⴰⵡ ⵡⴰⴽⴰⵍ",
+  p3Desc:"ⴰⵙⵏⵇⴷ ⴰⵀⵉⴷⵔⵓⵊⵢⵓⵍⵓⵊⵉ ⵉ ⵓⵙⵏⵇⴷ ⵏ ⵢⵉⴰⵇⵓⵉⴼⵔⵏ, ⵙ ⵓⵎⵓⴷⵍ ⵏ ⵓⵙⵉⴽⵍ ⵏ ⵡⴰⵎⴰⵏ ⴷ ⵓⵙⵙⵜⵍ ⵏ ⵜⵖⵣⴼⴰⵏⵜ ⵏ ⵢⵉⵙⵓⴳⴰⵎ ⵏ ⵡⴰⵎⴰⵏ.",
+  p4Title:"ⴰⵏⴰⴷⵉ — ⴰⴼⵓⵍⴽⴰⵏⵉⵣⵎ ⵏ Neogen-Quaternaire ⵏ NW Afrika",
+  p4ThumbTitle:"ⴰⴼⵓⵍⴽⴰⵏⵉⵣⵎ ⵏ Neogen-Quaternaire ⵏ NW Afrika",
+  p4FeatSub:"ⴰⴼⵓⵍⴽⴰⵏⵉⵣⵎ ⵏ Neogen-Quaternaire ⵏ NW Afrika: Petrogenese, ⴰⵙⵏⵇⴷ ⴰⵜⴽⵜⵓⵏⵉⴽ ⴷ ⵓⵙⵏⵔⵏⵉ ⴰⴳⵢⵓⴷⵉⵏⴰⵎⵉⴽ",
+  p4Desc:"ⵉⵅⴼ ⵓⵙⵙⵏⴰⵏ ⵉⵜⵜⵡⴰⵙⵓⴼⴼⵖ (Online First, IntechOpen) ⵖⴼ ⵓⴼⵓⵍⴽⴰⵏⵉⵣⵎ ⵏ Neogen-Quaternaire ⵏ ⵓⴳⴰⴼⴰ-ⴰⵜⴰⵔⴰⵎ ⵏ Afrika: petrogenese, ⴰⵙⵏⵇⴷ ⴰⵜⴽⵜⵓⵏⵉⴽ ⴷ ⵓⵙⵏⵔⵏⵉ ⴰⴳⵢⵓⴷⵉⵏⴰⵎⵉⴽ, ⵙ ⵓⵎⵓⴷⵍ ⴰⵊⵢⵓⴽⵉⵎⵉⴽ ⴷ ⵓⵙⵎⵍⵉⵍ ⵏ ⵜⵎⵏⴰⴹⵉⵏ ⵜⵉⴼⵓⵍⴽⴰⵏⵉⵢⵉⵏ ⵏ ⵍⵎⵖⵔⵉⴱ ⴷ Lzayer ⵏ ⵓⵜⴰⵔⴰⵎ.",
+  p4Authors:"Mohammed Benamrane, Mohammed Cherai, Károly Németh et al.",
+  p4Link:"ⵡⴰⵍⵉ ⴰⵙⵓⴼⴼⵖ",
+  p5Title:"EIE — ⴰⵃⵔⵉⵛ ⵏ ⵓⵙⴽⴽⵙ ⵏ ⵓⵣⵎⵎⵓⵔ ⴷ ⵢⵉⵣⴳⵣⴰⵡⵏ",
+  p5Desc:"ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵓⵙⵎⴷⵓ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ ⵉ ⵓⵃⵔⵉⵛ ⴰⵖⵔⴱⴰⵣ-ⴰⴳⵔⵉⴽⵓⵍ ⵏ ⵓⵙⴽⴽⵙ ⵏ ⵓⵣⵎⵎⵓⵔ ⴷ ⵓⵙⵏⴼⵍ ⵏ ⵢⵉⵣⴳⵣⴰⵡⵏ, ⵙ ⵓⵙⵍⴹ ⵏ ⵓⵇⴰⴷⵔ ⵏ ⵢⵉⵍⵓⴳⴰⵏ ⴷ ⵓⵖⴰⵡⴰⵙ ⵏ ⵓⵙⵏⵇⴷ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ.",
+  p6Title:"ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⵜⵉⴽⵏⵉⴽⵜ — ⴰⵙⴽⵛⵎ ⴰⵎⵉⵏⵉ",
+  p6Desc:"ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⵜⵉⴽⵏⵉⴽⵜ ⴷ ⵜⴰⴷⵎⵉⵏⵉⵜ ⵉ ⵜⴽⴱⴱⴰⵏⵉⵢⵉⵏ ⵜⵉⵎⵉⵏⵉⵢⵉⵏ, ⵙ ⵓⵙⵖⵥⵍ ⵏ ⵢⵉⴷⵓⵙⵉⵢⴰⵏ ⵏ ⵜⵓⵔⴰⴳⵉⵏ, ⴰⴹⴼⴰⵔ ⵏ ⵢⵉⵎⴰⵀⴰⵍ ⴷ ⵓⵙⵏⵇⴷ ⵏ ⵢⵉⴳⵔⴰⵏ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ.",
+  p7Title:"ⴰⵎⵇⴰⵍ ⵏ ⵡⴰⴽⵓⴷ — ⴰⵙⵉⴼ Moulouya",
+  p7Desc:"ⴰⵙⵏⴼⴰⵕ ⵏ ⵓⵙⴽⵛⵎ ⵏ ⵓⵎⵇⴰⵍ ⵏ ⵡⴰⴽⵓⴷ ⵖⴼ ⵡⴰⵙⵉⴼ Moulouya ⵉ ⵓⵙⵓⴼⴼⵖ ⵏ ⵢⵉⵎⴰⵜⵉⵔⵢⴰⵍⵏ ⵏ ⵍⴱⵏⵉ, ⵙ ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵜⵓⴼⴼⵔⴰ ⴷ ⵓⴹⴼⴰⵔ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ.",
+  p8Title:"ⴰⵎⵇⴰⵍ alluvionnaire — ⴰⵙⵉⴼ Aïch, Nador",
+  p8Desc:"ⴰⵙⵏⴼⴰⵕ ⵏ ⵓⵙⴽⵛⵎ ⵏ ⵓⵎⵇⴰⵍ alluvionnaire ⵖⴼ ⵡⴰⵙⵉⴼ Aïch, ⵜⴰⴷⴷⴰⵔⵜ El Barkanyene, ⵜⴰⵎⵏⴰⴹⵜ ⵏ Nador: ⵜⵉⵣⵔⴰⵡⵉⵏ ⵜⵉⵊⵢⵓⵍⵓⵊⵉⵢⵉⵏ ⴷ ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⵜⵉⴽⵏⵉⴽⵜ.",
+  p9Title:"ⴰⵏⴰⴷⵉ — ⵜⴰⴷⴷⴰⵔⵜ ⵜⴰⴽⵔⵓⵙⵜⴰⵍⵜ ⵏ Meseta ⵏ ⵓⵙⴰⵎⴰⵔ",
+  p9Desc:"ⴰⵙⵏⴼⴰⵕ ⵏ ⵓⵏⴰⴷⵉ ⵖⴼ ⵜⴰⴷⴷⴰⵔⵜ ⵜⴰⴽⵔⵓⵙⵜⴰⵍⵜ ⴷⴷⴰⵡ Meseta ⵏ ⵓⵙⴰⵎⴰⵔ ⵏ ⵍⵎⵖⵔⵉⴱ ⵙ ⵢⵉⵙⵓⵜⵓⴱⵏ Sr-Nd: ⵉⵙⴼⴽⴰ ⵉⵎⴰⵢⵏⵓⵜⵏ ⵖⴼ Beni Snassen ⴷ ⵓⵙⵎⵍⵉⵍ ⵏ ⵎⵔⴰⵡ ⵏ ⵢⵉⵎⴰⵙⵙⵉⴼⵏ.",
+  p10Title:"EIE — ⴽⵔⴰⴹ ⵏ ⵢⵉⵎⵇⴰⵍ alluvionnaires, Figuig",
+  p10Desc:"ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵓⵙⵎⴷⵓ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ ⵏ ⵓⵙⵏⴼⴰⵕ ⵏ ⵓⵍⴷⴰⵢ ⵏ ⴽⵔⴰⴹ ⵏ ⵢⵉⵎⵇⴰⵍ alluvionnaires ⴳ ⵜⴰⴷⴷⴰⵔⵉⵏ ⵏ Talsint ⴷ Bouanane, ⵜⴰⵎⵏⴰⴹⵜ ⵏ Figuig.",
+  p11Title:"EIE — ⴰⵎⵇⴰⵍ alluvionnaire, Tendrara",
+  p11Desc:"ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵓⵙⵎⴷⵓ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ ⵏ ⵓⵙⵏⴼⴰⵕ ⵏ ⵓⵙⴽⵛⵎ ⵏ ⵓⵎⵇⴰⵍ alluvionnaire ⵖⴼ ⵡⴰⵙⵉⴼ Belmini ⴷ ⵡⴰⵙⵉⴼ Oglat Oulad Nasseur, ⵜⴰⴷⴷⴰⵔⵜ ⵏ Tendrara, ⵜⴰⵎⵏⴰⴹⵜ ⵏ Figuig.",
+  ctaH:"ⵜⵙⵄⵉⴷ ⴰⵙⵏⴼⴰⵕ?",
+  ctaDesc:"ⵜⴰⵔⴱⴰⵄⵜ-ⵏⵏⵖ ⵜⵀⴳⴳⴰ ⴰⴷ ⴽ-ⵜⵎⵖⵉⵕ ⴳ ⵢⵉⵙⵏⴼⴰⵕⵏ-ⵉⴽ ⵏ ⵜⵓⵙⵙⵏⴰ ⵏ ⵡⴰⴽⴰⵍ, ⵜⴰⵡⵏⵏⴰⴹⵜ ⴷ ⵜⵙⵏⵖⵍⵜ.",
+  ctaBtn1:"ⴰⵔⵓ-ⴰⵖ-ⴷ",rights:"ⴰⴽⴽⵯ ⵉⵣⵔⴼⴰⵏ ⵃⴹⴰⵏⵉⵏ"
+}
+};
+
+var EXTRA={
+  fr:{topbar:"Bureau d'études — Casablanca, Maroc",headerDesc:"Découvrez nos réalisations et projets en cours dans les domaines de la géoscience, l'environnement et l'ingénierie.",eyeA:"Recherche scientifique",eyeB:"Études & réalisations",eyeC:"Contact",listH:"Références",rights:"Tous droits réservés"},
+  en:{topbar:"Consulting Bureau — Casablanca, Morocco",headerDesc:"Explore our completed and ongoing projects in geoscience, environment and engineering.",eyeA:"Scientific research",eyeB:"Studies & achievements",eyeC:"Contact",listH:"References",rights:"All rights reserved"},
+  ar:{topbar:"مكتب دراسات — الدار البيضاء، المغرب",headerDesc:"اكتشفوا مشاريعنا المنجزة والجارية في مجالات علوم الأرض والبيئة والهندسة.",eyeA:"البحث العلمي",eyeB:"دراسات وإنجازات",eyeC:"اتصال",listH:"مراجع",rights:"جميع الحقوق محفوظة"},
+  zgh:{topbar:"ⴰⵙⴰⵔⴰⴳ ⵏ ⵜⵉⵣⵔⴰⵡⵉⵏ — ⴰⵏⴼⴰ, ⵍⵎⵖⵔⵉⴱ",headerDesc:"ⵙⵏⵉⵔⵎ ⵉⵙⵏⴼⴰⵕⵏ-ⵏⵏⵖ ⵉⵜⵜⵡⴰⴽⵎⵍⵏ ⴷ ⵡⵉⴷ ⵉⵜⵜⴷⴷⵓⵏ ⴳ ⵢⵉⴳⵔⴰⵏ ⵏ ⵜⵓⵙⵙⵏⴰ ⵏ ⵡⴰⴽⴰⵍ, ⵜⴰⵡⵏⵏⴰⴹⵜ ⴷ ⵜⵙⵏⵖⵍⵜ.",eyeA:"ⴰⵏⴰⴷⵉ ⵓⵙⵙⵏⴰⵏ",eyeB:"ⵜⵉⵣⵔⴰⵡⵉⵏ ⴷ ⵢⵉⵙⵏⴼⴰⵕⵏ",eyeC:"ⴰⵏⵔⵎⴰⵙ",listH:"ⵜⵉⵎⵙⵙⴽⵜⴰⵢ",rights:"ⴰⴽⴽⵯ ⵉⵣⵔⴼⴰⵏ ⵃⴹⴰⵏⵉⵏ"}
 };
 
 function setLang(l,btn){
-  var t=T[l];
+  var t=T[l];if(!t)return;
+  var x=EXTRA[l]||{};
   document.documentElement.lang=l;
   document.documentElement.dir=(l==='ar')?'rtl':'ltr';
   document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  var map={
-    't-topbar':'topbar','t-back':'back','t-header-desc':'headerDesc',
-    't-proj-h':'projH','t-proj-intro':'projIntro',
-    't-badge1':'badge1','t-badge2':'badge2','t-badge3':'badge3','t-badge4':'badge4','t-badge5':'badge5','t-badge6':'badge6',
-    't-p1-title':'p1Title','t-p1-desc':'p1Desc',
-    't-p2-title':'p2Title','t-p2-desc':'p2Desc',
-    't-p3-title':'p3Title','t-p3-desc':'p3Desc',
-    't-p4-title':'p4Title','t-p4-desc':'p4Desc',
-    't-p5-title':'p5Title','t-p5-desc':'p5Desc',
-    't-p6-title':'p6Title','t-p6-desc':'p6Desc',
-    't-cta-h':'ctaH','t-cta-desc':'ctaDesc','t-cta-btn1':'ctaBtn1','t-cta-btn2':'ctaBtn2'
-  };
-  Object.keys(map).forEach(function(id){
-    var el=document.getElementById(id);
-    if(el&&t[map[id]]){el.textContent=t[map[id]]}
-  });
+  if(btn)btn.classList.add('active');
+  function put(id,v){var e=document.getElementById(id);if(e&&v!==undefined)e.textContent=v}
+  Object.keys(t).forEach(function(k){put('t-'+k,t[k])});
+  Object.keys(x).forEach(function(k){put('t-'+k,x[k])});
+  var ba=document.querySelector('.back-arrow');
+  if(ba)ba.className=(l==='ar')?'fa-solid fa-arrow-right back-arrow':'fa-solid fa-arrow-left back-arrow';
 }
+
+(function(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.1});
+  document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+})();
 </script>
 </body>
 </html>
