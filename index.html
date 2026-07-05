@@ -3,198 +3,337 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>K&B Earth Works SARL</title>
+<title>K&B Earth Works SARL — Bureau d'études en géosciences, environnement & ingénierie</title>
+<meta name="description" content="K&B Earth Works SARL, bureau d'études basé à Casablanca : géosciences, environnement, hydrogéologie, exploration minière, ingénierie VRD et études d'impact environnemental."/>
+<link rel="icon" href="assets/logos.png" type="image/png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Noto+Sans+Tifinagh&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
+@font-face{
+  font-family:'Noto Sans Tifinagh';
+  src:url('assets/NotoSansTifinagh.ttf') format('truetype');
+  font-weight:100 900;
+  font-display:swap;
+}
 :root{
   --brown:#8B5A38;
+  --brown-l:#B07040;
   --teal:#4A8A90;
   --teal-light:#7BB8BE;
   --slate:#2C4A52;
   --dark:#1a3038;
-  --cream:#F5F2EE;
+  --darker:#132329;
+  --cream:#F7F4EF;
+  --paper:#FFFFFF;
+  --txt:#3d4f55;
+  --disp:'Montserrat','IBM Plex Sans Arabic','Noto Sans Tifinagh',sans-serif;
+  --body:'Source Sans 3','IBM Plex Sans Arabic','Noto Sans Tifinagh',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#333}
-[dir="rtl"]{font-family:Tahoma,'Segoe UI',Arial,sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--txt);font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+::selection{background:var(--teal);color:#fff}
+[dir="rtl"] body{letter-spacing:0}
 
-/* ══ WHATSAPP BOUTON ══ */
-.wa-float{
-  position:fixed;bottom:28px;left:28px;z-index:99999;
-  width:60px;height:60px;border-radius:50%;
-  background:#25D366;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  text-decoration:none;
-  box-shadow:0 4px 20px rgba(37,211,102,.5);
-  animation:wapulse 2s infinite;
-  transition:.25s;
+/* ── reveal ── */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+
+/* ══ WHATSAPP ══ */
+.wa-float{position:fixed;bottom:28px;inset-inline-start:28px;z-index:99999;width:60px;height:60px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5);animation:wapulse 2.4s infinite;transition:.25s}
 .wa-float:hover{background:#1ebe5d;transform:scale(1.1)}
-.wa-float i{font-size:2rem;color:#fff}
-@keyframes wapulse{
-  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}
-  50%{box-shadow:0 4px 36px rgba(37,211,102,.8)}
-}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+@keyframes wapulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}50%{box-shadow:0 4px 34px rgba(37,211,102,.75)}}
 
 /* ══ TOPBAR ══ */
-.topbar{background:var(--dark);display:flex;justify-content:space-between;align-items:center;padding:8px 28px}
-.topbar-left{color:rgba(255,255,255,.5);font-size:.75rem;display:flex;align-items:center;gap:6px}
+.topbar{background:var(--darker);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 30px}
+.topbar-left{color:rgba(255,255,255,.55);font-size:.78rem;display:flex;align-items:center;gap:8px;letter-spacing:.03em}
 .topbar-left i{color:var(--teal-light)}
-.lang-switcher{display:flex;gap:6px}
-.lang-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);padding:5px 12px;border-radius:30px;cursor:pointer;font-size:.75rem;font-weight:600;transition:.2s}
-.lang-btn img{width:20px;height:14px;border-radius:3px;object-fit:cover}
+.lang-switcher{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.lang-btn{display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.75);padding:5px 13px;border-radius:30px;cursor:pointer;font-family:var(--disp);font-size:.72rem;font-weight:600;letter-spacing:.05em;transition:.22s}
+.lang-btn img{width:20px;height:14px;border-radius:3px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,.35);flex-shrink:0;display:block}
 .lang-btn:hover,.lang-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+html[lang="zgh"] body,html[lang="zgh"] button,html[lang="zgh"] a,html[lang="zgh"] span,html[lang="zgh"] p,html[lang="zgh"] h1,html[lang="zgh"] h2,html[lang="zgh"] h3,html[lang="zgh"] li{font-family:'Noto Sans Tifinagh','Segoe UI',Arial,sans-serif}
+.lang-btn .tifinagh{font-family:'Noto Sans Tifinagh','Segoe UI Symbol',sans-serif;font-size:1rem;font-weight:700;line-height:1}
 
-/* ══ HERO avec fond montagne ══ */
+/* ══ HERO — la wajiha ══ */
 .hero{
   background:
     linear-gradient(160deg,rgba(248,244,240,.88) 0%,rgba(238,247,248,.85) 55%,rgba(240,248,240,.88) 100%),
-    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&auto=format&fit=crop&q=80') center/cover no-repeat;
-  padding:64px 20px 54px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid #dceef0;
+    url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+  padding:72px 20px 62px;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid #dceef0;
 }
-.logo-wrap{display:inline-block;margin-bottom:22px}
-.logo-wrap img{width:180px;height:180px;object-fit:contain;filter:drop-shadow(0 10px 28px rgba(44,74,82,.2));transition:transform .35s}
+.hero-in{animation:heroUp 1.1s cubic-bezier(.22,.61,.36,1) both}
+@keyframes heroUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.logo-wrap{display:block;width:fit-content;margin:0 auto 24px;position:relative;z-index:1}
+.logo-wrap img{width:215px;height:215px;object-fit:contain;filter:drop-shadow(0 12px 30px rgba(44,74,82,.22));transition:transform .4s}
 .logo-wrap img:hover{transform:scale(1.05)}
-.hero h1{font-size:2.6rem;font-weight:900;letter-spacing:6px;color:var(--slate);margin-bottom:5px}
-.hero .sub{font-size:.78rem;letter-spacing:5px;color:var(--teal);margin-bottom:16px;text-transform:uppercase}
-.hero .sep{width:70px;height:3px;margin:0 auto 18px;border-radius:3px;background:linear-gradient(90deg,var(--brown),var(--teal))}
-.hero .tagline{font-size:1rem;color:#555;margin-bottom:4px}
-.hero .loc{color:var(--brown);font-style:italic;font-size:.88rem;margin-bottom:30px}
+.hero h1{font-family:var(--disp);font-size:clamp(1.9rem,5vw,2.75rem);font-weight:900;letter-spacing:.22em;color:var(--slate);margin-bottom:8px;text-indent:.22em}
+.hero .sub{font-family:var(--disp);font-size:.8rem;letter-spacing:.42em;color:var(--teal);margin-bottom:18px;text-transform:uppercase;font-weight:600;text-indent:.42em}
+.hero .sep{width:76px;height:3px;margin:0 auto 20px;border-radius:3px;background:linear-gradient(90deg,var(--brown),var(--teal))}
+.hero .tagline{font-size:1.08rem;color:#4d5c60;margin-bottom:5px;font-weight:500}
+.hero .loc{color:var(--brown);font-style:italic;font-size:.92rem;margin-bottom:34px}
 .hero-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.btn-p{background:linear-gradient(135deg,var(--slate),var(--teal));color:#fff;border:none;padding:13px 34px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.88rem;box-shadow:0 6px 18px rgba(44,74,82,.28);transition:.25s;display:flex;align-items:center;gap:8px}
-.btn-p:hover{transform:translateY(-3px)}
-.btn-o{border:2px solid var(--slate);background:transparent;color:var(--slate);padding:13px 34px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.88rem;transition:.25s;display:flex;align-items:center;gap:8px}
-.btn-o:hover{background:var(--slate);color:#fff}
-.btn-b{background:linear-gradient(135deg,var(--brown),#b07040);color:#fff;border:none;padding:13px 34px;border-radius:50px;font-weight:700;cursor:pointer;font-size:.88rem;box-shadow:0 6px 18px rgba(139,90,56,.28);transition:.25s;display:flex;align-items:center;gap:8px;text-decoration:none}
-.btn-b:hover{transform:translateY(-3px)}
+.btn-p,.btn-o,.btn-b{font-family:var(--disp);font-weight:700;font-size:.86rem;letter-spacing:.02em;padding:14px 34px;border-radius:50px;cursor:pointer;transition:.28s;display:inline-flex;align-items:center;gap:9px;text-decoration:none;position:relative;overflow:hidden}
+.btn-p{background:linear-gradient(135deg,var(--slate),var(--teal));color:#fff;border:none;box-shadow:0 8px 22px rgba(44,74,82,.3)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(44,74,82,.38)}
+.btn-o{border:2px solid var(--slate);background:rgba(255,255,255,.55);color:var(--slate)}
+.btn-o:hover{background:var(--slate);color:#fff;transform:translateY(-3px)}
+.btn-b{background:linear-gradient(135deg,var(--brown),var(--brown-l));color:#fff;border:none;box-shadow:0 8px 22px rgba(139,90,56,.32)}
 
-/* ══ BARRE ══ */
-.bar{background:var(--slate);display:flex;flex-wrap:wrap;justify-content:center}
-.bar a{color:rgba(255,255,255,.85);font-size:.8rem;padding:14px 22px;border-right:1px solid rgba(255,255,255,.08);text-decoration:none;display:flex;align-items:center;gap:10px;transition:.25s}
-[dir="rtl"] .bar a{border-right:none;border-left:1px solid rgba(255,255,255,.08)}
-.bar a:last-child{border:none}
-.bar a:hover{background:rgba(255,255,255,.08)}
-.bar a:hover .bar-ico{background:var(--brown);transform:rotate(10deg) scale(1.1)}
-.bar-ico{width:36px;height:36px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;transition:.3s;flex-shrink:0;box-shadow:0 3px 10px rgba(0,0,0,.22)}
+/* ══ NOTIF PROJETS ══ */
+.proj-notif{display:inline-flex;align-items:center;gap:10px;width:fit-content;margin:0 auto 28px;padding:8px 16px 8px 8px;background:#fff;border:1px solid rgba(74,138,144,.28);border-radius:50px;text-decoration:none;color:var(--slate);box-shadow:0 8px 28px rgba(44,74,82,.12);position:relative;z-index:2;transition:transform .25s,box-shadow .25s;animation:notif-float 3s ease-in-out infinite}
+.proj-notif:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 36px rgba(44,74,82,.2);border-color:var(--teal)}
+.proj-notif-new{background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;font-family:var(--disp);font-size:.62rem;font-weight:800;letter-spacing:1.5px;padding:5px 10px;border-radius:20px;position:relative;animation:notif-pulse 1.6s ease-in-out infinite}
+.proj-notif-new::after{content:'';position:absolute;inset:-3px;border-radius:20px;border:2px solid rgba(231,76,60,.45);animation:notif-ring 1.6s ease-out infinite}
+.proj-notif-txt{font-size:.82rem;font-weight:700;line-height:1.2;text-align:start}
+.proj-notif-sub{display:block;font-size:.68rem;font-weight:500;color:#777;margin-top:1px}
+.proj-notif i{color:var(--teal);font-size:.78rem;transition:transform .25s}
+.proj-notif:hover i.fa-arrow-right{transform:translateX(4px)}
+[dir="rtl"] .proj-notif:hover i.fa-arrow-left{transform:translateX(-4px)}
+@keyframes notif-pulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.45)}50%{box-shadow:0 0 0 6px rgba(231,76,60,0)}}
+@keyframes notif-ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.35);opacity:0}}
+@keyframes notif-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.btn-g{font-family:var(--disp);font-weight:700;font-size:.86rem;letter-spacing:.02em;padding:14px 34px;border-radius:50px;cursor:pointer;transition:.28s;display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:linear-gradient(135deg,var(--dark),var(--teal));color:#fff;border:none;box-shadow:0 8px 22px rgba(44,74,82,.3)}
+.btn-g:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(44,74,82,.38)}
+.btn-b:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(139,90,56,.4)}
+
+/* ══ BARRE CONTACT ══ */
+.bar{background:var(--slate);display:flex;flex-wrap:wrap;justify-content:center;border-top:1px solid rgba(255,255,255,.06)}
+.bar a{color:#f2f6f7;font-size:.84rem;font-weight:600;padding:15px 26px;border-inline-end:1px solid rgba(255,255,255,.1);text-decoration:none;display:flex;align-items:center;gap:11px;transition:.25s}
+.bar a .bar-txt{color:#f2f6f7}
+.bar a:hover{background:rgba(255,255,255,.08);color:#fff}
+.bar a:hover .bar-txt{color:#fff}
+.bar a:last-child{border-inline-end:none}
+.bar a:hover{background:rgba(255,255,255,.07)}
+.bar a:hover .bar-ico{background:var(--brown);transform:rotate(8deg) scale(1.1)}
+.bar-ico{width:38px;height:38px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;transition:.3s;flex-shrink:0;box-shadow:0 3px 12px rgba(0,0,0,.24)}
 .bar-ico i{color:#fff;font-size:.9rem}
 
+/* ══ SECTION SCAFFOLD ══ */
+.sec{padding:88px 20px}
+.sec-in{max-width:1120px;margin:0 auto}
+.sec-eyebrow{font-family:var(--disp);font-size:.7rem;font-weight:700;letter-spacing:.4em;text-transform:uppercase;color:var(--brown);text-align:center;margin-bottom:12px;text-indent:.4em}
+.sec-h{font-family:var(--disp);font-size:clamp(1.5rem,3vw,2.05rem);font-weight:800;color:var(--slate);text-align:center;letter-spacing:.02em;margin-bottom:0}
+.sec-h::after{content:'';display:block;width:60px;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));margin:16px auto 0;border-radius:3px}
+.sec-intro{text-align:center;color:#71827f;font-size:.98rem;max-width:640px;margin:22px auto 0;line-height:1.75}
+
+/* ══ STATS ══ */
+.stats{background:var(--darker);position:relative;overflow:hidden}
+.stats::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 200px at 50% 120%,rgba(74,138,144,.22),transparent)}
+.stats-in{position:relative;max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:40px 20px}
+.stat{text-align:center;padding:14px 20px;border-inline-start:1px solid rgba(255,255,255,.09)}
+.stat:first-child{border-inline-start:none}
+.stat b{display:block;font-family:var(--disp);font-weight:900;font-size:2.5rem;color:#fff;line-height:1.1;letter-spacing:.02em}
+.stat b em{font-style:normal;color:var(--teal-light)}
+.stat span{font-family:var(--disp);font-size:.7rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+@media(max-width:640px){
+  .stats-in{grid-template-columns:1fr;gap:22px}
+  .stat{border-inline-start:none}
+}
+
 /* ══ ABOUT ══ */
-.about{background:var(--cream);padding:70px 20px;text-align:center}
-.sec-h{font-size:1.75rem;font-weight:700;color:var(--slate);margin-bottom:10px}
-.sec-h::after{content:'';display:block;width:55px;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));margin:10px auto 28px;border-radius:3px}
-.about p{max-width:700px;margin:0 auto 14px;line-height:1.9;color:#444;font-size:.96rem}
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:center;margin-top:44px}
+.about-txt p{margin-bottom:16px;font-size:1rem}
+.about-txt strong{color:var(--slate)}
+.approach{background:#fff;border:1px solid #e6ded2;border-radius:18px;padding:32px 32px 20px;box-shadow:0 18px 50px rgba(44,74,82,.09)}
+.approach h3{font-family:var(--disp);font-size:.82rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-bottom:16px}
+.approach ul{list-style:none}
+.approach li{display:flex;align-items:center;gap:15px;padding:11px 0;font-size:.95rem;font-weight:500;color:var(--slate);border-bottom:1px solid rgba(74,138,144,.12)}
+.approach li:last-child{border-bottom:none}
+.ap-ico{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--teal),var(--slate));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 5px 14px rgba(44,74,82,.22)}
+.ap-ico i{color:#fff;font-size:.88rem}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:36px}}
 
 /* ══ SERVICES ══ */
-.srv{padding:70px 20px;background:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;max-width:980px;margin:0 auto}
-.card{background:#fff;border:1px solid #deeef0;border-radius:16px;padding:28px 22px;transition:.28s;position:relative;overflow:hidden}
-.card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));transform:scaleX(0);transition:.3s;transform-origin:left}
-.card:hover{box-shadow:0 10px 32px rgba(74,138,144,.15);transform:translateY(-5px)}
+.srv{background:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:48px}
+.card{background:#fff;border:1px solid #e2ecee;border-radius:18px;padding:32px 28px;transition:.3s;position:relative;overflow:hidden;box-shadow:0 6px 22px rgba(44,74,82,.05)}
+.card::after{content:'';position:absolute;bottom:0;inset-inline:0;height:3px;background:linear-gradient(90deg,var(--brown),var(--teal));transform:scaleX(0);transition:.35s;transform-origin:left}
+[dir="rtl"] .card::after{transform-origin:right}
+.card:hover{box-shadow:0 22px 54px rgba(74,138,144,.17);transform:translateY(-7px);border-color:#cfe3e6}
 .card:hover::after{transform:scaleX(1)}
-.ch{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.ch-ico{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--teal),var(--slate));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(44,74,82,.2)}
-.ch-ico i{color:#fff;font-size:1.1rem}
-.ch h3{color:var(--slate);font-size:.92rem;font-weight:700}
+.ch{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.ch-ico{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--teal),var(--slate));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 6px 16px rgba(44,74,82,.24);transition:.3s}
+.card:hover .ch-ico{transform:rotate(-6deg) scale(1.06)}
+.ch-ico i{color:#fff;font-size:1.15rem}
+.ch h3{font-family:var(--disp);color:var(--slate);font-size:.95rem;font-weight:700;line-height:1.35}
 .card ul{list-style:none}
-.card ul li{color:#666;font-size:.81rem;padding:4px 0 4px 16px;position:relative;line-height:1.55}
-[dir="rtl"] .card ul li{padding:4px 16px 4px 0}
-.card ul li::before{content:"›";color:var(--teal);position:absolute;left:0;font-weight:800}
-[dir="rtl"] .card ul li::before{left:auto;right:0;content:"‹"}
+.card ul li{color:#61736f;font-size:.86rem;padding:5px 0;padding-inline-start:17px;position:relative;line-height:1.6}
+.card ul li::before{content:"›";color:var(--teal);position:absolute;inset-inline-start:0;font-weight:800}
+[dir="rtl"] .card ul li::before{content:"‹"}
 
 /* ══ MINING ══ */
-.mining{background:linear-gradient(135deg,#e8f5f6,#f0f4f3);padding:56px 20px}
-.mi-box{max-width:840px;margin:0 auto;background:#fff;border-radius:18px;padding:36px 40px;box-shadow:0 6px 28px rgba(44,74,82,.09)}
-.mi-box h2{font-size:1.1rem;font-weight:700;color:var(--slate);margin-bottom:20px;display:flex;align-items:center;gap:10px}
-.mi-ico{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--brown),#c07840);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.mi-ico i{color:#fff;font-size:.9rem}
-.mi-box ul{list-style:none;display:grid;gap:10px}
-.mi-box ul li{font-size:.86rem;color:var(--slate);padding:11px 16px 11px 44px;position:relative;line-height:1.6;background:#f6fbfc;border-radius:10px;border-left:3px solid var(--teal);transition:.2s}
-[dir="rtl"] .mi-box ul li{padding:11px 44px 11px 16px;border-left:none;border-right:3px solid var(--teal)}
-.mi-box ul li:hover{background:#eef7f8}
-.mi-box ul li i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--teal);font-size:.8rem}
-[dir="rtl"] .mi-box ul li i{left:auto;right:16px}
+.mining{background:linear-gradient(150deg,var(--dark),var(--slate) 70%,#35606a);color:#e8f1f2;position:relative;overflow:hidden}
+.mining::before{content:'';position:absolute;inset-inline-end:-160px;top:-160px;width:520px;height:520px;border-radius:50%;border:1px solid rgba(255,255,255,.07);box-shadow:0 0 0 70px rgba(255,255,255,.03),0 0 0 150px rgba(255,255,255,.02)}
+.mining .sec-in{position:relative}
+.mining .sec-eyebrow{color:var(--teal-light)}
+.mining .sec-h{color:#fff}
+.mining .sec-intro{color:rgba(232,241,242,.72)}
+.mine-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;margin-top:44px}
+.mine-item{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:19px 22px;transition:.25s;font-size:.92rem;line-height:1.6}
+.mine-item:hover{background:rgba(255,255,255,.1);transform:translateX(4px)}
+[dir="rtl"] .mine-item:hover{transform:translateX(-4px)}
+.mine-item i{color:var(--teal-light);margin-top:4px;flex-shrink:0;width:20px;text-align:center;font-size:.95rem}
 
+/* ══ PROJETS PREVIEW ══ */
+.projprev{background:var(--cream)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-top:48px}
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid #e6ded2;border-radius:18px;overflow:hidden;text-decoration:none;transition:.3s;box-shadow:0 8px 26px rgba(44,74,82,.07)}
+.pcard:hover{box-shadow:0 24px 56px rgba(44,74,82,.16);transform:translateY(-7px)}
+.pcard-top{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:linear-gradient(135deg,var(--slate),var(--teal))}
+.pcard-top i{color:#fff;font-size:1.15rem}
+.pcard-badge{font-family:var(--disp);font-size:.6rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);padding:4px 12px;border-radius:20px}
+.pcard-badge.b-pub{background:linear-gradient(135deg,var(--brown),var(--brown-l));border-color:transparent}
+.pcard-body{padding:24px;display:flex;flex-direction:column;gap:11px;flex:1}
+.pcard h3{font-family:var(--disp);font-weight:700;font-size:.95rem;line-height:1.45;color:var(--slate)}
+.pcard p{font-size:.86rem;color:#61736f;line-height:1.65}
+.pcard .more{margin-top:auto;padding-top:14px;font-family:var(--disp);font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:9px;transition:.2s}
+.pcard:hover .more{color:var(--brown)}
+.pcard:hover .more i{transform:translateX(4px)}
+[dir="rtl"] .pcard:hover .more i{transform:translateX(-4px)}
+.pcard .more i{transition:.2s}
+.pcard-media{position:relative;height:168px;overflow:hidden;background:var(--dark);flex-shrink:0}
+.pcard-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+.pcard:hover .pcard-media img{transform:scale(1.06)}
+.pcard-media-bar{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:space-between;padding:16px 20px;background:linear-gradient(180deg,rgba(19,35,41,.5) 0%,transparent 55%)}
+.pcard-media-bar i{color:#fff;font-size:1.15rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
+.projprev-cta{text-align:center;margin-top:44px}
 
-/* ══ BOTTOM ══ */
-.bottom{display:grid;grid-template-columns:1.3fr 0.7fr}
-@media(max-width:640px){.bottom{grid-template-columns:1fr}}
-.app{background:var(--cream);padding:36px 48px;display:flex;flex-direction:column;justify-content:center}
-.app h2{font-size:1.2rem;font-weight:700;color:var(--slate);margin-bottom:18px}
-.app ul{list-style:none}
-.app ul li{display:flex;align-items:center;gap:14px;padding:9px 0;font-size:.93rem;color:#444;border-bottom:1px solid rgba(74,138,144,.1)}
-.ap-ico{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--slate));display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ap-ico i{color:#fff;font-size:.85rem}
-.app-hours{margin-top:16px;padding-top:14px;border-top:1px solid rgba(74,138,144,.15);display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--slate);font-weight:600}
-.app-hours i{color:var(--teal);font-size:1rem}
-.widgets-row{display:flex;gap:12px;margin-top:18px}
-.ma-clock,.ma-meteo{flex:1;padding:14px 20px;background:linear-gradient(135deg,var(--slate),var(--teal));border-radius:14px;box-shadow:0 6px 22px rgba(44,74,82,.18)}
-.clock-label{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
-.clock-label i{color:var(--teal-light);font-size:.8rem}
-.clock-display{display:flex;align-items:center;justify-content:center;gap:6px}
-.clock-unit{text-align:center;min-width:48px}
-.clock-unit span{display:block;font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:2px;font-variant-numeric:tabular-nums}
-.clock-unit small{display:block;font-size:.55rem;color:var(--teal-light);text-transform:uppercase;letter-spacing:1.5px;margin-top:1px}
-.clock-sep{font-size:1.4rem;font-weight:700;color:var(--teal-light);margin-top:-12px;animation:blinker 1s step-start infinite}
-@keyframes blinker{50%{opacity:0}}
-.meteo-label{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.7);font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.meteo-label i{color:var(--teal-light);font-size:.8rem}
-.meteo-display{display:flex;align-items:center;gap:12px;justify-content:center}
-.meteo-icon{font-size:2.2rem;line-height:1}
-.meteo-info{display:flex;flex-direction:column}
-.meteo-temp{font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:1px}
-.meteo-desc{font-size:.65rem;color:var(--teal-light);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-@media(max-width:480px){.widgets-row{flex-direction:column}}
-.ma-cal{margin-top:12px;padding:14px 16px;background:linear-gradient(135deg,var(--slate),var(--teal));border-radius:14px;box-shadow:0 6px 22px rgba(44,74,82,.18)}
-.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.cal-title{color:#fff;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase}
-.cal-nav{background:rgba(255,255,255,.1);border:none;color:var(--teal-light);width:28px;height:28px;border-radius:8px;cursor:pointer;font-size:.7rem;display:flex;align-items:center;justify-content:center;transition:.2s}
-.cal-nav:hover{background:rgba(255,255,255,.2)}
-[dir="rtl"] .cal-nav i.fa-chevron-left{transform:scaleX(-1)}
-[dir="rtl"] .cal-nav i.fa-chevron-right{transform:scaleX(-1)}
-.cal-days{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;margin-bottom:4px}
-.cal-days span{font-size:.6rem;color:var(--teal-light);font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 0}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;gap:2px}
-.cal-grid span{font-size:.72rem;color:rgba(255,255,255,.7);padding:5px 0;border-radius:6px;transition:.15s}
-.cal-grid span.today{background:var(--brown);color:#fff;font-weight:800}
-.cal-grid span.empty{opacity:0}
-.cal-grid span:not(.empty):not(.today):hover{background:rgba(255,255,255,.1);cursor:default}
+/* ══ GALERIE — style pro géosciences ══ */
+.gallery-sec{background:#fff;padding:96px 20px;position:relative}
+.gallery-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brown),var(--teal),var(--slate))}
+.gallery-sec .sec-in{max-width:1240px}
+.gal-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:linear-gradient(135deg,var(--darker) 0%,var(--slate) 55%,#35606a 100%);border-radius:16px;padding:26px 32px;margin-top:40px;color:#fff;box-shadow:0 16px 48px rgba(26,48,56,.18)}
+.gal-banner p{margin:0;font-size:.92rem;color:rgba(232,241,242,.82);max-width:520px;line-height:1.65}
+.gal-banner b{font-family:var(--disp);font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:.04em}
+.gal-banner b span{display:block;font-size:.65rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-light);margin-top:2px}
+.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(130px,14vw);gap:12px;margin-top:32px;grid-auto-flow:dense}
+.gal-item{position:relative;overflow:hidden;border-radius:14px;background:var(--dark);cursor:pointer;border:none;padding:0;min-height:0;width:100%;height:100%;box-shadow:0 12px 36px rgba(26,48,56,.14);transition:transform .4s cubic-bezier(.22,.61,.36,1),box-shadow .4s}
+.gal-item:hover{transform:translateY(-4px);box-shadow:0 22px 52px rgba(26,48,56,.22);z-index:2}
+.gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s cubic-bezier(.22,.61,.36,1);user-select:none;-webkit-user-drag:none}
+.gal-item:hover img{transform:scale(1.06)}
+.gal-item::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(19,35,41,.72));opacity:.75;transition:opacity .35s;pointer-events:none}
+.gal-item:hover::after{opacity:1}
+.gal-item .gal-zoom{position:absolute;top:14px;inset-inline-end:14px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;color:var(--slate);font-size:.85rem;opacity:0;transform:scale(.75);transition:.35s}
+.gal-item:hover .gal-zoom{opacity:1;transform:scale(1)}
+.gal-item .gal-num{position:absolute;bottom:14px;inset-inline-start:16px;z-index:2;font-family:var(--disp);font-size:.62rem;font-weight:800;letter-spacing:.28em;color:rgba(255,255,255,.88);text-transform:uppercase}
+.gal-item .gal-view{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .35s;background:rgba(26,48,56,.35);pointer-events:none}
+.gal-item:hover .gal-view{opacity:1}
+.gal-view span{font-family:var(--disp);font-size:.68rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);padding:10px 20px;border-radius:50px;backdrop-filter:blur(6px)}
+@media(max-width:900px){
+  .gal-grid{grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(120px,22vw)}
+}
+@media(max-width:560px){
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;gap:10px}
+  .gal-item{grid-column:span 1!important;grid-row:span 1!important}
+  .gal-item.g-hero{grid-column:span 2!important;grid-row:span 2!important}
+}
 
-/* ══ CONTACT ══ */
-.cc{background:linear-gradient(160deg,var(--dark),var(--slate));padding:36px 44px;color:#fff;display:flex;flex-direction:column;justify-content:center}
-.cc-logo{width:100px;height:100px;object-fit:contain;display:block;margin-bottom:14px;filter:brightness(0) invert(1);opacity:.9}
-.cc h3{font-size:1.1rem;font-weight:800;letter-spacing:3px;margin-bottom:4px}
-.cc .cs{color:var(--teal-light);font-size:.74rem;letter-spacing:3px;margin-bottom:18px;text-transform:uppercase}
-.ci{display:flex;gap:12px;font-size:.83rem;color:rgba(255,255,255,.88);margin-bottom:10px;line-height:1.65;align-items:flex-start}
-.ci-ico{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.ci-ico i{color:var(--teal-light);font-size:.85rem}
-.cc hr{border:none;border-top:1px solid rgba(255,255,255,.1);margin:14px 0}
-.socials{display:flex;gap:12px;margin-top:2px}
-.soc-btn{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.25s;border:1px solid rgba(255,255,255,.15)}
-.soc-btn i{color:var(--teal-light);font-size:1.1rem;transition:.2s}
-.soc-btn:hover{background:var(--teal);border-color:var(--teal);transform:translateY(-3px)}
-.soc-btn:hover i{color:#fff}
+/* ══ LIGHTBOX — plein écran ══ */
+.lb{position:fixed;inset:0;z-index:100000;background:rgba(8,16,20,.94);backdrop-filter:blur(14px);display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .35s ease}
+.lb.open{display:flex;opacity:1}
+.lb-stage{position:relative;max-width:min(94vw,1200px);max-height:88vh;display:flex;align-items:center;justify-content:center;animation:lbIn .4s cubic-bezier(.22,.61,.36,1) both}
+@keyframes lbIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.lb img{max-width:100%;max-height:88vh;object-fit:contain;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,.55);display:block;user-select:none;-webkit-user-drag:none}
+.lb-btn{position:fixed;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);color:#fff;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:1.05rem;display:flex;align-items:center;justify-content:center;transition:.25s;z-index:100001}
+.lb-btn:hover{background:var(--teal);border-color:var(--teal);transform:scale(1.06)}
+.lb-close{top:20px;inset-inline-end:20px}
+.lb-prev{inset-inline-start:20px;top:50%;transform:translateY(-50%)}
+.lb-next{inset-inline-end:20px;top:50%;transform:translateY(-50%)}
+.lb-prev:hover,.lb-next:hover{transform:translateY(-50%) scale(1.06)}
+.lb-cap{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.88);font-family:var(--disp);font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;z-index:100001}
+.lb-thumbs{position:fixed;bottom:56px;left:50%;transform:translateX(-50%);display:flex;gap:8px;max-width:min(92vw,720px);overflow-x:auto;padding:6px 4px;z-index:100001;scrollbar-width:thin}
+.lb-thumbs::-webkit-scrollbar{height:4px}
+.lb-thumbs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25);border-radius:4px}
+.lb-thumb{width:52px;height:52px;border-radius:8px;object-fit:cover;cursor:pointer;opacity:.45;border:2px solid transparent;transition:.25s;flex-shrink:0}
+.lb-thumb.active,.lb-thumb:hover{opacity:1;border-color:var(--teal-light)}
+@media(max-width:640px){
+  .lb-btn{width:42px;height:42px;font-size:.95rem}
+  .lb-prev{inset-inline-start:10px}
+  .lb-next{inset-inline-end:10px}
+  .lb-thumbs{display:none}
+}
 
-/* ══ QR ══ */
-.qrs{background:#fff;padding:70px 20px;text-align:center}
-.qrbox{display:inline-flex;flex-direction:column;align-items:center;gap:18px;background:linear-gradient(135deg,#f8f4f0,#eef7f8);border-radius:24px;padding:38px 48px;box-shadow:0 8px 32px rgba(44,74,82,.1);border:1px solid #e0eef0}
-.qrbox img{border-radius:16px;border:9px solid #fff;box-shadow:0 4px 20px rgba(44,74,82,.15);width:260px;height:260px}
-.qr-link{font-size:.78rem;color:var(--teal);font-weight:600;display:flex;align-items:center;gap:6px}
-.dlb{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
-.db{padding:13px 28px;color:#fff;border:none;border-radius:50px;font-weight:700;font-size:.87rem;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:8px}
-.db:hover{transform:translateY(-3px);opacity:.9}
-.db1{background:linear-gradient(135deg,var(--brown),#b07040)}
-
-footer{background:var(--dark);text-align:center;padding:20px;font-size:.74rem;color:rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;gap:8px}
-footer span{color:var(--teal-light);font-weight:600}
+/* ══ BAS DE PAGE — split gauche / droite ══ */
+.site-close{background:#fff}
+.close-split{display:grid;grid-template-columns:1fr 1fr;min-height:min(88vh,820px)}
+.close-left{position:relative;background:#0a0e12;overflow:hidden;line-height:0}
+.close-left img{width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block;min-height:360px}
+.close-right{background:#1a2228;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.close-right-inner{padding:48px 44px 40px;flex:1;display:flex;flex-direction:column;justify-content:center;max-width:560px}
+.close-right .sec-eyebrow{color:var(--teal-light);text-align:start;text-indent:0;margin-bottom:8px;font-size:.68rem}
+.close-right h2{font-family:var(--disp);font-size:clamp(1.25rem,2.4vw,1.65rem);font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:.04em;line-height:1.25}
+.close-right-intro{font-size:.92rem;color:rgba(255,255,255,.65);margin-bottom:22px;line-height:1.65;max-width:42ch}
+.close-right-btns{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.close-divider{height:1px;background:rgba(255,255,255,.1);margin:0 44px}
+.close-logo{width:96px;height:96px;object-fit:contain;display:block;margin-bottom:14px;filter:brightness(0) invert(1)}
+.close-info h3{font-family:var(--disp);font-size:.95rem;font-weight:800;letter-spacing:.14em;margin-bottom:3px}
+.close-info .cs{color:var(--teal-light);font-family:var(--disp);font-size:.64rem;font-weight:600;letter-spacing:.28em;margin-bottom:16px;text-transform:uppercase}
+.ci{display:flex;gap:11px;font-size:.86rem;color:rgba(255,255,255,.85);margin-bottom:8px;line-height:1.5;align-items:flex-start}
+.ci a{color:rgba(255,255,255,.85);text-decoration:none}
+.ci a:hover{color:var(--teal-light)}
+.ci-ico{width:30px;height:30px;border-radius:8px;background:rgba(74,138,144,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ci-ico i{color:var(--teal-light);font-size:.75rem}
+.close-mid{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 44px;flex-wrap:wrap}
+.close-mid-label{font-family:var(--disp);font-size:.58rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:8px;display:block}
+.socials{display:flex;gap:8px}
+.soc-btn{width:48px;height:48px;border-radius:10px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:.2s;border:1px solid rgba(255,255,255,.1)}
+.soc-btn i{color:#fff;font-size:1.15rem}
+.soc-btn:hover{background:var(--teal);border-color:var(--teal)}
+.close-qr{display:flex;align-items:center;gap:14px}
+.close-qr img{width:68px;height:68px;border-radius:8px;background:#fff;padding:3px;display:block;flex-shrink:0}
+.close-qr-tag{font-family:var(--disp);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-light);margin:0 0 3px}
+.close-qr-desc{font-size:.7rem;color:rgba(255,255,255,.48);margin:0 0 6px;line-height:1.35;max-width:24ch}
+.close-qr-dl{background:transparent;border:1px solid rgba(255,255,255,.15);color:#fff;font-family:var(--disp);font-size:.62rem;font-weight:700;padding:5px 11px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:.2s}
+.close-qr-dl:hover{background:rgba(255,255,255,.06);border-color:var(--teal-light)}
+.close-presence{padding:18px 44px 22px;border-top:1px solid rgba(255,255,255,.08)}
+.close-map{position:relative;max-width:100%;margin:0 0 12px;overflow:hidden}
+.close-map .world-bg{width:100%;max-height:100px;object-fit:contain;display:block;opacity:.45;filter:grayscale(1);pointer-events:none}
+.map-pin{position:absolute;left:0;top:0;transform:translate(-50%,-50%);z-index:3;width:12px;height:12px;pointer-events:none}
+.map-pin .pin-dot{position:absolute;inset:0;border-radius:50%;background:#e8620a;border:2px solid #fff;box-shadow:0 2px 8px rgba(232,98,10,.5)}
+.map-pin .pin-pulse{position:absolute;inset:-8px;border-radius:50%;background:rgba(232,98,10,.3);animation:pinPulse 2.2s ease-out infinite}
+@keyframes pinPulse{0%{transform:scale(.6);opacity:.8}100%{transform:scale(2.2);opacity:0}}
+.close-live{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.world-coords{font-family:var(--disp);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:0}
+.world-live{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center}
+.wl-item{display:flex;align-items:center;gap:7px;color:#fff;font-family:var(--disp);font-size:.85rem;font-weight:700}
+.wl-item i{color:var(--teal-light);font-size:.82rem;width:14px;text-align:center}
+.wl-sub{font-size:.65rem;font-weight:500;color:rgba(255,255,255,.4);margin-inline-start:2px}
+#map-weather-desc{font-size:.68rem;font-weight:500;color:rgba(255,255,255,.5);margin-inline-start:4px}
+.close-copy{padding:14px 44px;background:#141a1f;border-top:1px solid rgba(255,255,255,.06);font-family:var(--disp);font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.32);display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.close-copy .foot-co{color:rgba(255,255,255,.5);font-weight:800}
+.close-copy i{color:var(--teal-light);font-size:.52rem;opacity:.65}
+@media(max-width:900px){
+  .close-split{grid-template-columns:1fr;min-height:0}
+  .close-left{min-height:240px;max-height:280px}
+  .close-left img{min-height:240px}
+  .close-right-inner{padding:36px 28px 32px;max-width:none}
+  .close-divider{margin:0 28px}
+  .close-mid{padding:18px 28px}
+  .close-presence{padding:16px 28px 20px}
+  .close-copy{padding:12px 28px}
+}
+@media(max-width:560px){
+  .close-mid{flex-direction:column;align-items:flex-start}
+  .close-live{flex-direction:column;align-items:flex-start;gap:10px}
+}
 </style>
 </head>
 <body>
 
 <!-- ══ WHATSAPP ══ -->
-<a href="https://wa.me/212762985389" target="_blank" class="wa-float">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
+<a href="https://wa.me/212762985389" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <!-- ══ TOPBAR ══ -->
@@ -204,309 +343,662 @@ footer span{color:var(--teal-light);font-weight:600}
     <button class="lang-btn active" onclick="setLang('fr',this)"><img src="https://flagcdn.com/w40/fr.png" alt="FR"/> FR</button>
     <button class="lang-btn" onclick="setLang('en',this)"><img src="https://flagcdn.com/w40/gb.png" alt="EN"/> EN</button>
     <button class="lang-btn" onclick="setLang('ar',this)"><img src="https://flagcdn.com/w40/ma.png" alt="AR"/> ع</button>
+    <button class="lang-btn" onclick="setLang('zgh',this)"><img src="assets/flag-amazigh.png" alt="ⵣ" onerror="this.onerror=null;this.src='assets/flag-amazigh.svg'"/><span class="tifinagh">ⵣ</span></button>
   </div>
 </div>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
-  <div class="logo-wrap">
-    <img src="assets/logos.png" alt="K&B Earth Works" onerror="this.style.opacity='.2'"/>
-  </div>
-  <h1>K&amp;B EARTH WORKS</h1>
-  <p class="sub">Geoscience &nbsp;·&nbsp; Water &nbsp;·&nbsp; Environment</p>
-  <div class="sep"></div>
-  <p class="tagline" id="t-tagline">Bureau d'études en géosciences, environnement et ingénierie</p>
-  <p class="loc">Casablanca - Maroc</p>
-  <div class="hero-btns">
-    <button class="btn-p" onclick="document.querySelector('.srv').scrollIntoView({behavior:'smooth'})">
-      <i class="fa-solid fa-compass"></i><span id="t-btn1">Découvrir nos services</span>
-    </button>
-    <button class="btn-o" onclick="document.querySelector('.cc').scrollIntoView({behavior:'smooth'})">
-      <i class="fa-solid fa-paper-plane"></i><span id="t-btn2">Nous contacter</span>
-    </button>
-    <a href="projets.html" class="btn-b">
-      <i class="fa-solid fa-folder-open"></i><span id="t-btn3">Nos Projets</span>
+  <div class="hero-in">
+    <a class="logo-wrap" href="index.html">
+      <img src="assets/logos.png" alt="K&B Earth Works" onerror="this.src='logos.png';this.onerror=null"/>
     </a>
+    <h1>K&amp;B EARTH WORKS</h1>
+    <p class="sub">Geoscience &nbsp;·&nbsp; Water &nbsp;·&nbsp; Environment</p>
+    <div class="sep"></div>
+    <p class="tagline" id="t-tagline">Bureau d'études en géosciences, environnement et ingénierie</p>
+    <p class="loc" id="t-loc">Casablanca — Maroc</p>
+    <a href="projets.html" class="proj-notif" id="proj-notif">
+      <span class="proj-notif-new">NEW</span>
+      <span class="proj-notif-txt">
+        <span id="t-proj-notif">Découvrez nos projets</span>
+        <span class="proj-notif-sub" id="t-proj-notif-sub">Publication scientifique &amp; réalisations</span>
+      </span>
+      <i class="fa-solid fa-arrow-right" id="proj-notif-arrow"></i>
+    </a>
+    <div class="hero-btns">
+      <a href="#galerie" class="btn-g"><i class="fa-solid fa-camera"></i><span id="t-btn4">Galerie photos</span></a>
+      <a href="#services" class="btn-p"><i class="fa-solid fa-compass"></i><span id="t-btn1">Découvrir nos services</span></a>
+      <a href="#contact" class="btn-o"><i class="fa-solid fa-paper-plane"></i><span id="t-btn2">Nous contacter</span></a>
+      <a href="projets.html" class="btn-b"><i class="fa-solid fa-folder-open"></i><span id="t-btn3">Nos Projets</span></a>
+    </div>
   </div>
 </section>
 
-<!-- ══ BARRE ══ -->
+<!-- ══ BARRE CONTACT ══ -->
 <div class="bar">
-  <a href="tel:+212662136067"><div class="bar-ico"><i class="fa-solid fa-phone"></i></div>+212 662 136 067</a>
-  <a href="tel:+212762985389"><div class="bar-ico"><i class="fa-solid fa-mobile-screen-button"></i></div>+212 762 985 389</a>
-  <a href="mailto:contact@kb-earthworks.com"><div class="bar-ico"><i class="fa-solid fa-envelope"></i></div>contact@kb-earthworks.com</a>
-  <a href="#"><div class="bar-ico"><i class="fa-solid fa-location-dot"></i></div>Maarif – Casablanca</a>
+  <a href="tel:+212662136067"><span class="bar-ico"><i class="fa-solid fa-phone"></i></span><span class="bar-txt">+212 662 136 067</span></a>
+  <a href="tel:+212762985389"><span class="bar-ico"><i class="fa-solid fa-mobile-screen-button"></i></span><span class="bar-txt">+212 762 985 389</span></a>
+  <a href="mailto:contact@kb-earthworks.com"><span class="bar-ico"><i class="fa-solid fa-envelope"></i></span><span class="bar-txt">contact@kb-earthworks.com</span></a>
+  <a href="#presence"><span class="bar-ico"><i class="fa-solid fa-location-dot"></i></span><span class="bar-txt">Maarif — Casablanca</span></a>
+</div>
+
+<!-- ══ STATS ══ -->
+<div class="stats">
+  <div class="stats-in">
+    <div class="stat rv"><b><em id="n1">0</em>+</b><span id="t-stat1">Projets référencés</span></div>
+    <div class="stat rv"><b><em id="n2">0</em></b><span id="t-stat2">Domaines d'expertise</span></div>
+    <div class="stat rv"><b><em id="n3">0</em></b><span id="t-stat3">Projets de recherche</span></div>
+  </div>
 </div>
 
 <!-- ══ ABOUT ══ -->
-<section class="about">
-  <h2 class="sec-h" id="t-about-h">À propos de K&amp;B Earth Works</h2>
-  <p id="t-about1"><strong>K&amp;B Earth Works SARL</strong> est un bureau d'études spécialisé en géosciences, environnement et ingénierie, basé à Casablanca.</p>
-  <p id="t-about2">Nous accompagnons les acteurs publics et privés dans la <strong>conception</strong>, l'analyse et la réalisation de projets complexes, en combinant <strong>expertise scientifique, innovation technique</strong> et approche multidisciplinaire.</p>
-  <p id="t-about3">Notre mission : apporter des <strong>solutions durables et fiables</strong> dans les domaines des ressources naturelles, des infrastructures et de l'environnement.</p>
+<section class="sec about" id="apropos">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eye1">Qui sommes-nous</p>
+    <h2 class="sec-h rv" id="t-about-h">À propos de K&amp;B Earth Works</h2>
+    <div class="about-grid">
+      <div class="about-txt rv">
+        <p id="t-about1"><strong>K&amp;B Earth Works SARL</strong> est un bureau d'études spécialisé en géosciences, environnement et ingénierie, basé à Casablanca.</p>
+        <p id="t-about2">Nous accompagnons les acteurs publics et privés dans la <strong>conception</strong>, l'analyse et la réalisation de projets complexes, en combinant <strong>expertise scientifique, innovation technique</strong> et approche multidisciplinaire.</p>
+        <p id="t-about3">Notre mission : apporter des <strong>solutions durables et fiables</strong> dans les domaines des ressources naturelles, des infrastructures et de l'environnement.</p>
+      </div>
+      <div class="approach rv">
+        <h3 id="t-app-h">Notre approche</h3>
+        <ul>
+          <li><span class="ap-ico"><i class="fa-solid fa-flask"></i></span><span id="t-a1">Expertise scientifique</span></li>
+          <li><span class="ap-ico"><i class="fa-solid fa-leaf"></i></span><span id="t-a2">Solutions durables</span></li>
+          <li><span class="ap-ico"><i class="fa-solid fa-layer-group"></i></span><span id="t-a3">Approche multidisciplinaire</span></li>
+          <li><span class="ap-ico"><i class="fa-solid fa-handshake"></i></span><span id="t-a4">Accompagnement sur mesure</span></li>
+          <li><span class="ap-ico"><i class="fa-solid fa-star"></i></span><span id="t-a5">Rigueur &amp; innovation</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ══ SERVICES ══ -->
-<section class="srv">
-  <h2 class="sec-h" style="text-align:center" id="t-srv-h">Nos Services</h2>
-  <div class="grid">
-    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-earth-africa"></i></div><h3 id="t-s1">Géosciences &amp; Environnement</h3></div><ul id="t-ul1"><li>Géologie environnementale</li><li>Hydrogéologie</li><li>Géophysique appliquée</li><li>Géochimie</li><li>Études d'impact environnemental (EIE)</li></ul></div>
-    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-road"></i></div><h3 id="t-s2">Ingénierie VRD</h3></div><ul id="t-ul2"><li>Tracé et conception de routes</li><li>Dimensionnement des chaussées</li><li>Stabilité des talus</li><li>Analyse géotechnique</li></ul></div>
-    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-chart-pie"></i></div><h3 id="t-s3">Études de Faisabilité</h3></div><ul id="t-ul3"><li>Analyse de viabilité technique</li><li>Études économiques</li><li>Identification et scénarios</li><li>Évaluation de risques</li></ul></div>
-    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-mountain"></i></div><h3 id="t-s4">Exploration Minière</h3></div><ul id="t-ul4"><li>Cartographie géologique</li><li>Levés géophysiques</li><li>Permis de recherche</li><li>Gestion de carrières</li></ul></div>
-    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-droplet"></i></div><h3 id="t-s5">Ressources Hydrauliques</h3></div><ul id="t-ul5"><li>Études hydrogéologiques</li><li>Gestion durable des ressources en eau</li><li>Modélisation hydrogéologique</li></ul></div>
-    <div class="card"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-diagram-project"></i></div><h3 id="t-s6">Coordination de Projets</h3></div><ul id="t-ul6"><li>Pilotage de projets</li><li>Ordonnancement</li><li>Assistance technique &amp; environnement</li></ul></div>
+<section class="sec srv" id="services">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eye2">Expertise</p>
+    <h2 class="sec-h rv" id="t-srv-h">Nos Services</h2>
+    <div class="grid">
+      <div class="card rv"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-earth-africa"></i></div><h3 id="t-s1">Géosciences &amp; Environnement</h3></div><ul id="t-ul1"><li>Géologie environnementale</li><li>Hydrogéologie</li><li>Géophysique appliquée</li><li>Géochimie</li><li>Études d'impact environnemental (EIE)</li></ul></div>
+      <div class="card rv"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-road"></i></div><h3 id="t-s2">Ingénierie VRD</h3></div><ul id="t-ul2"><li>Tracé et conception de routes</li><li>Dimensionnement des chaussées</li><li>Stabilité des talus</li><li>Analyse géotechnique</li></ul></div>
+      <div class="card rv"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-chart-pie"></i></div><h3 id="t-s3">Études de Faisabilité</h3></div><ul id="t-ul3"><li>Analyse de viabilité technique</li><li>Études économiques</li><li>Identification et scénarios</li><li>Évaluation de risques</li></ul></div>
+      <div class="card rv"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-mountain"></i></div><h3 id="t-s4">Exploration Minière</h3></div><ul id="t-ul4"><li>Cartographie géologique</li><li>Levés géophysiques</li><li>Permis de recherche</li><li>Gestion de carrières</li></ul></div>
+      <div class="card rv"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-droplet"></i></div><h3 id="t-s5">Ressources Hydrauliques</h3></div><ul id="t-ul5"><li>Études hydrogéologiques</li><li>Gestion durable des ressources en eau</li><li>Modélisation hydrogéologique</li></ul></div>
+      <div class="card rv"><div class="ch"><div class="ch-ico"><i class="fa-solid fa-diagram-project"></i></div><h3 id="t-s6">Coordination de Projets</h3></div><ul id="t-ul6"><li>Pilotage de projets</li><li>Ordonnancement</li><li>Assistance technique &amp; environnement</li></ul></div>
+    </div>
   </div>
 </section>
 
 <!-- ══ MINING ══ -->
-<section class="mining">
-  <div class="mi-box">
-    <h2><div class="mi-ico"><i class="fa-solid fa-helmet-safety"></i></div><span id="t-mine-h">Exploration géologique — Prestations détaillées</span></h2>
-    <ul id="t-mine-ul">
-      <li><i class="fa-solid fa-file-lines"></i> Analyse documentaire et compilation des données géologiques existantes</li>
-      <li><i class="fa-solid fa-map"></i> Cartographie géologique et structurale</li>
-      <li><i class="fa-solid fa-wave-square"></i> Levés géophysiques et géochimiques</li>
-      <li><i class="fa-solid fa-person-hiking"></i> Travaux de reconnaissance de terrain</li>
-      <li><i class="fa-solid fa-magnifying-glass-chart"></i> Interprétation des données et identification des zones à potentiel minier</li>
-      <li><i class="fa-solid fa-folder-open"></i> Constitution et suivi des dossiers de permis de recherche</li>
-    </ul>
+<section class="sec mining" id="mines">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eye3">Exploration</p>
+    <h2 class="sec-h rv" id="t-mine-h">Exploration géologique — Prestations détaillées</h2>
+    <p class="sec-intro rv" id="t-mine-intro">De l'analyse documentaire au dossier de permis de recherche, nous couvrons l'ensemble de la chaîne d'exploration géologique et minière.</p>
+    <div class="mine-grid" id="t-mine-ul">
+      <div class="mine-item rv"><i class="fa-solid fa-file-lines"></i><span>Analyse documentaire et compilation des données géologiques existantes</span></div>
+      <div class="mine-item rv"><i class="fa-solid fa-map"></i><span>Cartographie géologique et structurale</span></div>
+      <div class="mine-item rv"><i class="fa-solid fa-wave-square"></i><span>Levés géophysiques et géochimiques</span></div>
+      <div class="mine-item rv"><i class="fa-solid fa-person-hiking"></i><span>Travaux de reconnaissance de terrain</span></div>
+      <div class="mine-item rv"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Interprétation des données et identification des zones à potentiel minier</span></div>
+      <div class="mine-item rv"><i class="fa-solid fa-folder-open"></i><span>Constitution et suivi des dossiers de permis de recherche</span></div>
+    </div>
   </div>
 </section>
 
-
-<!-- ══ BOTTOM ══ -->
-<div class="bottom">
-  <div class="app">
-    <h2 id="t-app-h">Notre approche</h2>
-    <ul>
-      <li><div class="ap-ico"><i class="fa-solid fa-flask"></i></div><span id="t-a1">Expertise scientifique</span></li>
-      <li><div class="ap-ico"><i class="fa-solid fa-leaf"></i></div><span id="t-a2">Solutions durables</span></li>
-      <li><div class="ap-ico"><i class="fa-solid fa-layer-group"></i></div><span id="t-a3">Approche multidisciplinaire</span></li>
-      <li><div class="ap-ico"><i class="fa-solid fa-handshake"></i></div><span id="t-a4">Accompagnement sur mesure</span></li>
-      <li><div class="ap-ico"><i class="fa-solid fa-star"></i></div><span id="t-a5">Rigueur &amp; innovation</span></li>
-    </ul>
-    <div class="app-hours">
-      <i class="fa-solid fa-clock"></i><span id="t-horaires2">Lun – Sam : 9h00 – 18h00</span>
+<!-- ══ PROJETS PREVIEW ══ -->
+<section class="sec projprev" id="projets">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eye4">Références</p>
+    <h2 class="sec-h rv" id="t-proj-h">Nos Projets</h2>
+    <p class="sec-intro rv" id="t-proj-intro">Un aperçu de nos interventions au Maroc et à l'international — études d'impact, exploration et recherche scientifique.</p>
+    <div class="proj-grid">
+      <a class="pcard rv" href="https://www.intechopen.com/online-first/1237426" target="_blank" rel="noopener">
+        <div class="pcard-media">
+          <img src="assets/volcanisme.jpg" alt="Volcanisme Néogène-Quaternaire — NW Afrique"/>
+          <div class="pcard-media-bar"><i class="fa-solid fa-volcano"></i><span class="pcard-badge b-pub" id="t-hp1b">Publication</span></div>
+        </div>
+        <div class="pcard-body">
+          <h3 id="t-hp1t">Volcanisme Néogène-Quaternaire du NW de l'Afrique</h3>
+          <p id="t-hp1d">Pétrogenèse, contrôles tectoniques et évolution géodynamique — chapitre scientifique publié chez IntechOpen (Online First).</p>
+          <span class="more"><span id="t-hp1m">Voir la publication</span><i class="fa-solid fa-arrow-right proj-arrow"></i></span>
+        </div>
+      </a>
+      <a class="pcard rv" href="projets.html">
+        <div class="pcard-media">
+          <img src="assets/fluorite.jpg" alt="Exploration géologique — veines de fluorite"/>
+          <div class="pcard-media-bar"><i class="fa-solid fa-gem"></i><span class="pcard-badge" id="t-hp2b">Réalisé</span></div>
+        </div>
+        <div class="pcard-body">
+          <h3 id="t-hp2t">Exploration géologique — Veines minéralisées en fluorite</h3>
+          <p id="t-hp2d">Cartographie structurale, analyses de terrain et caractérisation minéralogique dans le Nord-Est du Maroc.</p>
+          <span class="more"><span id="t-hp2m">Détails du projet</span><i class="fa-solid fa-arrow-right proj-arrow"></i></span>
+        </div>
+      </a>
+      <a class="pcard rv" href="projets.html">
+        <div class="pcard-media">
+          <img src="assets/hydrogeologie.jpg" alt="Étude hydrogéologique — eaux souterraines"/>
+          <div class="pcard-media-bar"><i class="fa-solid fa-water"></i><span class="pcard-badge" id="t-hp3b">Réalisé</span></div>
+        </div>
+        <div class="pcard-body">
+          <h3 id="t-hp3t">Étude hydrogéologique — Ressources en eau souterraines</h3>
+          <p id="t-hp3d">Caractérisation des aquifères, modélisation des écoulements et évaluation de la durabilité des ressources.</p>
+          <span class="more"><span id="t-hp3m">Détails du projet</span><i class="fa-solid fa-arrow-right proj-arrow"></i></span>
+        </div>
+      </a>
     </div>
-    <div class="widgets-row">
-      <div class="ma-clock">
-        <div class="clock-label"><i class="fa-solid fa-earth-africa"></i><span id="t-clock-label">Heure au Maroc</span></div>
-        <div class="clock-display">
-          <div class="clock-unit"><span id="clock-h">00</span><small id="t-clock-h">Heures</small></div>
-          <div class="clock-sep">:</div>
-          <div class="clock-unit"><span id="clock-m">00</span><small id="t-clock-m">Minutes</small></div>
-          <div class="clock-sep">:</div>
-          <div class="clock-unit"><span id="clock-s">00</span><small id="t-clock-s">Secondes</small></div>
+    <div class="projprev-cta rv">
+      <a href="projets.html" class="btn-b"><i class="fa-solid fa-folder-open"></i><span id="t-projAll">Voir tous les projets</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALERIE ══ -->
+<section class="sec gallery-sec" id="galerie">
+  <div class="sec-in">
+    <p class="sec-eyebrow rv" id="t-eye5">Sur le terrain</p>
+    <h2 class="sec-h rv" id="t-gal-h">Galerie terrain</h2>
+    <p class="sec-intro rv" id="t-gal-intro">Cliquez sur une photo pour l'agrandir — exploration, échantillonnage, analyses et travaux de terrain.</p>
+    <div class="gal-banner rv">
+      <div><b>16 <span id="t-gal-count">photos terrain</span></b></div>
+      <p id="t-gal-banner">Exploration géologique, échantillonnage, analyses de laboratoire et travaux de terrain au Maroc.</p>
+    </div>
+    <div class="gal-grid" id="gal-grid"></div>
+  </div>
+</section>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie photo">
+  <button type="button" class="lb-btn lb-close" onclick="closeLb()" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+  <button type="button" class="lb-btn lb-prev" onclick="lbNav(-1)" aria-label="Précédente"><i class="fa-solid fa-chevron-left"></i></button>
+  <div class="lb-stage"><img id="lb-img" src="" alt=""/></div>
+  <button type="button" class="lb-btn lb-next" onclick="lbNav(1)" aria-label="Suivante"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="lb-thumbs" id="lb-thumbs"></div>
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<!-- ══ BAS DE PAGE — split gauche / droite ══ -->
+<section class="site-close" id="contact">
+  <div class="close-split">
+    <div class="close-left rv">
+      <img src="assets/aerial-brand.jpg" alt="K&amp;B Earth Works — terrain"/>
+    </div>
+    <div class="close-right">
+      <div class="close-right-inner rv">
+        <p class="sec-eyebrow" id="t-eye6">Contact</p>
+        <h2 id="t-ct-h">Parlons de votre projet</h2>
+        <p class="close-right-intro" id="t-ct-d">Notre équipe est à votre disposition pour étudier vos besoins en géosciences, environnement et ingénierie.</p>
+        <div class="close-right-btns">
+          <a href="mailto:contact@kb-earthworks.com" class="btn-p"><i class="fa-solid fa-envelope"></i><span id="t-btnMail">Nous écrire</span></a>
+          <a href="https://wa.me/212762985389" target="_blank" rel="noopener" class="btn-b"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
+        </div>
+        <div class="close-info">
+          <img src="assets/logos.png" alt="Logo" class="close-logo" onerror="this.style.display='none'"/>
+          <h3>K&amp;B EARTH WORKS SARL</h3>
+          <p class="cs">Geoscience · Water · Environment</p>
+          <div class="ci"><span class="ci-ico"><i class="fa-solid fa-location-dot"></i></span><span>26 rue Nahas Nahaoui, Étage 2 Appt 3<br/>Maarif – Casablanca, Maroc</span></div>
+          <div class="ci"><span class="ci-ico"><i class="fa-solid fa-phone"></i></span><a href="tel:+212662136067">+212 662 136 067</a></div>
+          <div class="ci"><span class="ci-ico"><i class="fa-solid fa-mobile-screen-button"></i></span><a href="tel:+212762985389">+212 762 985 389</a></div>
+          <div class="ci"><span class="ci-ico"><i class="fa-solid fa-envelope"></i></span><a href="mailto:contact@kb-earthworks.com">contact@kb-earthworks.com</a></div>
+          <div class="ci"><span class="ci-ico"><i class="fa-solid fa-clock"></i></span><span id="t-horaires">Lun – Sam : 9h00 – 18h00</span></div>
         </div>
       </div>
-      <div class="ma-meteo">
-        <div class="meteo-label"><i class="fa-solid fa-cloud-sun"></i><span id="t-meteo-label">Météo Casablanca</span></div>
-        <div class="meteo-display">
-          <span class="meteo-icon" id="meteo-icon">☀️</span>
-          <div class="meteo-info">
-            <span class="meteo-temp" id="meteo-temp">--°C</span>
-            <small class="meteo-desc" id="meteo-desc">Chargement...</small>
+
+      <div class="close-divider"></div>
+
+      <div class="close-mid rv">
+        <div>
+          <span class="close-mid-label">Réseaux</span>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/k-b-earth-works" target="_blank" rel="noopener" class="soc-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/kb.earthworks?igsh=eG11eGtxMmZveHg2" target="_blank" rel="noopener" class="soc-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="close-qr">
+          <a href="https://kb-earthworks.com" target="_blank" rel="noopener" aria-label="kb-earthworks.com">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=https://kb-earthworks.com&format=png&margin=8&color=2C4A52" alt="QR Code"/>
+          </a>
+          <div>
+            <p class="close-qr-tag" id="t-qr-h">QR Code — Site Web</p>
+            <p class="close-qr-desc" id="t-qr-desc">Scannez pour ouvrir le site K&amp;B Earth Works</p>
+            <button type="button" class="close-qr-dl" onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https://kb-earthworks.com&format=png&margin=10&color=2C4A52','_blank')">
+              <i class="fa-solid fa-download"></i><span id="t-dl1">Télécharger QR Code</span>
+            </button>
           </div>
         </div>
       </div>
-    </div>
-    <div class="ma-cal">
-      <div class="cal-header">
-        <button class="cal-nav" onclick="changeMonth(-1)"><i class="fa-solid fa-chevron-left"></i></button>
-        <span class="cal-title" id="cal-title"></span>
-        <button class="cal-nav" onclick="changeMonth(1)"><i class="fa-solid fa-chevron-right"></i></button>
-      </div>
-      <div class="cal-days" id="cal-days"></div>
-      <div class="cal-grid" id="cal-grid"></div>
-    </div>
-  </div>
-  <div class="cc">
-    <img src="assets/logos.png" alt="Logo" class="cc-logo" onerror="this.style.display='none'"/>
-    <h3>K&amp;B EARTH WORKS SARL</h3>
-    <p class="cs">Geoscience · Water · Environment</p>
-    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-location-dot"></i></div><span>26 rue Nahas Nahaoui, Étage 2 Appt 3<br>Maarif – Casablanca, Maroc</span></div>
-    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-phone"></i></div><span>+212 662 136 067</span></div>
-    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-mobile-screen-button"></i></div><span>+212 762 985 389</span></div>
-    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-envelope"></i></div><span>contact@kb-earthworks.com</span></div>
-    <div class="ci"><div class="ci-ico"><i class="fa-solid fa-clock"></i></div><span id="t-horaires">Lun – Sam : 9h00 – 18h00</span></div>
-    <hr/>
-    <div class="socials">
-      <a href="https://www.linkedin.com/in/k-b-earth-works" target="_blank" class="soc-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-      <a href="https://www.instagram.com/kb.earthworks?igsh=eG11eGtxMmZveHg2" target="_blank" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
-    </div>
-  </div>
-</div>
 
-<!-- ══ QR ══ -->
-<section class="qrs">
-  <h2 class="sec-h" id="t-qr-h">QR Code — Site Web</h2>
-  <p style="font-size:.84rem;color:#888;margin-bottom:28px" id="t-qr-desc">Scannez pour ouvrir directement le site K&amp;B Earth Works</p>
-  <div class="qrbox">
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=260x260&data=https://kb-earthworks.com&format=png&margin=10&color=2C4A52" alt="QR Code"/>
-    <p class="qr-link"><i class="fa-solid fa-link"></i> kb-earthworks.com</p>
-  </div>
-  <div class="dlb">
-    <button class="db db1" onclick="window.open('https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https://kb-earthworks.com&format=png&margin=10&color=2C4A52','_blank')">
-      <i class="fa-solid fa-qrcode"></i><span id="t-dl1">Télécharger QR Code</span>
-    </button>
+      <div class="close-presence" id="presence">
+        <div class="close-map">
+          <img src="assets/world-map.svg" alt="" class="world-bg" aria-hidden="true"/>
+          <div class="map-pin" aria-label="Casablanca, Maroc">
+            <span class="pin-pulse"></span>
+            <span class="pin-dot"></span>
+          </div>
+        </div>
+        <div class="close-live">
+          <p class="world-coords" id="t-mapCoords">33.5783° N — 7.6067° W · CASABLANCA, MAROC</p>
+          <div class="world-live">
+            <div class="wl-item"><i class="fa-solid fa-clock"></i><span id="map-clock">--:--:--</span><span class="wl-sub" id="t-clockLabel">Heure locale</span></div>
+            <div class="wl-item"><i class="fa-solid fa-cloud-sun"></i><span id="map-temp">--°C</span><span id="map-weather-desc">Casablanca</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="close-copy">
+        <span><i class="fa-regular fa-copyright"></i> 2026</span>
+        <span class="foot-co">K&amp;B Earth Works SARL</span>
+        <span><i class="fa-solid fa-location-dot"></i> Casablanca, Maroc</span>
+        <span id="t-rights">Tous droits réservés</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>
-  <i class="fa-solid fa-copyright"></i>
-  2026 &nbsp;<span>K&amp;B Earth Works SARL</span>&nbsp; - Casablanca, Maroc - Tous droits réservés
-</footer>
-
 <script>
 var T={
-  fr:{
-    topbar:"Bureau d'études — Casablanca, Maroc",tagline:"Bureau d'études en géosciences, environnement et ingénierie",
-    btn1:"Découvrir nos services",btn2:"Nous contacter",btn3:"Nos Projets",aboutH:"À propos de K&B Earth Works",
-    about1:"<strong>K&B Earth Works SARL</strong> est un bureau d'études spécialisé en géosciences, environnement et ingénierie, basé à Casablanca.",
-    about2:"Nous accompagnons les acteurs publics et privés dans la <strong>conception</strong>, l'analyse et la réalisation de projets complexes, en combinant <strong>expertise scientifique, innovation technique</strong> et approche multidisciplinaire.",
-    about3:"Notre mission : apporter des <strong>solutions durables et fiables</strong> dans les domaines des ressources naturelles, des infrastructures et de l'environnement.",
-    srvH:"Nos Services",s1:"Géosciences & Environnement",s2:"Ingénierie VRD",s3:"Études de Faisabilité",s4:"Exploration Minière",s5:"Ressources Hydrauliques",s6:"Coordination de Projets",
-    ul1:["Géologie environnementale","Hydrogéologie","Géophysique appliquée","Géochimie","Études d'impact environnemental (EIE)"],
-    ul2:["Tracé et conception de routes","Dimensionnement des chaussées","Stabilité des talus","Analyse géotechnique"],
-    ul3:["Analyse de viabilité technique","Études économiques","Identification et scénarios","Évaluation de risques"],
-    ul4:["Cartographie géologique","Levés géophysiques","Permis de recherche","Gestion de carrières"],
-    ul5:["Études hydrogéologiques","Gestion durable des ressources en eau","Modélisation hydrogéologique"],
-    ul6:["Pilotage de projets","Ordonnancement","Assistance technique & environnement"],
-    mineH:"Exploration géologique — Prestations détaillées",
-    mineUl:["<i class='fa-solid fa-file-lines'></i> Analyse documentaire et compilation des données géologiques existantes","<i class='fa-solid fa-map'></i> Cartographie géologique et structurale","<i class='fa-solid fa-wave-square'></i> Levés géophysiques et géochimiques","<i class='fa-solid fa-person-hiking'></i> Travaux de reconnaissance de terrain","<i class='fa-solid fa-magnifying-glass-chart'></i> Interprétation des données et identification des zones à potentiel minier","<i class='fa-solid fa-folder-open'></i> Constitution et suivi des dossiers de permis de recherche"],
-    projH:"Nos Projets",projEmpty:"Projets en cours de publication — revenez bientôt !",
-    appH:"Notre approche",a1:"Expertise scientifique",a2:"Solutions durables",a3:"Approche multidisciplinaire",a4:"Accompagnement sur mesure",a5:"Rigueur & innovation",
-    qrH:"QR Code — Site Web",qrDesc:"Scannez pour ouvrir directement le site K&B Earth Works",dl1:"Télécharger QR Code",horaires:"Lun – Sam : 9h00 – 18h00",clockLabel:"Heure au Maroc",clockH:"Heures",clockM:"Minutes",clockS:"Secondes",meteoLabel:"Météo Casablanca"
-  },
-  en:{
-    topbar:"Consulting Bureau — Casablanca, Morocco",tagline:"Engineering & Earth Sciences Consulting Bureau",
-    btn1:"Our Services",btn2:"Contact Us",btn3:"Our Projects",aboutH:"About K&B Earth Works",
-    about1:"<strong>K&B Earth Works SARL</strong> is a consulting bureau specializing in earth sciences, environment and engineering, based in Casablanca.",
-    about2:"We support public and private stakeholders in the <strong>design</strong>, analysis and implementation of complex projects, combining <strong>scientific expertise, technical innovation</strong> and a multidisciplinary approach.",
-    about3:"Our mission: to provide <strong>sustainable and reliable solutions</strong> in natural resources, infrastructure and environment.",
-    srvH:"Our Services",s1:"Geosciences & Environment",s2:"Road & Network Engineering",s3:"Feasibility Studies",s4:"Mining Exploration",s5:"Water Resources",s6:"Project Management",
-    ul1:["Environmental geology","Hydrogeology","Applied geophysics","Geochemistry","Environmental Impact Assessment (EIA)"],
-    ul2:["Road design & layout","Pavement sizing","Slope stability","Geotechnical analysis"],
-    ul3:["Technical viability analysis","Economic studies","Scenarios identification","Risk assessment"],
-    ul4:["Geological mapping","Geophysical surveys","Research permits","Quarry management"],
-    ul5:["Hydrogeological studies","Sustainable water management","Hydrogeological modelling"],
-    ul6:["Project steering","Scheduling","Technical & environmental assistance"],
-    mineH:"Geological Exploration — Detailed Services",
-    mineUl:["<i class='fa-solid fa-file-lines'></i> Documentary analysis and compilation of existing geological data","<i class='fa-solid fa-map'></i> Geological and structural mapping","<i class='fa-solid fa-wave-square'></i> Geophysical and geochemical surveys","<i class='fa-solid fa-person-hiking'></i> Field reconnaissance work","<i class='fa-solid fa-magnifying-glass-chart'></i> Data interpretation and identification of mining potential zones","<i class='fa-solid fa-folder-open'></i> Preparation and monitoring of research permit files"],
-    projH:"Our Projects",projEmpty:"Projects coming soon — check back later!",
-    appH:"Our Approach",a1:"Scientific expertise",a2:"Sustainable solutions",a3:"Multidisciplinary approach",a4:"Tailored support",a5:"Rigor & innovation",
-    qrH:"QR Code — Website",qrDesc:"Scan to open the K&B Earth Works website directly",dl1:"Download QR Code",horaires:"Mon – Sat: 9:00 AM – 6:00 PM",clockLabel:"Time in Morocco",clockH:"Hours",clockM:"Minutes",clockS:"Seconds",meteoLabel:"Casablanca Weather"
-  },
-  ar:{
-    topbar:"مكتب دراسات — الدار البيضاء، المغرب",tagline:"مكتب دراسات في علوم الأرض والبيئة والهندسة",
-    btn1:"اكتشف خدماتنا",btn2:"اتصل بنا",btn3:"مشاريعنا",aboutH:"عن شركة K&B Earth Works",
-    about1:"<strong>K&B Earth Works SARL</strong> مكتب دراسات متخصص في علوم الأرض والبيئة والهندسة، مقره الدار البيضاء.",
-    about2:"نرافق الفاعلين العموميين والخواص في <strong>تصميم</strong> وتحليل وتنفيذ المشاريع المعقدة بخبرة علمية وتقنية.",
-    about3:"مهمتنا: تقديم <strong>حلول مستدامة وموثوقة</strong> في مجالات الموارد الطبيعية والبنية التحتية والبيئة.",
-    srvH:"خدماتنا",s1:"علوم الأرض والبيئة",s2:"هندسة الطرق والشبكات",s3:"دراسات الجدوى",s4:"الاستكشاف المنجمي",s5:"الموارد المائية",s6:"إدارة المشاريع",
-    ul1:["الجيولوجيا البيئية","الهيدروجيولوجيا","الجيوفيزياء التطبيقية","الجيوكيمياء","دراسات التأثير البيئي (EIE)"],
-    ul2:["تصميم الطرق والمسارات","تصميم الأرصفة","استقرار المنحدرات","التحليل الجيوتقني"],
-    ul3:["تحليل الجدوى التقنية","الدراسات الاقتصادية","تحديد السيناريوهات","تقييم المخاطر"],
-    ul4:["الرسم الجيولوجي","المسوحات الجيوفيزيائية","رخص البحث","إدارة المحاجر"],
-    ul5:["الدراسات الهيدروجيولوجية","الإدارة المستدامة للمياه","النمذجة الهيدروجيولوجية"],
-    ul6:["قيادة المشاريع","الجدولة الزمنية","المساعدة التقنية والبيئية"],
-    mineH:"الاستكشاف الجيولوجي — الخدمات التفصيلية",
-    mineUl:["<i class='fa-solid fa-file-lines'></i> التحليل الوثائقي وتجميع البيانات الجيولوجية","<i class='fa-solid fa-map'></i> الرسم الجيولوجي والبنيوي","<i class='fa-solid fa-wave-square'></i> المسوحات الجيوفيزيائية والجيوكيميائية","<i class='fa-solid fa-person-hiking'></i> أعمال الاستطلاع الميداني","<i class='fa-solid fa-magnifying-glass-chart'></i> تفسير البيانات وتحديد مناطق الإمكانات المنجمية","<i class='fa-solid fa-folder-open'></i> إعداد ومتابعة ملفات رخص البحث"],
-    projH:"مشاريعنا",projEmpty:"المشاريع قيد النشر — تابعونا قريباً!",
-    appH:"نهجنا",a1:"الخبرة العلمية",a2:"حلول مستدامة",a3:"نهج متعدد التخصصات",a4:"مرافقة مخصصة",a5:"الصرامة والابتكار",
-    qrH:"رمز QR — الموقع",qrDesc:"امسح للوصول المباشر إلى موقع K&B Earth Works",dl1:"تحميل رمز QR",horaires:"الإثنين – السبت : 9:00 – 18:00",clockLabel:"التوقيت في المغرب",clockH:"ساعات",clockM:"دقائق",clockS:"ثوانٍ",meteoLabel:"طقس الدار البيضاء"
-  }
+fr:{
+  topbar:"Bureau d'études — Casablanca, Maroc",
+  tagline:"Bureau d'études en géosciences, environnement et ingénierie",
+  loc:"Casablanca — Maroc",
+  projNotif:"Découvrez nos projets",projNotifSub:"Publication scientifique & réalisations",btn4:"Galerie photos",
+  btn1:"Découvrir nos services",btn2:"Nous contacter",btn3:"Nos Projets",
+  stat1:"Projets référencés",stat2:"Domaines d'expertise",stat3:"Projets de recherche",
+  eye1:"Qui sommes-nous",eye2:"Expertise",eye3:"Exploration",eye4:"Références",eye5:"Sur le terrain",eye6:"Contact",eye7:"Accès rapide",
+  aboutH:"À propos de K&B Earth Works",
+  about1:"<strong>K&B Earth Works SARL</strong> est un bureau d'études spécialisé en géosciences, environnement et ingénierie, basé à Casablanca.",
+  about2:"Nous accompagnons les acteurs publics et privés dans la <strong>conception</strong>, l'analyse et la réalisation de projets complexes, en combinant <strong>expertise scientifique, innovation technique</strong> et approche multidisciplinaire.",
+  about3:"Notre mission : apporter des <strong>solutions durables et fiables</strong> dans les domaines des ressources naturelles, des infrastructures et de l'environnement.",
+  appH:"Notre approche",a1:"Expertise scientifique",a2:"Solutions durables",a3:"Approche multidisciplinaire",a4:"Accompagnement sur mesure",a5:"Rigueur & innovation",
+  srvH:"Nos Services",
+  s1:"Géosciences & Environnement",s2:"Ingénierie VRD",s3:"Études de Faisabilité",s4:"Exploration Minière",s5:"Ressources Hydrauliques",s6:"Coordination de Projets",
+  ul1:["Géologie environnementale","Hydrogéologie","Géophysique appliquée","Géochimie","Études d'impact environnemental (EIE)"],
+  ul2:["Tracé et conception de routes","Dimensionnement des chaussées","Stabilité des talus","Analyse géotechnique"],
+  ul3:["Analyse de viabilité technique","Études économiques","Identification et scénarios","Évaluation de risques"],
+  ul4:["Cartographie géologique","Levés géophysiques","Permis de recherche","Gestion de carrières"],
+  ul5:["Études hydrogéologiques","Gestion durable des ressources en eau","Modélisation hydrogéologique"],
+  ul6:["Pilotage de projets","Ordonnancement","Assistance technique & environnement"],
+  mineH:"Exploration géologique — Prestations détaillées",
+  mineIntro:"De l'analyse documentaire au dossier de permis de recherche, nous couvrons l'ensemble de la chaîne d'exploration géologique et minière.",
+  mineUl:["Analyse documentaire et compilation des données géologiques existantes","Cartographie géologique et structurale","Levés géophysiques et géochimiques","Travaux de reconnaissance de terrain","Interprétation des données et identification des zones à potentiel minier","Constitution et suivi des dossiers de permis de recherche"],
+  projH:"Nos Projets",projIntro:"Un aperçu de nos interventions au Maroc et à l'international — études d'impact, exploration et recherche scientifique.",projAll:"Voir tous les projets",
+  hp1b:"Publication",hp1t:"Volcanisme Néogène-Quaternaire du NW de l'Afrique",hp1d:"Pétrogenèse, contrôles tectoniques et évolution géodynamique — chapitre scientifique publié chez IntechOpen (Online First).",hp1m:"Voir la publication",
+  hp2b:"Réalisé",hp2t:"Exploration géologique — Veines minéralisées en fluorite",hp2d:"Cartographie structurale, analyses de terrain et caractérisation minéralogique dans le Nord-Est du Maroc.",hp2m:"Détails du projet",
+  hp3b:"Réalisé",hp3t:"Étude hydrogéologique — Ressources en eau souterraines",hp3d:"Caractérisation des aquifères, modélisation des écoulements et évaluation de la durabilité des ressources.",hp3m:"Détails du projet",
+  galH:"Galerie terrain",galIntro:"Cliquez sur une photo pour l'agrandir — exploration, échantillonnage, analyses et travaux de terrain.",galView:"Agrandir",galCount:"photos terrain",galBanner:"Exploration géologique, échantillonnage, analyses de laboratoire et travaux de terrain au Maroc.",
+  ctH:"Parlons de votre projet",ctD:"Notre équipe est à votre disposition pour étudier vos besoins en géosciences, environnement et ingénierie.",btnMail:"Nous écrire",
+  horaires:"Lun – Sam : 9h00 – 18h00",
+  qrH:"QR Code — Site Web",qrDesc:"Scannez pour ouvrir directement le site K&B Earth Works",dl1:"Télécharger QR Code",
+  mapCoords:"33.5783° N — 7.6067° W · CASABLANCA, MAROC",clockLabel:"Heure locale",
+  rights:"Tous droits réservés"
+},
+en:{
+  topbar:"Consulting Bureau — Casablanca, Morocco",
+  tagline:"Engineering & Earth Sciences Consulting Bureau",
+  loc:"Casablanca — Morocco",
+  projNotif:"Discover our projects",projNotifSub:"Scientific publication & achievements",btn4:"Photo gallery",
+  btn1:"Our Services",btn2:"Contact Us",btn3:"Our Projects",
+  stat1:"Referenced projects",stat2:"Areas of expertise",stat3:"Research projects",
+  eye1:"Who we are",eye2:"Expertise",eye3:"Exploration",eye4:"References",eye5:"In the field",eye6:"Contact",eye7:"Quick access",
+  aboutH:"About K&B Earth Works",
+  about1:"<strong>K&B Earth Works SARL</strong> is a consulting bureau specializing in earth sciences, environment and engineering, based in Casablanca.",
+  about2:"We support public and private stakeholders in the <strong>design</strong>, analysis and implementation of complex projects, combining <strong>scientific expertise, technical innovation</strong> and a multidisciplinary approach.",
+  about3:"Our mission: to provide <strong>sustainable and reliable solutions</strong> in natural resources, infrastructure and environment.",
+  appH:"Our Approach",a1:"Scientific expertise",a2:"Sustainable solutions",a3:"Multidisciplinary approach",a4:"Tailored support",a5:"Rigor & innovation",
+  srvH:"Our Services",
+  s1:"Geosciences & Environment",s2:"Road & Network Engineering",s3:"Feasibility Studies",s4:"Mining Exploration",s5:"Water Resources",s6:"Project Management",
+  ul1:["Environmental geology","Hydrogeology","Applied geophysics","Geochemistry","Environmental Impact Assessment (EIA)"],
+  ul2:["Road design & layout","Pavement sizing","Slope stability","Geotechnical analysis"],
+  ul3:["Technical viability analysis","Economic studies","Scenarios identification","Risk assessment"],
+  ul4:["Geological mapping","Geophysical surveys","Research permits","Quarry management"],
+  ul5:["Hydrogeological studies","Sustainable water management","Hydrogeological modelling"],
+  ul6:["Project steering","Scheduling","Technical & environmental assistance"],
+  mineH:"Geological Exploration — Detailed Services",
+  mineIntro:"From documentary analysis to research permit files, we cover the full geological and mining exploration chain.",
+  mineUl:["Documentary analysis and compilation of existing geological data","Geological and structural mapping","Geophysical and geochemical surveys","Field reconnaissance work","Data interpretation and identification of mining potential zones","Preparation and monitoring of research permit files"],
+  projH:"Our Projects",projIntro:"An overview of our work across Morocco and internationally — impact assessments, exploration and scientific research.",projAll:"View all projects",
+  hp1b:"Publication",hp1t:"Neogene-Quaternary Volcanism of Northwest Africa",hp1d:"Petrogenesis, tectonic controls and geodynamic evolution — peer-reviewed chapter published with IntechOpen (Online First).",hp1m:"View publication",
+  hp2b:"Completed",hp2t:"Geological Exploration — Fluorite-Mineralized Veins",hp2d:"Structural mapping, field analysis and mineralogical characterization in Northeast Morocco.",hp2m:"Project details",
+  hp3b:"Completed",hp3t:"Hydrogeological Study — Groundwater Resources",hp3d:"Aquifer characterization, groundwater flow modelling and resource sustainability assessment.",hp3m:"Project details",
+  galH:"Field Gallery",galIntro:"Click a photo to enlarge — exploration, sampling, analysis and fieldwork.",galView:"Enlarge",galCount:"field photos",galBanner:"Geological exploration, sampling, laboratory analysis and fieldwork across Morocco.",
+  ctH:"Let's discuss your project",ctD:"Our team is available to study your needs in earth sciences, environment and engineering.",btnMail:"Send an e-mail",
+  horaires:"Mon – Sat: 9:00 AM – 6:00 PM",
+  qrH:"QR Code — Website",qrDesc:"Scan to open the K&B Earth Works website directly",dl1:"Download QR Code",
+  mapCoords:"33.5783° N — 7.6067° W · CASABLANCA, MOROCCO",clockLabel:"Local time",
+  rights:"All rights reserved"
+},
+ar:{
+  topbar:"مكتب دراسات — الدار البيضاء، المغرب",
+  tagline:"مكتب دراسات في علوم الأرض والبيئة والهندسة",
+  loc:"الدار البيضاء — المغرب",
+  projNotif:"اكتشف مشاريعنا",projNotifSub:"منشور علمي وإنجازات",btn4:"معرض الصور",
+  btn1:"اكتشف خدماتنا",btn2:"اتصل بنا",btn3:"مشاريعنا",
+  stat1:"مشروعاً مرجعياً",stat2:"مجالات خبرة",stat3:"مشاريع بحث علمي",
+  eye1:"من نحن",eye2:"خبراتنا",eye3:"الاستكشاف",eye4:"مراجع",eye5:"في الميدان",eye6:"اتصال",eye7:"وصول سريع",
+  aboutH:"عن شركة K&B Earth Works",
+  about1:"<strong>K&B Earth Works SARL</strong> مكتب دراسات متخصص في علوم الأرض والبيئة والهندسة، مقره الدار البيضاء.",
+  about2:"نرافق الفاعلين العموميين والخواص في <strong>تصميم</strong> وتحليل وتنفيذ المشاريع المعقدة بخبرة علمية وتقنية ونهج متعدد التخصصات.",
+  about3:"مهمتنا: تقديم <strong>حلول مستدامة وموثوقة</strong> في مجالات الموارد الطبيعية والبنية التحتية والبيئة.",
+  appH:"نهجنا",a1:"الخبرة العلمية",a2:"حلول مستدامة",a3:"نهج متعدد التخصصات",a4:"مرافقة مخصصة",a5:"الصرامة والابتكار",
+  srvH:"خدماتنا",
+  s1:"علوم الأرض والبيئة",s2:"هندسة الطرق والشبكات",s3:"دراسات الجدوى",s4:"الاستكشاف المنجمي",s5:"الموارد المائية",s6:"إدارة المشاريع",
+  ul1:["الجيولوجيا البيئية","الهيدروجيولوجيا","الجيوفيزياء التطبيقية","الجيوكيمياء","دراسات التأثير البيئي (EIE)"],
+  ul2:["تصميم الطرق والمسارات","تصميم الأرصفة","استقرار المنحدرات","التحليل الجيوتقني"],
+  ul3:["تحليل الجدوى التقنية","الدراسات الاقتصادية","تحديد السيناريوهات","تقييم المخاطر"],
+  ul4:["الرسم الجيولوجي","المسوحات الجيوفيزيائية","رخص البحث","إدارة المحاجر"],
+  ul5:["الدراسات الهيدروجيولوجية","الإدارة المستدامة للمياه","النمذجة الهيدروجيولوجية"],
+  ul6:["قيادة المشاريع","الجدولة الزمنية","المساعدة التقنية والبيئية"],
+  mineH:"الاستكشاف الجيولوجي — الخدمات التفصيلية",
+  mineIntro:"من التحليل الوثائقي إلى ملفات رخص البحث، نغطي كامل سلسلة الاستكشاف الجيولوجي والمنجمي.",
+  mineUl:["التحليل الوثائقي وتجميع البيانات الجيولوجية","الرسم الجيولوجي والبنيوي","المسوحات الجيوفيزيائية والجيوكيميائية","أعمال الاستطلاع الميداني","تفسير البيانات وتحديد مناطق الإمكانات المنجمية","إعداد ومتابعة ملفات رخص البحث"],
+  projH:"مشاريعنا",projIntro:"نظرة على تدخلاتنا في المغرب وعلى المستوى الدولي — دراسات التأثير والاستكشاف والبحث العلمي.",projAll:"جميع المشاريع",
+  hp1b:"منشور علمي",hp1t:"البركانية النيوجينية-الرباعية في شمال غرب أفريقيا",hp1d:"نشأة الصخور، الضوابط التكتونية والتطور الجيوديناميكي — فصل علمي منشور لدى IntechOpen.",hp1m:"عرض المنشور",
+  hp2b:"مُنجز",hp2t:"استكشاف جيولوجي — عروق معدنية من الفلوريت",hp2d:"رسم خرائط بنيوية وتحليل ميداني وتوصيف معدني في شمال شرق المغرب.",hp2m:"تفاصيل المشروع",
+  hp3b:"مُنجز",hp3t:"دراسة هيدروجيولوجية — الموارد المائية الجوفية",hp3d:"توصيف طبقات المياه الجوفية ونمذجة التدفقات وتقييم استدامة الموارد.",hp3m:"تفاصيل المشروع",
+  galH:"معرض الميدان",galIntro:"انقروا على صورة لتكبيرها — الاستكشاف وأخذ العينات والتحليلات والعمل الميداني.",galView:"تكبير",galCount:"صورة ميدانية",galBanner:"استكشاف جيولوجي، أخذ عينات، تحليلات مخبرية وعمل ميداني في المغرب.",
+  ctH:"لنتحدث عن مشروعكم",ctD:"فريقنا رهن إشارتكم لدراسة احتياجاتكم في علوم الأرض والبيئة والهندسة.",btnMail:"راسلنا",
+  horaires:"الإثنين – السبت : 9:00 – 18:00",
+  qrH:"رمز QR — الموقع",qrDesc:"امسح للوصول المباشر إلى موقع K&B Earth Works",dl1:"تحميل رمز QR",
+  mapCoords:"33.5783° N — 7.6067° W · الدار البيضاء، المغرب",clockLabel:"التوقيت المحلي",
+  rights:"جميع الحقوق محفوظة"
+},
+zgh:{
+  topbar:"ⴰⵙⴰⵔⴰⴳ ⵏ ⵜⵉⵣⵔⴰⵡⵉⵏ — ⴰⵏⴼⴰ, ⵍⵎⵖⵔⵉⴱ",
+  tagline:"ⴰⵙⴰⵔⴰⴳ ⵏ ⵜⵉⵣⵔⴰⵡⵉⵏ ⴳ ⵜⵓⵙⵙⵏⴰ ⵏ ⵡⴰⴽⴰⵍ, ⵜⴰⵡⵏⵏⴰⴹⵜ ⴷ ⵜⴰⵙⵏⵖⵍⵜ",
+  loc:"ⴰⵏⴼⴰ — ⵍⵎⵖⵔⵉⴱ",
+  projNotif:"ⵙⵏⵉⵔⵎ ⵉⵙⵏⴼⴰⵕⵏ-ⵏⵏⵖ",projNotifSub:"ⴰⵙⵓⴼⵓⴼⵖ ⵓⵙⵙⵏⴰⵏ ⴷ ⵢⵉⵙⵏⴼⴰⵕⵏ",btn4:"ⵜⵉⵡⵍⴰⴼⵉⵏ",
+  btn1:"ⵙⵏⵉⵔⵎ ⵜⵉⵎⵥⵍⴰ-ⵏⵏⵖ",btn2:"ⵏⵔⵎⵙ-ⴰⵖ-ⴷ",btn3:"ⵉⵙⵏⴼⴰⵕⵏ-ⵏⵏⵖ",
+  stat1:"ⵉⵙⵏⴼⴰⵕⵏ",stat2:"ⵉⴳⵔⴰⵏ ⵏ ⵜⵓⵙⵙⵏⴰ",stat3:"ⵉⵙⵏⴼⴰⵕⵏ ⵏ ⵓⵏⴰⴷⵉ",
+  eye1:"ⵎⴰ ⵏⴳⴰ",eye2:"ⵜⵓⵙⵙⵏⴰ",eye3:"ⴰⵙⵏⵇⴷ",eye4:"ⵜⵉⵎⵙⵙⴽⵜⴰⵢ",eye5:"ⴳ ⵡⴰⴽⴰⵍ",eye6:"ⴰⵏⵔⵎⴰⵙ",eye7:"ⴰⴽⵛⵛⵓⵎ ⴰⵣⵔⴱⴰⵏ",
+  aboutH:"ⵖⴼ K&B Earth Works",
+  about1:"<strong>K&B Earth Works SARL</strong> ⴷ ⴰⵙⴰⵔⴰⴳ ⵏ ⵜⵉⵣⵔⴰⵡⵉⵏ ⵉⵜⵜⵡⴰⵙⵙⵏⵏ ⴳ ⵜⵓⵙⵙⵏⴰ ⵏ ⵡⴰⴽⴰⵍ, ⵜⴰⵡⵏⵏⴰⴹⵜ ⴷ ⵜⴰⵙⵏⵖⵍⵜ, ⵉⵣⴷⵖ ⴳ ⵡⴰⵏⴼⴰ.",
+  about2:"ⵏⵜⵜⵎⵖⵉⵕ ⵉⵎⵙⴼⵔⴰⴽⵏ ⵉⵎⴰⵜⴰⵢⵏ ⴷ ⵡⵓⵙⵍⵉⴳⵏ ⴳ <strong>ⵓⵙⵖⵥⵍ</strong>, ⵜⴰⵙⵍⴹⵜ ⴷ ⵓⵙⵍⴽⵎ ⵏ ⵢⵉⵙⵏⴼⴰⵕⵏ.",
+  about3:"ⵜⴰⵡⵓⵔⵉ-ⵏⵏⵖ: ⴰⴷ ⴷ-ⵏⴼⴽ <strong>ⵜⵉⴼⵔⵓⵔⵉⵡⵉⵏ ⵉⵖⵣⴼⴰⵏⵉⵏ</strong> ⴳ ⵢⵉⴳⵔⴰⵏ ⵏ ⵢⵉⵙⵓⴳⴰⵎ ⵏ ⵓⴳⴰⵎⴰ.",
+  appH:"ⵜⴰⵔⵔⴰⵢⵜ-ⵏⵏⵖ",a1:"ⵜⵓⵙⵙⵏⴰ ⵜⵓⵙⵏⴰⵏⵉⵜ",a2:"ⵜⵉⴼⵔⵓⵔⵉⵡⵉⵏ ⵉⵖⵣⴼⴰⵏⵉⵏ",a3:"ⵜⴰⵔⵔⴰⵢⵜ ⵏ ⵡⴰⵟⴰⵙ ⵏ ⵜⵓⵙⵙⵏⵉⵡⵉⵏ",a4:"ⵜⴰⵍⵍⴰⵍⵜ",a5:"ⵜⴰⵣⵎⵔⵜ ⴷ ⵓⵙⵏⵓⵍⴼⵓ",
+  srvH:"ⵜⵉⵎⵥⵍⴰ-ⵏⵏⵖ",
+  s1:"ⵜⵓⵙⵙⵏⴰ ⵏ ⵡⴰⴽⴰⵍ ⴷ ⵜⴰⵡⵏⵏⴰⴹⵜ",s2:"ⵜⴰⵙⵏⵖⵍⵜ ⵏ ⵢⵉⴱⵔⴷⴰⵏ",s3:"ⵜⵉⵣⵔⴰⵡⵉⵏ ⵏ ⵜⵓⴼⴼⵔⴰ",s4:"ⴰⵙⵏⵇⴷ ⴰⵎⵉⵏⵉ",s5:"ⵉⵙⵓⴳⴰⵎ ⵏ ⵡⴰⵎⴰⵏ",s6:"ⴰⵙⵏⵇⴷ ⵏ ⵢⵉⵙⵏⴼⴰⵕⵏ",
+  ul1:["ⵜⴰⵊⵢⵓⵍⵓⵊⵉ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ","ⵜⴰⵀⵉⴷⵔⵓⵊⵢⵓⵍⵓⵊⵉ","ⵜⴰⵊⵢⵓⴼⵉⵣⵉⴽ","ⵜⴰⵊⵢⵓⴽⵉⵎⵢⴰ","ⵜⵉⵣⵔⴰⵡⵉⵏ ⵏ ⵓⵙⵎⴷⵓ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ"],
+  ul2:["ⴰⵙⵖⵥⵍ ⵏ ⵢⵉⴱⵔⴷⴰⵏ","ⴰⵙⵎⴷⵓ ⵏ ⵢⵉⴱⵔⴷⴰⵏ","ⴰⵔⵎⵓⴷ ⵏ ⵢⵉⴷⵓⵔⴰⵔ","ⵜⴰⵙⵍⴹⵜ ⵜⴰⵊⵢⵓⵜⵉⴽⵏⵉⴽⵜ"],
+  ul3:["ⵜⴰⵙⵍⴹⵜ ⵏ ⵜⵓⴼⴼⵔⴰ","ⵜⵉⵣⵔⴰⵡⵉⵏ ⵜⵉⴷⴰⵎⵙⴰⵏⵉⵏ","ⴰⵙⵏⵇⴷ ⵏ ⵢⵉⵙⵏⴼⴰⵕⵏ","ⴰⵙⵙⵜⵍ ⵏ ⵢⵉⵡⵜⵉⵍⵏ"],
+  ul4:["ⵜⴰⴽⴰⵔⵜ ⵏ ⵜⴰⵊⵢⵓⵍⵓⵊⵉ","ⵉⵙⴼⵔⴰⵏ ⵉⵊⵢⵓⴼⵉⵣⵉⴽⵉⵢⵏ","ⵜⵓⵔⴰⴳⵉⵏ ⵏ ⵓⵏⴰⴷⵉ","ⴰⵙⵏⵇⴷ ⵏ ⵢⵉⵎⵇⴰⵍ"],
+  ul5:["ⵜⵉⵣⵔⴰⵡⵉⵏ ⵜⵉⵀⵉⴷⵔⵓⵊⵢⵓⵍⵓⵊⵉⵢⵉⵏ","ⴰⵙⵏⵇⴷ ⵉⵖⵣⴼⴰⵏ ⵏ ⵢⵉⵙⵓⴳⴰⵎ ⵏ ⵡⴰⵎⴰⵏ","ⴰⵎⵓⴷⵉⵍ"],
+  ul6:["ⴰⵙⵏⵇⴷ ⵏ ⵢⵉⵙⵏⴼⴰⵕⵏ","ⴰⵙⵖⵥⵍ ⵏ ⵡⴰⴽⵓⴷ","ⵜⴰⵍⵍⴰⵍⵜ ⵜⴰⵜⵉⴽⵏⵉⴽⵜ"],
+  mineH:"ⴰⵙⵏⵇⴷ ⴰⵊⵢⵓⵍⵓⵊⵉ — ⵜⵉⵎⵥⵍⴰ",
+  mineIntro:"ⵙⴳ ⵜⴰⵙⵍⴹⵜ ⵏ ⵢⵉⵙⵎⵍⵉⵢⵏ ⴰⵔ ⵉⴷⵓⵙⵉⵢⴰⵏ ⵏ ⵜⵓⵔⴰⴳⵉⵏ ⵏ ⵓⵏⴰⴷⵉ.",
+  mineUl:["ⵜⴰⵙⵍⴹⵜ ⵏ ⵢⵉⵙⵎⵍⵉⵢⵏ ⴷ ⵓⵙⵎⵍⵉⵍ ⵏ ⵢⵉⵙⴼⴽⴰ","ⵜⴰⴽⴰⵔⵜ ⵜⴰⵊⵢⵓⵍⵓⵊⵉ ⴷ ⵜⴰⴷⴷⴰⵔⵜ","ⵉⵙⴼⵔⴰⵏ ⵉⵊⵢⵓⴼⵉⵣⵉⴽⵉⵢⵏ","ⴰⵎⴰⵀⵉⵍ ⵏ ⵓⵙⵏⵇⴷ ⵏ ⵡⴰⴽⴰⵍ","ⴰⵙⵓⵖⵍ ⵏ ⵢⵉⵙⴼⴽⴰ","ⴰⵙⵖⵥⵍ ⴷ ⵓⴹⴼⴰⵔ ⵏ ⵜⵓⵔⴰⴳⵉⵏ"],
+  projH:"ⵉⵙⵏⴼⴰⵕⵏ-ⵏⵏⵖ",projIntro:"ⵜⴰⵙⵍⴹⵜ ⵏ ⵢⵉⵎⴰⵀⴰⵍ-ⵏⵏⵖ ⴳ ⵍⵎⵖⵔⵉⴱ ⴷ ⵓⵎⴰⴷⴰⵍ.",projAll:"ⴰⴽⴽⵯ ⵉⵙⵏⴼⴰⵕⵏ",
+  hp1b:"ⴰⵙⵓⴼⴼⵖ",hp1t:"ⴰⴼⵓⵍⴽⴰⵏⵉⵣⵎ ⵏ Neogen-Quaternaire ⵏ NW Afrika",hp1d:"Petrogenese, ⴰⵙⵏⵇⴷ ⴰⵜⴽⵜⵓⵏⵉⴽ ⴷ ⵓⵙⵏⵔⵏⵉ ⴰⴳⵢⵓⴷⵉⵏⴰⵎⵉⴽ — IntechOpen.",hp1m:"ⵡⴰⵍⵉ ⴰⵙⵓⴼⴼⵖ",
+  hp2b:"ⵉⵜⵜⵡⴰⴽⵎⵍ",hp2t:"ⴰⵙⵏⵇⴷ ⴰⵊⵢⵓⵍⵓⵊⵉ — ⵉⵖⵕⵕⴰⵏ ⵏ ⵓⴼⵍⵓⵔⵉⵜ",hp2d:"ⵜⴰⴽⴰⵔⵜ ⵏ ⵜⴰⴷⴷⴰⵔⵜ ⴷ ⵜⴰⵙⵍⴹⵜ ⵏ ⵡⴰⴽⴰⵍ ⴳ ⵓⴳⴰⴼⴰ-ⴰⵙⴰⵎⴰⵔ ⵏ ⵍⵎⵖⵔⵉⴱ.",hp2m:"ⵉⵙⴼⴽⴰ ⵏ ⵓⵙⵏⴼⴰⵕ",
+  hp3b:"ⵉⵜⵜⵡⴰⴽⵎⵍ",hp3t:"ⵜⴰⵣⵔⴰⵡⵜ ⵜⴰⵀⵉⴷⵔⵓⵊⵢⵓⵍⵓⵊⵉ — ⵉⵙⵓⴳⴰⵎ ⵏ ⵡⴰⵎⴰⵏ",hp3d:"ⴰⵙⵏⵇⴷ ⵏ ⵢⵉⴰⵇⵓⵉⴼⵔⵏ ⴷ ⵓⵎⵓⴷⵍ ⵏ ⵓⵙⵉⴽⵍ ⵏ ⵡⴰⵎⴰⵏ.",hp3m:"ⵉⵙⴼⴽⴰ ⵏ ⵓⵙⵏⴼⴰⵕ",
+  galH:"ⵜⵉⵡⵍⴰⴼⵉⵏ ⵏ ⵡⴰⴽⴰⵍ",galIntro:"ⴽⵍⵉⴽⵉ ⵖⴼ ⵜⵡⵍⴰⴼⵜ ⴰⴷ ⵜⵜ-ⵜⵙⵎⵖⵓⵔⴷ.",galView:"ⵙⵎⵖⵓⵔ",galCount:"ⵜⵡⵍⴰⴼⵉⵏ ⵏ ⵡⴰⴽⴰⵍ",galBanner:"ⴰⵙⵏⵇⴷ ⴰⵊⵢⵓⵍⵓⵊⵉ, ⴰⵙⵎⵓⵙⵙⵓ ⵏ ⵉⵙⵎⴰⵢⵏⵏ, ⵜⵉⵙⵍⴹⵉⵏ ⵏ ⵓⵙⵙⵏⵙⵍⵓ ⴷ ⵓⴳⴰⵎⴰ ⴳ ⵍⵎⵖⵔⵉⴱ.",
+  ctH:"ⴰⴷ ⵏⵙⴰⵡⵍ ⵖⴼ ⵓⵙⵏⴼⴰⵕ-ⵏⵏⵓⵏ",ctD:"ⵜⴰⵔⴱⴰⵄⵜ-ⵏⵏⵖ ⵜⵀⴳⴳⴰ ⴰⴷ ⵜⵣⵔⵓ ⵜⵉⵎⵎⴰⵔⴰ-ⵏⵏⵓⵏ.",btnMail:"ⴰⵔⵓ-ⴰⵖ-ⴷ",
+  horaires:"ⴰⵢⵏⴰⵙ – ⴰⵙⵉⴹⵢⴰⵙ : 9:00 – 18:00",
+  qrH:"ⵜⴰⵏⴳⴰⵍⵜ QR — ⴰⵙⵎⵍ Web",qrDesc:"ⵙⴽⵏ ⵉⵡⴰⴽⴽⵏ ⴰⴷ ⵜⵍⴷⵉⴹ ⴰⵙⵎⵍ ⵏ K&B Earth Works ⵙⵔⵉⴷ",  dl1:"ⵙⴰⴷⵔ-ⴷ ⵜⴰⵏⴳⴰⵍⵜ QR",
+  mapCoords:"33.5783° N — 7.6067° W · ⴰⵏⴼⴰ, ⵍⵎⵖⵔⵉⴱ",clockLabel:"ⴰⴽⵓⴷ ⴰⴷⵖⵔⴰⵏ",
+  rights:"ⴰⴽⴽⵯ ⵉⵣⵔⴼⴰⵏ ⵃⴹⴰⵏⵉⵏ"
+}
+};
+
+var MINE_ICONS=['fa-file-lines','fa-map','fa-wave-square','fa-person-hiking','fa-magnifying-glass-chart','fa-folder-open'];
+var ID_MAP={
+  't-topbar':'topbar','t-tagline':'tagline','t-loc':'loc','t-proj-notif':'projNotif','t-proj-notif-sub':'projNotifSub','t-btn1':'btn1','t-btn2':'btn2','t-btn3':'btn3','t-btn4':'btn4',
+  't-stat1':'stat1','t-stat2':'stat2','t-stat3':'stat3',
+  't-eye1':'eye1','t-eye2':'eye2','t-eye3':'eye3','t-eye4':'eye4','t-eye5':'eye5','t-eye6':'eye6','t-eye7':'eye7',
+  't-about-h':'aboutH','t-app-h':'appH','t-a1':'a1','t-a2':'a2','t-a3':'a3','t-a4':'a4','t-a5':'a5',
+  't-srv-h':'srvH','t-s1':'s1','t-s2':'s2','t-s3':'s3','t-s4':'s4','t-s5':'s5','t-s6':'s6',
+  't-mine-h':'mineH','t-mine-intro':'mineIntro',
+  't-proj-h':'projH','t-proj-intro':'projIntro','t-projAll':'projAll',
+  't-hp1b':'hp1b','t-hp1t':'hp1t','t-hp1d':'hp1d','t-hp1m':'hp1m',
+  't-hp2b':'hp2b','t-hp2t':'hp2t','t-hp2d':'hp2d','t-hp2m':'hp2m',
+  't-hp3b':'hp3b','t-hp3t':'hp3t','t-hp3d':'hp3d','t-hp3m':'hp3m',
+  't-gal-h':'galH','t-gal-intro':'galIntro','t-gal-count':'galCount','t-gal-banner':'galBanner',
+  't-ct-h':'ctH','t-ct-d':'ctD','t-btnMail':'btnMail','t-horaires':'horaires','t-horaires2':'horaires',
+  't-qr-h':'qrH','t-qr-desc':'qrDesc','t-dl1':'dl1','t-mapCoords':'mapCoords','t-clockLabel':'clockLabel','t-rights':'rights'
 };
 
 function setLang(l,btn){
-  var t=T[l];
+  var t=T[l];if(!t)return;
   document.documentElement.lang=l;
   document.documentElement.dir=(l==='ar')?'rtl':'ltr';
   document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  var ids=['t-topbar','t-tagline','t-btn1','t-btn2','t-btn3','t-about-h','t-about1','t-about2','t-about3','t-srv-h','t-s1','t-s2','t-s3','t-s4','t-s5','t-s6','t-mine-h','t-app-h','t-a1','t-a2','t-a3','t-a4','t-a5','t-qr-h','t-qr-desc','t-dl1','t-horaires','t-horaires2','t-clock-label','t-clock-h','t-clock-m','t-clock-s','t-meteo-label'];
-  var keys=['topbar','tagline','btn1','btn2','btn3','aboutH','about1','about2','about3','srvH','s1','s2','s3','s4','s5','s6','mineH','appH','a1','a2','a3','a4','a5','qrH','qrDesc','dl1','horaires','horaires','clockLabel','clockH','clockM','clockS','meteoLabel'];
-  ids.forEach(function(id,i){var el=document.getElementById(id);if(el){if(keys[i].indexOf('about')===0||keys[i].indexOf('s')===0&&keys[i].length<=2){el.innerHTML=t[keys[i]]||''}else{el.textContent=t[keys[i]]||''}}});
-  var ulKeys=['ul1','ul2','ul3','ul4','ul5','ul6'];
-  ulKeys.forEach(function(k){var el=document.getElementById('t-'+k);if(el&&t[k]){el.innerHTML='';t[k].forEach(function(txt){var li=document.createElement('li');li.textContent=txt;el.appendChild(li)})}});
-  var mEl=document.getElementById('t-mine-ul');
-  if(mEl&&t.mineUl){mEl.innerHTML='';t.mineUl.forEach(function(txt){var li=document.createElement('li');li.innerHTML=txt;mEl.appendChild(li)})}
-  if(typeof fetchWeather==='function')fetchWeather();
-  if(typeof renderCal==='function')renderCal();
+  if(btn)btn.classList.add('active');
+  Object.keys(ID_MAP).forEach(function(id){
+    var e=document.getElementById(id),v=t[ID_MAP[id]];
+    if(e&&v!==undefined)e.textContent=v;
+  });
+  ['about1','about2','about3'].forEach(function(k){
+    var e=document.getElementById('t-'+k);if(e)e.innerHTML=t[k];
+  });
+  for(var i=1;i<=6;i++){
+    var ul=document.getElementById('t-ul'+i);
+    if(ul&&t['ul'+i])ul.innerHTML=t['ul'+i].map(function(x){return'<li>'+x+'</li>'}).join('');
+  }
+  var mg=document.getElementById('t-mine-ul');
+  if(mg&&t.mineUl){
+    mg.innerHTML=t.mineUl.map(function(x,i){
+      return'<div class="mine-item rv in"><i class="fa-solid '+MINE_ICONS[i]+'"></i><span>'+x+'</span></div>';
+    }).join('');
+  }
+  document.querySelectorAll('.proj-arrow').forEach(function(a){
+    a.className=(l==='ar')?'fa-solid fa-arrow-left proj-arrow':'fa-solid fa-arrow-right proj-arrow';
+  });
+  var arrow=document.getElementById('proj-notif-arrow');
+  if(arrow)arrow.className='fa-solid '+(l==='ar'?'fa-arrow-left':'fa-arrow-right');
+  if(t.galView){
+    galViewLabel=t.galView;
+    document.querySelectorAll('.gal-view-txt').forEach(function(el){el.textContent=t.galView});
+  }
 }
 
-// ══ MOROCCO CLOCK ══
-function updateClock(){
-  var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Africa/Casablanca'}));
-  var h=now.getHours(),m=now.getMinutes(),s=now.getSeconds();
-  document.getElementById('clock-h').textContent=h<10?'0'+h:h;
-  document.getElementById('clock-m').textContent=m<10?'0'+m:m;
-  document.getElementById('clock-s').textContent=s<10?'0'+s:s;
+/* ══ COMPTEURS ══ */
+function countUp(el,target,dur){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=target;return}
+  var start=null;
+  function step(ts){
+    if(!start)start=ts;
+    var p=Math.min((ts-start)/dur,1);
+    el.textContent=Math.round(target*(1-Math.pow(1-p,3)));
+    if(p<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
 }
-updateClock();
-setInterval(updateClock,1000);
+(function(){
+  var fired=false;
+  function fire(){
+    if(fired)return;fired=true;
+    countUp(document.getElementById('n1'),11,1400);
+    countUp(document.getElementById('n2'),6,1200);
+    countUp(document.getElementById('n3'),2,1000);
+  }
+  if(!('IntersectionObserver' in window)){fire();return}
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){fire();io.disconnect()}});
+  },{threshold:.4});
+  io.observe(document.querySelector('.stats'));
+})();
 
-// ══ CASABLANCA WEATHER ══
+/* ══ GALERIE + LIGHTBOX ══ */
+var GAL_LAYOUT=[
+  {c:5,r:2},{c:3,r:2},{c:4,r:1},{c:4,r:1},
+  {c:4,r:2},{c:4,r:2},{c:4,r:1},{c:4,r:1},
+  {c:3,r:2},{c:3,r:2},{c:3,r:1},{c:3,r:1},
+  {c:4,r:1},{c:4,r:1},{c:4,r:1},{c:4,r:1}
+];
+var GAL_COUNT=16,lbIndex=0,galViewLabel='Agrandir';
+
+function galSrc(i){var n=(i<9?'0':'')+(i+1);return'assets/gallery/g'+n+'.jpg'}
+
+function buildGallery(){
+  var grid=document.getElementById('gal-grid');if(!grid)return;
+  grid.innerHTML='';
+  for(var i=1;i<=GAL_COUNT;i++){
+    var lay=GAL_LAYOUT[i-1]||{c:3,r:1};
+    var btn=document.createElement('button');
+    btn.type='button';
+    btn.className='gal-item rv'+(i===1?' g-hero':'');
+    btn.style.gridColumn='span '+lay.c;
+    btn.style.gridRow='span '+lay.r;
+    btn.setAttribute('aria-label','Photo '+i);
+    btn.addEventListener('click',function(idx){return function(e){e.preventDefault();openLb(idx)}}(i-1));
+    var img=document.createElement('img');
+    img.src=galSrc(i-1);
+    img.alt='K&B Earth Works — photo '+i;
+    img.loading='lazy';
+    img.draggable=false;
+    img.onerror=function(){btn.style.display='none'};
+    var num=document.createElement('span');
+    num.className='gal-num';
+    num.textContent=(i<10?'0':'')+i;
+    var view=document.createElement('div');
+    view.className='gal-view';
+    view.innerHTML='<span class="gal-view-txt">'+galViewLabel+'</span>';
+    var z=document.createElement('span');
+    z.className='gal-zoom';
+    z.innerHTML='<i class="fa-solid fa-magnifying-glass-plus"></i>';
+    btn.appendChild(img);btn.appendChild(num);btn.appendChild(view);btn.appendChild(z);
+    grid.appendChild(btn);
+  }
+}
+
+function buildLbThumbs(){
+  var bar=document.getElementById('lb-thumbs');if(!bar)return;
+  bar.innerHTML='';
+  for(var i=0;i<GAL_COUNT;i++){
+    var t=document.createElement('img');
+    t.className='lb-thumb'+(i===lbIndex?' active':'');
+    t.src=galSrc(i);
+    t.alt='';
+    t.loading='lazy';
+    t.addEventListener('click',function(idx){return function(e){e.stopPropagation();openLb(idx)}}(i));
+    bar.appendChild(t);
+  }
+}
+
+function openLb(i){
+  lbIndex=i;
+  var lb=document.getElementById('lightbox');
+  var img=document.getElementById('lb-img');
+  img.src=galSrc(i);
+  document.getElementById('lb-cap').textContent=(i+1)+' / '+GAL_COUNT;
+  buildLbThumbs();
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+  var active=document.querySelector('.lb-thumb.active');
+  if(active&&active.scrollIntoView)active.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function closeLb(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function lbNav(d){
+  lbIndex=(lbIndex+d+GAL_COUNT)%GAL_COUNT;
+  openLb(lbIndex);
+}
+
+document.getElementById('lightbox').addEventListener('click',function(e){
+  if(e.target===this||e.target.classList.contains('lb-stage'))closeLb();
+});
+
+document.addEventListener('keydown',function(e){
+  var lb=document.getElementById('lightbox');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')lbNav(-1);
+  if(e.key==='ArrowRight')lbNav(1);
+});
+
+var lbTouchX=0;
+document.getElementById('lightbox').addEventListener('touchstart',function(e){lbTouchX=e.changedTouches[0].screenX},{passive:true});
+document.getElementById('lightbox').addEventListener('touchend',function(e){
+  var lb=document.getElementById('lightbox');
+  if(!lb.classList.contains('open'))return;
+  var dx=e.changedTouches[0].screenX-lbTouchX;
+  if(Math.abs(dx)>50)lbNav(dx>0?-1:1);
+},{passive:true});
+
+buildGallery();
+
+/* ══ PIN CASABLANCA (33.5783° N, 7.6067° W) ══ */
+(function(){
+  var CASA={lat:33.5783,lng:-7.6067};
+  var MAP_W=4378.13,MAP_H=2434.94;
+  function placeMapPin(){
+    var wrap=document.querySelector('.close-map');
+    var img=wrap&&wrap.querySelector('.world-bg');
+    var pin=wrap&&wrap.querySelector('.map-pin');
+    if(!wrap||!img||!pin||!img.naturalWidth)return;
+    var wr=wrap.getBoundingClientRect();
+    var ir=img.getBoundingClientRect();
+    var xPct=(CASA.lng+180)/360;
+    var yPct=(90-CASA.lat)/180;
+    pin.style.left=Math.round(ir.left-wr.left+ir.width*xPct)+'px';
+    pin.style.top=Math.round(ir.top-wr.top+ir.height*yPct)+'px';
+  }
+  var img=document.querySelector('.world-bg');
+  if(img){
+    if(img.complete)placeMapPin();else img.addEventListener('load',placeMapPin);
+    window.addEventListener('resize',placeMapPin);
+  }
+})();
+
+/* ══ HORLOGE & MÉTÉO CASABLANCA ══ */
 var weatherDescs={
   fr:{0:"Ciel dégagé",1:"Peu nuageux",2:"Partiellement nuageux",3:"Couvert",45:"Brouillard",48:"Brouillard givrant",51:"Bruine légère",53:"Bruine",55:"Bruine forte",61:"Pluie légère",63:"Pluie modérée",65:"Pluie forte",71:"Neige légère",73:"Neige",75:"Neige forte",80:"Averses légères",81:"Averses",82:"Averses fortes",95:"Orage",96:"Orage avec grêle",99:"Orage violent"},
   en:{0:"Clear sky",1:"Mostly clear",2:"Partly cloudy",3:"Overcast",45:"Foggy",48:"Freezing fog",51:"Light drizzle",53:"Drizzle",55:"Heavy drizzle",61:"Light rain",63:"Rain",65:"Heavy rain",71:"Light snow",73:"Snow",75:"Heavy snow",80:"Light showers",81:"Showers",82:"Heavy showers",95:"Thunderstorm",96:"Thunderstorm with hail",99:"Severe storm"},
-  ar:{0:"سماء صافية",1:"قليل الغيوم",2:"غائم جزئياً",3:"غائم",45:"ضباب",48:"ضباب متجمد",51:"رذاذ خفيف",53:"رذاذ",55:"رذاذ كثيف",61:"مطر خفيف",63:"مطر معتدل",65:"مطر غزير",71:"ثلج خفيف",73:"ثلج",75:"ثلج كثيف",80:"زخات خفيفة",81:"زخات",82:"زخات قوية",95:"عاصفة رعدية",96:"عاصفة مع بَرَد",99:"عاصفة شديدة"}
+  ar:{0:"سماء صافية",1:"قليل الغيوم",2:"غائم جزئياً",3:"غائم",45:"ضباب",48:"ضباب متجمد",51:"رذاذ خفيف",53:"رذاذ",55:"رذاذ كثيف",61:"مطر خفيف",63:"مطر معتدل",65:"مطر غزير",71:"ثلج خفيف",73:"ثلج",75:"ثلج كثيف",80:"زخات خفيفة",81:"زخات",82:"زخات قوية",95:"عاصفة رعدية",96:"عاصفة مع بَرَد",99:"عاصفة شديدة"},
+  zgh:{0:"ⵉⵣⵔⵉ ⵉⵎⵥⵉⵢⵏ",1:"ⵉⵎⵥⵉⵢⵏ",2:"ⵉⵎⵥⵉⵢⵏ",3:"ⵉⵎⵥⵉⵢⵏ",45:"ⴰⵏⴰⴹ",61:"ⴰⵏⴼⵍⵓⵙ",63:"ⴰⵏⴼⵍⵓⵙ",65:"ⴰⵏⴼⵍⵓⵙ ⵉⵎⵇⵔⴰⵏ",80:"ⴰⵏⴼⵍⵓⵙ",95:"ⴰⵔⵎⵓⴷ",99:"ⴰⵔⵎⵓⴷ ⵉⵎⵇⵔⴰⵏ"}
 };
-var weatherIcons={0:"☀️",1:"🌤️",2:"⛅",3:"☁️",45:"🌫️",48:"🌫️",51:"🌦️",53:"🌧️",55:"🌧️",61:"🌧️",63:"🌧️",65:"🌧️",71:"🌨️",73:"🌨️",75:"🌨️",80:"🌦️",81:"🌧️",82:"🌧️",95:"⛈️",96:"⛈️",99:"⛈️"};
 var currentLang='fr';
 
-function fetchWeather(){
-  fetch('https://api.open-meteo.com/v1/forecast?latitude=33.5731&longitude=-7.5898&current=temperature_2m,weather_code&timezone=Africa/Casablanca')
-    .then(function(r){return r.json()})
-    .then(function(d){
-      var temp=Math.round(d.current.temperature_2m);
-      var code=d.current.weather_code;
-      document.getElementById('meteo-temp').textContent=temp+'°C';
-      document.getElementById('meteo-icon').textContent=weatherIcons[code]||'🌡️';
-      var lang=document.documentElement.lang||'fr';
-      document.getElementById('meteo-desc').textContent=(weatherDescs[lang]&&weatherDescs[lang][code])||weatherDescs.fr[code]||'';
-    })
-    .catch(function(){
-      document.getElementById('meteo-temp').textContent='--°C';
-      document.getElementById('meteo-desc').textContent='';
-    });
-}
-fetchWeather();
-setInterval(fetchWeather,600000);
-
-// ══ CALENDAR ══
-var calMonths={
-  fr:["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"],
-  en:["January","February","March","April","May","June","July","August","September","October","November","December"],
-  ar:["يناير","فبراير","مارس","أبريل","ماي","يونيو","يوليوز","غشت","شتنبر","أكتوبر","نونبر","دجنبر"]
-};
-var calDays={
-  fr:["Dim","Lun","Mar","Mer","Jeu","Ven","Sam"],
-  en:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],
-  ar:["أحد","إثن","ثلا","أرب","خمي","جمع","سبت"]
-};
-var calDate=new Date(new Date().toLocaleString('en-US',{timeZone:'Africa/Casablanca'}));
-var calMonth=calDate.getMonth(),calYear=calDate.getFullYear();
-
-function renderCal(){
-  var lang=document.documentElement.lang||'fr';
-  var months=calMonths[lang]||calMonths.fr;
-  var days=calDays[lang]||calDays.fr;
-  document.getElementById('cal-title').textContent=months[calMonth]+' '+calYear;
-  var daysEl=document.getElementById('cal-days');
-  daysEl.innerHTML='';
-  days.forEach(function(d){var s=document.createElement('span');s.textContent=d;daysEl.appendChild(s)});
-  var grid=document.getElementById('cal-grid');
-  grid.innerHTML='';
-  var first=new Date(calYear,calMonth,1).getDay();
-  var total=new Date(calYear,calMonth+1,0).getDate();
+function updateMapClock(){
   var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Africa/Casablanca'}));
-  for(var i=0;i<first;i++){var e=document.createElement('span');e.className='empty';e.textContent='';grid.appendChild(e)}
-  for(var d=1;d<=total;d++){var s=document.createElement('span');s.textContent=d;if(d===now.getDate()&&calMonth===now.getMonth()&&calYear===now.getFullYear())s.className='today';grid.appendChild(s)}
+  var h=now.getHours(),m=now.getMinutes(),s=now.getSeconds();
+  var el=document.getElementById('map-clock');
+  if(el)el.textContent=(h<10?'0':'')+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s;
 }
-function changeMonth(dir){calMonth+=dir;if(calMonth>11){calMonth=0;calYear++}if(calMonth<0){calMonth=11;calYear--}renderCal()}
-renderCal();
+updateMapClock();
+setInterval(updateMapClock,1000);
+
+function fetchMapWeather(){
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=33.5783&longitude=-7.6067&current=temperature_2m,weather_code&timezone=Africa/Casablanca')
+  .then(function(r){return r.json()})
+  .then(function(d){
+    if(!d||!d.current)return;
+    var tempEl=document.getElementById('map-temp');
+    var descEl=document.getElementById('map-weather-desc');
+    if(tempEl)tempEl.textContent=Math.round(d.current.temperature_2m)+'°C';
+    var lang=currentLang==='zgh'?'fr':currentLang;
+    var desc=(weatherDescs[lang]||weatherDescs.fr)[d.current.weather_code]||'Casablanca';
+    if(descEl)descEl.textContent=desc;
+  })
+  .catch(function(){});
+}
+fetchMapWeather();
+setInterval(fetchMapWeather,600000);
+
+/* patch setLang for weather refresh */
+var _setLang=setLang;
+setLang=function(l,btn){
+  currentLang=l;
+  _setLang(l,btn);
+  fetchMapWeather();
+};
+
+/* ══ REVEAL ══ */
+(function(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});return;
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.1});
+  document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+})();
 </script>
 </body>
 </html>
