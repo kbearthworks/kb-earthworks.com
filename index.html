@@ -209,6 +209,41 @@ html[lang="zgh"] body,html[lang="zgh"] button,html[lang="zgh"] a,html[lang="zgh"
 .pcard-media-bar i{color:#fff;font-size:1.15rem;filter:drop-shadow(0 2px 6px rgba(0,0,0,.45))}
 .projprev-cta{text-align:center;margin-top:44px}
 
+/* ══ SHOWCASE — modélisation inondation ══ */
+.showcase{background:var(--darker);color:#e8f1f2;position:relative;overflow:hidden;padding:96px 20px}
+.showcase::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(123,184,190,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(123,184,190,.06) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 30% 50%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at 30% 50%,#000 20%,transparent 75%);pointer-events:none}
+.showcase .sec-in{max-width:1240px;position:relative;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:56px;align-items:center}
+.sc-fig{margin:0;position:relative}
+.sc-frame{position:relative;display:block;width:100%;padding:0;border:1px solid rgba(123,184,190,.28);border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.sc-frame img{display:block;width:100%;height:auto}
+.sc-frame:focus-visible{outline:3px solid var(--teal-light);outline-offset:4px}
+.sc-zones{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;pointer-events:none}
+.sc-zone{position:relative;transition:background .35s,box-shadow .35s}
+.sc-zone span{position:absolute;top:10px;inset-inline-start:10px;width:30px;height:30px;border-radius:50%;background:var(--brown);color:#fff;font-family:var(--disp);font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.35);transition:transform .3s}
+.showcase[data-focus] .sc-zone{background:rgba(19,35,41,.62)}
+.showcase[data-focus="1"] .sc-zone:nth-child(1),.showcase[data-focus="2"] .sc-zone:nth-child(2),.showcase[data-focus="3"] .sc-zone:nth-child(3),.showcase[data-focus="4"] .sc-zone:nth-child(4){background:transparent;box-shadow:inset 0 0 0 3px var(--teal-light)}
+.showcase[data-focus="1"] .sc-zone:nth-child(1) span,.showcase[data-focus="2"] .sc-zone:nth-child(2) span,.showcase[data-focus="3"] .sc-zone:nth-child(3) span,.showcase[data-focus="4"] .sc-zone:nth-child(4) span{transform:scale(1.18)}
+.sc-hint{margin-top:12px;font-size:.8rem;color:rgba(232,241,242,.55);display:flex;align-items:center;gap:8px}
+.sc-text h2{font-family:var(--disp);font-weight:800;font-size:clamp(1.45rem,2.6vw,2rem);line-height:1.25;color:#fff}
+.sc-kicker{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-size:.78rem;font-weight:700;color:var(--teal-light);margin-bottom:14px}
+.sc-lead{margin-top:16px;color:rgba(232,241,242,.74);font-size:.97rem;line-height:1.7}
+.sc-steps{list-style:none;margin:26px 0 30px;display:flex;flex-direction:column;gap:6px}
+.sc-steps li{display:flex;gap:14px;align-items:flex-start;padding:11px 12px;border-radius:10px;cursor:default;transition:background .25s}
+.sc-steps li:hover,.sc-steps li:focus-visible,.sc-steps li.on{background:rgba(255,255,255,.07);outline:none}
+.sc-steps b{flex-shrink:0;width:28px;height:28px;border-radius:50%;border:1.5px solid var(--brown-l);color:#f1d9c6;font-family:var(--disp);font-size:.78rem;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.sc-steps strong{display:block;font-family:var(--disp);font-size:.9rem;font-weight:700;color:#fff}
+.sc-steps small{display:block;font-size:.85rem;color:rgba(232,241,242,.62);line-height:1.5}
+.sc-cta{display:flex;flex-wrap:wrap;gap:12px}
+.sc-ghost{font-family:var(--disp);font-weight:700;font-size:.86rem;padding:13px 28px;border-radius:50px;border:1px solid rgba(255,255,255,.35);color:#fff;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:.25s}
+.sc-ghost:hover{background:#fff;color:var(--slate)}
+.sc-view{position:fixed;inset:0;z-index:100000;background:rgba(10,20,24,.94);display:none;align-items:center;justify-content:center;padding:24px}
+.sc-view.open{display:flex}
+.sc-view img{max-width:min(96vw,1500px);max-height:90vh;border-radius:8px;background:#fff}
+.sc-view button{position:fixed;top:20px;inset-inline-end:20px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:1.05rem;cursor:pointer}
+@media(max-width:960px){.showcase .sec-in{grid-template-columns:1fr;gap:36px}.showcase{padding:72px 16px}}
+@media(max-width:560px){.sc-zone span{width:24px;height:24px;font-size:.7rem;top:6px}}
+@media(prefers-reduced-motion:reduce){.sc-zone,.sc-zone span,.sc-steps li{transition:none}}
+
 /* ══ GALERIE — style pro géosciences ══ */
 .gallery-sec{background:#fff;padding:96px 20px;position:relative}
 .gallery-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--brown),var(--teal),var(--slate))}
@@ -490,7 +525,7 @@ html[lang="zgh"] body,html[lang="zgh"] button,html[lang="zgh"] a,html[lang="zgh"
           <span class="more"><span id="t-hp3m">Détails du projet</span><i class="fa-solid fa-arrow-right proj-arrow"></i></span>
         </div>
       </a>
-      <a class="pcard rv" href="projets.html">
+      <a class="pcard rv" href="projets.html#inondation-nador">
         <div class="pcard-media">
           <img src="assets/inondation-nador.jpg" alt="Étude de protection contre les inondations — centre d'enfouissement technique, Oulad Settout, Nador" loading="lazy" style="object-position:center 30%"/>
           <div class="pcard-media-bar"><i class="fa-solid fa-house-flood-water"></i><span class="pcard-badge" id="t-hp4b">Réalisé</span></div>
@@ -501,12 +536,66 @@ html[lang="zgh"] body,html[lang="zgh"] button,html[lang="zgh"] a,html[lang="zgh"
           <span class="more"><span id="t-hp4m">Détails du projet</span><i class="fa-solid fa-arrow-right proj-arrow"></i></span>
         </div>
       </a>
+      <a class="pcard rv" href="projets.html#forages-guercif">
+        <div class="pcard-media">
+          <img src="assets/forages-guercif.jpg" alt="EIE — Six Forages d'Eau Souterraine, Guercif" loading="lazy" style="object-position:center"/>
+          <div class="pcard-media-bar"><i class="fa-solid fa-faucet-drip"></i><span class="pcard-badge" id="t-hp5b">Réalisé</span></div>
+        </div>
+        <div class="pcard-body">
+          <h3 id="t-hp5t">EIE — Six Forages d'Eau Souterraine, Guercif</h3>
+          <p id="t-hp5d">Étude d'impact sur l'environnement et les ressources en eau du projet d'implantation de six (6) forages d'eau souterraine, commune d'Assebbab (Sebbab), lieu-dit Timgardine, province de Guercif, région de l'Oriental.</p>
+          <span class="more"><span id="t-hp5m">Détails du projet</span><i class="fa-solid fa-arrow-right proj-arrow"></i></span>
+        </div>
+      </a>
+      <a class="pcard rv" href="projets.html#chaaba-nador">
+        <div class="pcard-media">
+          <img src="assets/chaaba-nador.jpg" alt="Canalisation d'une Chaâba — Oulad Settout, Nador" loading="lazy" style="object-position:center 60%"/>
+          <div class="pcard-media-bar"><i class="fa-solid fa-water"></i><span class="pcard-badge" id="t-hp6b">Réalisé</span></div>
+        </div>
+        <div class="pcard-body">
+          <h3 id="t-hp6t">Canalisation d'une Chaâba — Oulad Settout, Nador</h3>
+          <p id="t-hp6d">Étude de canalisation d'une chaâba située dans une propriété privée, commune d'Oulad Settout, province de Nador.</p>
+          <span class="more"><span id="t-hp6m">Détails du projet</span><i class="fa-solid fa-arrow-right proj-arrow"></i></span>
+        </div>
+      </a>
     </div>
     <div class="projprev-cta rv">
       <a href="projets.html" class="btn-b"><i class="fa-solid fa-folder-open"></i><span id="t-projAll">Voir tous les projets</span></a>
     </div>
   </div>
 </section>
+
+<!-- ══ SHOWCASE — MODÉLISATION INONDATION ══ -->
+<section class="showcase" id="modelisation" aria-labelledby="t-sc-h">
+  <div class="sec-in">
+    <figure class="sc-fig rv">
+      <button type="button" class="sc-frame" id="sc-open" aria-label="Agrandir l'image de la modélisation">
+        <img src="assets/inondation-nador.jpg" alt="Chaîne de modélisation : carte topographique du bassin versant, hydrogramme de crue, carte de la zone inondable T 100 ans et modèle 3D" width="1330" height="800" loading="lazy"/>
+        <span class="sc-zones" aria-hidden="true"><span class="sc-zone"><span>1</span></span><span class="sc-zone"><span>2</span></span><span class="sc-zone"><span>3</span></span><span class="sc-zone"><span>4</span></span></span>
+      </button>
+      <figcaption class="sc-hint"><i class="fa-solid fa-magnifying-glass-plus"></i><span id="t-sc-hint">Cliquez pour voir l'image en grand</span></figcaption>
+    </figure>
+    <div class="sc-text rv">
+      <p class="sc-kicker"><i class="fa-solid fa-house-flood-water"></i><span id="t-sc-kick">Projet réalisé — Oulad Settout, Nador</span></p>
+      <h2 id="t-sc-h">De la pluie à la carte d'inondation</h2>
+      <p class="sc-lead" id="t-sc-lead">Pour le nouveau centre d'enfouissement technique de Nador, nous avons modélisé la crue centennale du bassin versant afin de dimensionner la protection du site.</p>
+      <ol class="sc-steps" id="sc-steps">
+        <li tabindex="0" data-z="1"><b>1</b><span><strong id="t-sc1t">Bassin versant</strong><small id="t-sc1d">Délimitation et réseau hydrographique sur carte topographique</small></span></li>
+        <li tabindex="0" data-z="2"><b>2</b><span><strong id="t-sc2t">Hydrogramme de crue</strong><small id="t-sc2d">Modélisation pluie-débit sous HEC-HMS</small></span></li>
+        <li tabindex="0" data-z="3"><b>3</b><span><strong id="t-sc3t">Zone inondable T = 100 ans</strong><small id="t-sc3d">Hauteurs d'eau cartographiées sur le modèle numérique de terrain</small></span></li>
+        <li tabindex="0" data-z="4"><b>4</b><span><strong id="t-sc4t">Modèle 3D</strong><small id="t-sc4d">Visualisation des écoulements autour des aménagements</small></span></li>
+      </ol>
+      <div class="sc-cta">
+        <a href="projets.html#inondation-nador" class="btn-b"><i class="fa-solid fa-folder-open"></i><span id="t-sc-btn1">Voir le projet</span></a>
+        <a href="#contact" class="sc-ghost"><i class="fa-solid fa-envelope"></i><span id="t-sc-btn2">Demander une étude</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="sc-view" id="sc-view" role="dialog" aria-modal="true" aria-label="Modélisation inondation">
+  <button type="button" id="sc-close" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button>
+  <img src="assets/inondation-nador.jpg" alt="Modélisation de la zone inondable — vue agrandie"/>
+</div>
 
 <!-- ══ GALERIE ══ -->
 <section class="sec gallery-sec" id="galerie">
@@ -515,7 +604,7 @@ html[lang="zgh"] body,html[lang="zgh"] button,html[lang="zgh"] a,html[lang="zgh"
     <h2 class="sec-h rv" id="t-gal-h">Galerie terrain</h2>
     <p class="sec-intro rv" id="t-gal-intro">Cliquez sur une photo pour l'agrandir — exploration, échantillonnage, analyses et travaux de terrain.</p>
     <div class="gal-banner rv">
-      <div><b>16 <span id="t-gal-count">photos terrain</span></b></div>
+      <div><b>17 <span id="t-gal-count">photos terrain</span></b></div>
       <p id="t-gal-banner">Exploration géologique, échantillonnage, analyses de laboratoire et travaux de terrain au Maroc.</p>
     </div>
     <div class="gal-grid" id="gal-grid"></div>
@@ -640,6 +729,9 @@ fr:{
   hp2b:"Réalisé",hp2t:"Exploration géologique — Veines minéralisées en fluorite",hp2d:"Cartographie structurale, analyses de terrain et caractérisation minéralogique dans le Nord-Est du Maroc.",hp2m:"Détails du projet",
   hp3b:"Réalisé",hp3t:"Étude hydrogéologique — Ressources en eau souterraines",hp3d:"Caractérisation des aquifères, modélisation des écoulements et évaluation de la durabilité des ressources.",hp3m:"Détails du projet",
   hp4b:"Réalisé",hp4t:"Étude de protection contre les inondations — Centre d'enfouissement technique de Nador",hp4d:"Modélisation hydrologique (HEC-HMS) et hydraulique, cartographie de la zone inondable (T = 100 ans) pour le nouveau centre d'enfouissement des déchets ménagers et assimilés, commune d'Oulad Settout, province de Nador.",hp4m:"Détails du projet",
+  hp5b:"Réalisé",hp5t:"EIE — Six Forages d'Eau Souterraine, Guercif",hp5d:"Étude d'impact sur l'environnement et les ressources en eau du projet d'implantation de six (6) forages d'eau souterraine, commune d'Assebbab (Sebbab), lieu-dit Timgardine, province de Guercif, région de l'Oriental.",hp5m:"Détails du projet",
+  hp6b:"Réalisé",hp6t:"Canalisation d'une Chaâba — Oulad Settout, Nador",hp6d:"Étude de canalisation d'une chaâba située dans une propriété privée, commune d'Oulad Settout, province de Nador.",hp6m:"Détails du projet",
+  scHint:"Cliquez pour voir l'image en grand",scKick:"Projet réalisé — Oulad Settout, Nador",scH:"De la pluie à la carte d'inondation",scLead:"Pour le nouveau centre d'enfouissement technique de Nador, nous avons modélisé la crue centennale du bassin versant afin de dimensionner la protection du site.",sc1t:"Bassin versant",sc1d:"Délimitation et réseau hydrographique sur carte topographique",sc2t:"Hydrogramme de crue",sc2d:"Modélisation pluie-débit sous HEC-HMS",sc3t:"Zone inondable T = 100 ans",sc3d:"Hauteurs d'eau cartographiées sur le modèle numérique de terrain",sc4t:"Modèle 3D",sc4d:"Visualisation des écoulements autour des aménagements",scBtn1:"Voir le projet",scBtn2:"Demander une étude",
   galH:"Galerie terrain",galIntro:"Cliquez sur une photo pour l'agrandir — exploration, échantillonnage, analyses et travaux de terrain.",galView:"Agrandir",galCount:"photos terrain",galBanner:"Exploration géologique, échantillonnage, analyses de laboratoire et travaux de terrain au Maroc.",
   ctH:"Parlons de votre projet",ctD:"Notre équipe est à votre disposition pour étudier vos besoins en géosciences, environnement et ingénierie.",btnMail:"Nous écrire",
   horaires:"Lun – Sam : 9h00 – 18h00",
@@ -676,6 +768,9 @@ en:{
   hp2b:"Completed",hp2t:"Geological Exploration — Fluorite-Mineralized Veins",hp2d:"Structural mapping, field analysis and mineralogical characterization in Northeast Morocco.",hp2m:"Project details",
   hp3b:"Completed",hp3t:"Hydrogeological Study — Groundwater Resources",hp3d:"Aquifer characterization, groundwater flow modelling and resource sustainability assessment.",hp3m:"Project details",
   hp4b:"Completed",hp4t:"Flood Protection Study — Nador Sanitary Landfill",hp4d:"Hydrological (HEC-HMS) and hydraulic modelling with 100-year flood hazard mapping for the new household and similar waste landfill, Oulad Settout municipality, Nador province.",hp4m:"Project details",
+  hp5b:"Completed",hp5t:"EIA — Six Groundwater Boreholes, Guercif",hp5d:"Environmental and water resources impact assessment for the installation of six (6) groundwater boreholes, Assebbab (Sebbab) municipality, Timgardine locality, Guercif province, Oriental region.",hp5m:"Project details",
+  hp6b:"Completed",hp6t:"Channelisation of a Chaâba (Ephemeral Stream) — Oulad Settout, Nador",hp6d:"Channelisation study of a chaâba (ephemeral stream) located on private property, Oulad Settout municipality, Nador province.",hp6m:"Project details",
+  scHint:"Click to view full size",scKick:"Completed project — Oulad Settout, Nador",scH:"From rainfall to flood map",scLead:"For Nador's new sanitary landfill, we modelled the 100-year flood of the catchment to size the site's flood protection.",sc1t:"Catchment",sc1d:"Delineation and drainage network on topographic map",sc2t:"Flood hydrograph",sc2d:"Rainfall-runoff modelling in HEC-HMS",sc3t:"100-year flood zone",sc3d:"Water depths mapped on the digital elevation model",sc4t:"3D model",sc4d:"Visualising flows around the site facilities",scBtn1:"View project",scBtn2:"Request a study",
   galH:"Field Gallery",galIntro:"Click a photo to enlarge — exploration, sampling, analysis and fieldwork.",galView:"Enlarge",galCount:"field photos",galBanner:"Geological exploration, sampling, laboratory analysis and fieldwork across Morocco.",
   ctH:"Let's discuss your project",ctD:"Our team is available to study your needs in earth sciences, environment and engineering.",btnMail:"Send an e-mail",
   horaires:"Mon – Sat: 9:00 AM – 6:00 PM",
@@ -712,6 +807,9 @@ ar:{
   hp2b:"مُنجز",hp2t:"استكشاف جيولوجي — عروق معدنية من الفلوريت",hp2d:"رسم خرائط بنيوية وتحليل ميداني وتوصيف معدني في شمال شرق المغرب.",hp2m:"تفاصيل المشروع",
   hp3b:"مُنجز",hp3t:"دراسة هيدروجيولوجية — الموارد المائية الجوفية",hp3d:"توصيف طبقات المياه الجوفية ونمذجة التدفقات وتقييم استدامة الموارد.",hp3m:"تفاصيل المشروع",
   hp4b:"مُنجز",hp4t:"دراسة الحماية من الفيضانات — المطرح المراقب للنفايات بالناظور",hp4d:"نمذجة هيدرولوجية (HEC-HMS) وهيدروليكية وخرائط المناطق المعرضة للفيضان (فترة رجوع 100 سنة) للمطرح الجديد للنفايات المنزلية والمماثلة، جماعة أولاد ستوت، إقليم الناظور.",hp4m:"تفاصيل المشروع",
+  hp5b:"مُنجز",hp5t:"دراسة التأثير على البيئة — ستة أثقاب للمياه الجوفية، جرسيف",hp5d:"دراسة التأثير على البيئة والموارد المائية لمشروع إنجاز ستة (6) أثقاب للمياه الجوفية، جماعة أسباب (السباب)، دوار تيمكاردين، إقليم جرسيف، جهة الشرق.",hp5m:"تفاصيل المشروع",
+  hp6b:"مُنجز",hp6t:"تهيئة وقنونة شعبة — أولاد ستوت، الناظور",hp6d:"دراسة قنونة شعبة متواجدة داخل ملكية خاصة، جماعة أولاد ستوت، إقليم الناظور.",hp6m:"تفاصيل المشروع",
+  scHint:"انقر لعرض الصورة بالحجم الكامل",scKick:"مشروع منجز — أولاد ستوت، الناظور",scH:"من التساقطات إلى خريطة الفيضان",scLead:"لفائدة المطرح المراقب الجديد بالناظور، قمنا بنمذجة الفيضان المئوي للحوض المائي لتحديد أبعاد منشآت حماية الموقع.",sc1t:"الحوض المائي",sc1d:"تحديد الحوض والشبكة الهيدروغرافية على الخريطة الطبوغرافية",sc2t:"هيدروغرام الفيضان",sc2d:"نمذجة التساقطات والجريان بواسطة HEC-HMS",sc3t:"المنطقة المعرضة للفيضان (100 سنة)",sc3d:"خرائط ارتفاع المياه على النموذج الرقمي للتضاريس",sc4t:"نموذج ثلاثي الأبعاد",sc4d:"تصور الجريان حول منشآت الموقع",scBtn1:"عرض المشروع",scBtn2:"اطلب دراسة",
   galH:"معرض الميدان",galIntro:"انقروا على صورة لتكبيرها — الاستكشاف وأخذ العينات والتحليلات والعمل الميداني.",galView:"تكبير",galCount:"صورة ميدانية",galBanner:"استكشاف جيولوجي، أخذ عينات، تحليلات مخبرية وعمل ميداني في المغرب.",
   ctH:"لنتحدث عن مشروعكم",ctD:"فريقنا رهن إشارتكم لدراسة احتياجاتكم في علوم الأرض والبيئة والهندسة.",btnMail:"راسلنا",
   horaires:"الإثنين – السبت : 9:00 – 18:00",
@@ -748,6 +846,9 @@ zgh:{
   hp2b:"ⵉⵜⵜⵡⴰⴽⵎⵍ",hp2t:"ⴰⵙⵏⵇⴷ ⴰⵊⵢⵓⵍⵓⵊⵉ — ⵉⵖⵕⵕⴰⵏ ⵏ ⵓⴼⵍⵓⵔⵉⵜ",hp2d:"ⵜⴰⴽⴰⵔⵜ ⵏ ⵜⴰⴷⴷⴰⵔⵜ ⴷ ⵜⴰⵙⵍⴹⵜ ⵏ ⵡⴰⴽⴰⵍ ⴳ ⵓⴳⴰⴼⴰ-ⴰⵙⴰⵎⴰⵔ ⵏ ⵍⵎⵖⵔⵉⴱ.",hp2m:"ⵉⵙⴼⴽⴰ ⵏ ⵓⵙⵏⴼⴰⵕ",
   hp3b:"ⵉⵜⵜⵡⴰⴽⵎⵍ",hp3t:"ⵜⴰⵣⵔⴰⵡⵜ ⵜⴰⵀⵉⴷⵔⵓⵊⵢⵓⵍⵓⵊⵉ — ⵉⵙⵓⴳⴰⵎ ⵏ ⵡⴰⵎⴰⵏ",hp3d:"ⴰⵙⵏⵇⴷ ⵏ ⵢⵉⴰⵇⵓⵉⴼⵔⵏ ⴷ ⵓⵎⵓⴷⵍ ⵏ ⵓⵙⵉⴽⵍ ⵏ ⵡⴰⵎⴰⵏ.",hp3m:"ⵉⵙⴼⴽⴰ ⵏ ⵓⵙⵏⴼⴰⵕ",
   hp4b:"ⵉⵜⵜⵡⴰⴽⵎⵍ",hp4t:"Protection contre les inondations — Nador",hp4d:"HEC-HMS, ⵜⴰⴽⴰⵔⵜ ⵏ ⵓⴳⴰⵔⴰⵙ ⵏ ⵓⵏⵣⴰⵔ (T = 100), Oulad Settout, Nador.",hp4m:"ⵉⵙⴼⴽⴰ ⵏ ⵓⵙⵏⴼⴰⵕ",
+  hp5b:"ⵉⵜⵜⵡⴰⴽⵎⵍ",hp5t:"EIE — ⵚⴹⵉⵚ ⵏ ⵜⵏⵓⴹⴹⵉⵏ ⵏ ⵡⴰⵎⴰⵏ, Guercif",hp5d:"ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵓⵙⵎⴷⵓ ⵏ ⵜⴰⵡⵏⵏⴰⴹⵜ ⴷ ⵢⵉⵙⵓⴳⴰⵍ ⵏ ⵡⴰⵎⴰⵏ: ⵚⴹⵉⵚ (6) ⵏ ⵜⵏⵓⴹⴹⵉⵏ, ⵜⴰⴷⴷⴰⵔⵜ ⵏ Assebbab, Timgardine, ⵜⴰⵎⵏⴰⴹⵜ ⵏ Guercif.",hp5m:"ⵉⵙⴼⴽⴰ ⵏ ⵓⵙⵏⴼⴰⵕ",
+  hp6b:"ⵉⵜⵜⵡⴰⴽⵎⵍ",hp6t:"ⴰⵙⵎⵓⵔⵙ ⵏ ⵛⵛⵄⴱⴰ — Oulad Settout, Nador",hp6d:"ⵜⴰⵣⵔⴰⵡⵜ ⵏ ⵓⵙⵎⵓⵔⵙ ⵏ ⵛⵛⵄⴱⴰ ⴳ ⵢⵓⵡⵜ ⵜⵎⵍⴽⵉⵜ ⵜⵓⵙⵍⵉⴳⵜ, ⵜⴰⴷⴷⴰⵔⵜ ⵏ Oulad Settout, ⵜⴰⵎⵏⴰⴹⵜ ⵏ Nador.",hp6m:"ⵉⵙⴼⴽⴰ ⵏ ⵓⵙⵏⴼⴰⵕ",
+  scHint:"ⵙⵜⵜⵉ ⴰⴷ ⵜⵥⵔⴷ ⵜⴰⵡⵍⴰⴼⵜ ⵙ ⵜⵉⵖⵔⴷ",scKick:"ⴰⵙⵏⴼⴰⵕ ⵉⵜⵜⵡⴰⴽⵎⵍⵏ — Oulad Settout, Nador",scH:"ⵙⴳ ⵓⵏⵥⴰⵔ ⴰⵔ ⵜⴰⴽⴰⵔⵜ ⵏ ⵓⵏⵣⴰⵔ",scLead:"HEC-HMS: ⴰⵙⵎⴷⵢⴰ ⵏ ⵓⵏⵣⴰⵔ ⵏ 100 ⵏ ⵉⵙⴳⴳⵯⴰⵙⵏ, centre d'enfouissement technique, Nador.",sc1t:"Bassin versant",sc1d:"ⵜⴰⴽⴰⵔⵜ ⵜⴰⵜⵓⴱⵓⴳⵔⴰⴼⵉⵜ",sc2t:"Hydrogramme",sc2d:"HEC-HMS",sc3t:"T = 100",sc3d:"ⵜⴰⴽⴰⵔⵜ ⵏ ⵓⴳⴰⵔⴰⵙ ⵏ ⵓⵏⵣⴰⵔ",sc4t:"3D",sc4d:"ⴰⵙⵎⴷⵢⴰ 3D",scBtn1:"ⵡⴰⵍⵉ ⴰⵙⵏⴼⴰⵕ",scBtn2:"ⵙⵓⵜⵔ ⵜⴰⵣⵔⴰⵡⵜ",
   galH:"ⵜⵉⵡⵍⴰⴼⵉⵏ ⵏ ⵡⴰⴽⴰⵍ",galIntro:"ⴽⵍⵉⴽⵉ ⵖⴼ ⵜⵡⵍⴰⴼⵜ ⴰⴷ ⵜⵜ-ⵜⵙⵎⵖⵓⵔⴷ.",galView:"ⵙⵎⵖⵓⵔ",galCount:"ⵜⵡⵍⴰⴼⵉⵏ ⵏ ⵡⴰⴽⴰⵍ",galBanner:"ⴰⵙⵏⵇⴷ ⴰⵊⵢⵓⵍⵓⵊⵉ, ⴰⵙⵎⵓⵙⵙⵓ ⵏ ⵉⵙⵎⴰⵢⵏⵏ, ⵜⵉⵙⵍⴹⵉⵏ ⵏ ⵓⵙⵙⵏⵙⵍⵓ ⴷ ⵓⴳⴰⵎⴰ ⴳ ⵍⵎⵖⵔⵉⴱ.",
   ctH:"ⴰⴷ ⵏⵙⴰⵡⵍ ⵖⴼ ⵓⵙⵏⴼⴰⵕ-ⵏⵏⵓⵏ",ctD:"ⵜⴰⵔⴱⴰⵄⵜ-ⵏⵏⵖ ⵜⵀⴳⴳⴰ ⴰⴷ ⵜⵣⵔⵓ ⵜⵉⵎⵎⴰⵔⴰ-ⵏⵏⵓⵏ.",btnMail:"ⴰⵔⵓ-ⴰⵖ-ⴷ",
   horaires:"ⴰⵢⵏⴰⵙ – ⴰⵙⵉⴹⵢⴰⵙ : 9:00 – 18:00",
@@ -768,7 +869,8 @@ var ID_MAP={
   't-proj-h':'projH','t-proj-intro':'projIntro','t-projAll':'projAll',
   't-hp1b':'hp1b','t-hp1t':'hp1t','t-hp1d':'hp1d','t-hp1m':'hp1m',
   't-hp2b':'hp2b','t-hp2t':'hp2t','t-hp2d':'hp2d','t-hp2m':'hp2m',
-  't-hp3b':'hp3b','t-hp3t':'hp3t','t-hp3d':'hp3d','t-hp3m':'hp3m','t-hp4b':'hp4b','t-hp4t':'hp4t','t-hp4d':'hp4d','t-hp4m':'hp4m',
+  't-hp3b':'hp3b','t-hp3t':'hp3t','t-hp3d':'hp3d','t-hp3m':'hp3m','t-hp4b':'hp4b','t-hp4t':'hp4t','t-hp4d':'hp4d','t-hp4m':'hp4m','t-hp5b':'hp5b','t-hp5t':'hp5t','t-hp5d':'hp5d','t-hp5m':'hp5m','t-hp6b':'hp6b','t-hp6t':'hp6t','t-hp6d':'hp6d','t-hp6m':'hp6m',
+  't-sc-hint':'scHint','t-sc-kick':'scKick','t-sc-h':'scH','t-sc-lead':'scLead','t-sc1t':'sc1t','t-sc1d':'sc1d','t-sc2t':'sc2t','t-sc2d':'sc2d','t-sc3t':'sc3t','t-sc3d':'sc3d','t-sc4t':'sc4t','t-sc4d':'sc4d','t-sc-btn1':'scBtn1','t-sc-btn2':'scBtn2',
   't-gal-h':'galH','t-gal-intro':'galIntro','t-gal-count':'galCount','t-gal-banner':'galBanner',
   't-ct-h':'ctH','t-ct-d':'ctD','t-btnMail':'btnMail','t-horaires':'horaires','t-horaires2':'horaires',
   't-qr-h':'qrH','t-qr-desc':'qrDesc','t-dl1':'dl1','t-mapCoords':'mapCoords','t-clockLabel':'clockLabel','t-rights':'rights'
@@ -824,7 +926,7 @@ function countUp(el,target,dur){
   var fired=false;
   function fire(){
     if(fired)return;fired=true;
-    countUp(document.getElementById('n1'),11,1400);
+    countUp(document.getElementById('n1'),14,1400);
     countUp(document.getElementById('n2'),6,1200);
     countUp(document.getElementById('n3'),2,1000);
   }
@@ -840,9 +942,10 @@ var GAL_LAYOUT=[
   {c:5,r:2},{c:3,r:2},{c:4,r:1},{c:4,r:1},
   {c:4,r:2},{c:4,r:2},{c:4,r:1},{c:4,r:1},
   {c:3,r:2},{c:3,r:2},{c:3,r:1},{c:3,r:1},
-  {c:4,r:1},{c:4,r:1},{c:4,r:1},{c:4,r:1}
+  {c:6,r:1},{c:3,r:1},{c:3,r:1},{c:3,r:1},
+  {c:3,r:1}
 ];
-var GAL_COUNT=16,lbIndex=0,galViewLabel='Agrandir';
+var GAL_COUNT=17,lbIndex=0,galViewLabel='Agrandir';
 
 function galSrc(i){var n=(i<9?'0':'')+(i+1);return'assets/gallery/g'+n+'.jpg'}
 
@@ -1013,6 +1116,28 @@ setLang=function(l,btn){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
   },{threshold:.1});
   document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+})();
+</script>
+<script>
+(function(){
+  var sec=document.getElementById('modelisation');if(!sec)return;
+  var items=sec.querySelectorAll('.sc-steps li');
+  function focus(z){if(z){sec.setAttribute('data-focus',z)}else{sec.removeAttribute('data-focus')}
+    items.forEach(function(li){li.classList.toggle('on',li.getAttribute('data-z')===z)})}
+  items.forEach(function(li){
+    var z=li.getAttribute('data-z');
+    li.addEventListener('mouseenter',function(){focus(z)});
+    li.addEventListener('focus',function(){focus(z)});
+    li.addEventListener('click',function(){focus(sec.getAttribute('data-focus')===z?null:z)});
+    li.addEventListener('mouseleave',function(){focus(null)});
+    li.addEventListener('blur',function(){focus(null)});
+  });
+  var view=document.getElementById('sc-view'),open=document.getElementById('sc-open'),close=document.getElementById('sc-close');
+  function show(){view.classList.add('open');document.body.style.overflow='hidden';close.focus()}
+  function hide(){view.classList.remove('open');document.body.style.overflow='';open.focus()}
+  open.addEventListener('click',show);close.addEventListener('click',hide);
+  view.addEventListener('click',function(e){if(e.target===view)hide()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&view.classList.contains('open'))hide()});
 })();
 </script>
 </body>
