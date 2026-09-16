@@ -966,7 +966,7 @@ function buildGallery(){
     img.alt='K&B Earth Works — photo '+i;
     img.loading='lazy';
     img.draggable=false;
-    img.onerror=function(){btn.style.display='none'};
+    img.onerror=function(){this.parentNode.style.display='none'};
     var num=document.createElement('span');
     num.className='gal-num';
     num.textContent=(i<10?'0':'')+i;
